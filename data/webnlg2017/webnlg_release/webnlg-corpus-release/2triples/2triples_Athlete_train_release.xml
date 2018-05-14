@@ -1,0 +1,2730 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Athlete" eid="Id1" size="2">
+      <originaltripleset>
+        <otriple>A.S._Roma | league | Serie_A</otriple>
+        <otriple>Alessio_Romagnoli | clubs | A.S._Roma</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A.S._Roma | league | Serie_A</otriple>
+        <otriple>Alessio_Romagnoli | team | A.S._Roma</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.S._Roma | league | Serie_A</mtriple>
+        <mtriple>Alessio_Romagnoli | club | A.S._Roma</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli is a member of A.S. Roma who play in the Serie A league.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli plays for A.S. Roma, which is playing in the Serie A.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli is part of the A.S. Roma Serie A team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id2" size="2">
+      <originaltripleset>
+        <otriple>A.S._Roma | position | Serie_A</otriple>
+        <otriple>Alessio_Romagnoli | clubs | A.S._Roma</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.S._Roma | position | Serie_A</mtriple>
+        <mtriple>Alessio_Romagnoli | club | A.S._Roma</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli plays for AS Roma in Serie A.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli plays for AS Roma in the Serie A.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli plays for A.S. Roma in Serie A.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id3" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+        <otriple>Canada | language | Inuktitut</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+        <mtriple>Canada | language | Inuktitut</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Inuktitut is a spoken language in Canada, the birthplace of Aaron Boogaard.</lex>
+      <lex comment="good" lid="Id2">Inuktitut is a language spoken in Canada where Aaron Boogaard was born.</lex>
+      <lex comment="good" lid="Id3">Aaron Boogaard's birthplace was Canada, where one of the languages spoken is Inuktitut.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id4" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | placeOfBirth | Regina,_Saskatchewan</otriple>
+        <otriple>Aaron_Boogaard | team | Wichita_Thunder</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | birthPlace | Regina,_Saskatchewan</mtriple>
+        <mtriple>Aaron_Boogaard | club | Wichita_Thunder</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard's birthplace is Regina, Saskatchewan and he plays for Wichita Thunder.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard plays for the Wichita Thunder and was born in Regina, Saskatchewan.</lex>
+      <lex comment="good" lid="Id3">Aaron Boogaard was born in Regina, Saskatchewan and his club is Wichita Thunder.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id5" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | birthYear | "1986"^^xsd:gYear</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | birthYear | 1986</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard was born in 1986 in Canada.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard was born in Canada in 1986.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id6" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | birthYear | "1986"^^xsd:gYear</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Regina,_Saskatchewan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | birthYear | 1986</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Regina,_Saskatchewan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard was born in 1986 in Regina, Saskatchewan.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard was born in Regina, Saskatchewan in 1986.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id7" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | birthYear | "1986"^^xsd:gYear</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Saskatchewan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | birthYear | 1986</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Saskatchewan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard was born in Saskatchewan in 1986.</lex>
+      <lex comment="good" lid="Id2">AAron Boogaard was in Saskatchewan in 1986.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id8" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | team | Wichita_Thunder</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | club | Wichita_Thunder</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard was born in Canada and plays for Wichita Thunder.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard was born in Canada and his club is Wichita Thunder.</lex>
+      <lex comment="good" lid="Id3">Aaron Boogaard was born in Canada and his club is the Wichita Thunders.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id9" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | team | Wichita_Thunder</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Saskatchewan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | club | Wichita_Thunder</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Saskatchewan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard was born in Saskatchewan and his club is Wichita Thunder.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard was born in Saskatchewan and plays for Wichita Thunder.</lex>
+      <lex comment="good" lid="Id3">Aaron Boogaard was born in Saskatchewan and played for Wichita Thunder club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id10" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | draftTeam | Minnesota_Wild</otriple>
+        <otriple>Minnesota_Wild | generalManager | Chuck_Fletcher</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | draftTeam | Minnesota_Wild</mtriple>
+        <mtriple>Minnesota_Wild | generalManager | Chuck_Fletcher</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard's draft team is Minnesota Wild where Chuck Fletcher is the general manager.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard's draft team is Minnestoa Wild where the general manager is Chuck Fletcher.</lex>
+      <lex comment="good" lid="Id3">Aaron Boogaard's draft team is Minnesota Wild, whose manager is Chuck Fletcher.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id11" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Hunt | team | Hamburger_SV</otriple>
+        <otriple>Aaron_Hunt | clubs | SV_Werder_Bremen</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Hunt | club | Hamburger_SV</mtriple>
+        <mtriple>Aaron_Hunt | club | SV_Werder_Bremen</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Hunt, former player for Hamburger SV, now plays for SV Werder Bremen.</lex>
+      <lex comment="good" lid="Id2">Aaron Hunt played for the club SV Werder Bremen and now plays for Hamburger SV.</lex>
+      <lex comment="good" lid="Id3">Aaron Hunt has played for Hamburger SV and SV Werder Bremen.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id12" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Hunt | team | Hamburger_SV</otriple>
+        <otriple>Aaron_Hunt | clubs | SV_Werder_Bremen_II</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Hunt | club | Hamburger_SV</mtriple>
+        <mtriple>Aaron_Hunt | club | SV_Werder_Bremen_II</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Hunt, former player for SV Werder Bremen II, now plays for Hamburger SV.</lex>
+      <lex comment="good" lid="Id2">Aaron Hunt plays for the clubs Hamburger SV and SV Werder Bremen II.</lex>
+      <lex comment="good" lid="Id3">Aaron Hunt plays for SV Werder Bremen II and used to play for Hamburger SV.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id13" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Hunt | team | SV_Werder_Bremen</otriple>
+        <otriple>SV_Werder_Bremen | manager | Viktor_Skrypnyk</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Hunt | club | SV_Werder_Bremen</mtriple>
+        <mtriple>SV_Werder_Bremen | manager | Viktor_Skrypnyk</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Hunt played for the club SV Werder Bremen which is managed by Viktor Skrypnyk.</lex>
+      <lex comment="good" lid="Id2">Aaron Hunt plays for SV Werder Bremen which is managed by Viktor Skrypnyk.</lex>
+      <lex comment="good" lid="Id3">Aaron Hunt played for SV Werder Bremen which is managed by Viktor Skrypnyk.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id14" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Hunt | team | VfL_Wolfsburg</otriple>
+        <otriple>Aaron_Hunt | clubs | SV_Werder_Bremen</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Hunt | club | VfL_Wolfsburg</mtriple>
+        <mtriple>Aaron_Hunt | club | SV_Werder_Bremen</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Hunt played for SV Werder Bremen and his club is now VfL Wolfsburg.</lex>
+      <lex comment="good" lid="Id2">Aaron Hunt played for SV Werder Bremen and now plays for Vfl Wolfsburg.</lex>
+      <lex comment="good" lid="Id3">Aaron Hunt's former clubs include VfL Wolfsburg and SV Werder Bremen.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id15" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Hunt | team | VfL_Wolfsburg</otriple>
+        <otriple>VfL_Wolfsburg | manager | Dieter_Hecking</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Hunt | club | VfL_Wolfsburg</mtriple>
+        <mtriple>VfL_Wolfsburg | manager | Dieter_Hecking</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Hunt plays for Vfl Wolfsburg which is managed by Dieter Hecking .</lex>
+      <lex comment="good" lid="Id2">Aaron Hunt plays football for Vfl Wolfsburg where Dieter Hecking is the manager.</lex>
+      <lex comment="good" lid="Id3">Aaron Hunt plays football for Vfl Wolfsburg who are managed by Dieter Hecking.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id16" size="2">
+      <originaltripleset>
+        <otriple>Abel_Hernández | team | Central_Español</otriple>
+        <otriple>Abel_Hernández | clubs | U.S._Città_di_Palermo</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abel_Hernández | clubs | Central_Español</otriple>
+        <otriple>Abel_Hernández | team | U.S._Città_di_Palermo</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Central_Español</mtriple>
+        <mtriple>Abel_Hernández | club | U.S._Città_di_Palermo</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez played for the Central Espanol club and now plays for US Citta di Palermo.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez played for Central Espanol and now plays for US Citta di Palermo.</lex>
+      <lex comment="good" lid="Id3">Abel Hernandez's club is US Citta di Palermo and he has also played for Central Espanol.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id17" size="2">
+      <originaltripleset>
+        <otriple>Abel_Hernández | clubs | Central_Español</otriple>
+        <otriple>Abel_Hernández | team | Uruguay_national_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Central_Español</mtriple>
+        <mtriple>Abel_Hernández | club | Uruguay_national_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez, a member of the Central Espanol club, plays for the Uruguay national football team.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez previously played for the Central Espanol club and now plays for the Uruguay national football team.</lex>
+      <lex comment="good" lid="Id3">Abel Hernandez, whose club is the Uruguay National football team, used to play for the Central Espanol club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id18" size="2">
+      <originaltripleset>
+        <otriple>Abel_Hernández | clubs | Hull_City_A.F.C.</otriple>
+        <otriple>Abel_Hernández | team | Central_Español</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Hull_City_A.F.C.</mtriple>
+        <mtriple>Abel_Hernández | club | Central_Español</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez has played for both Central Espanol and HUll City AFC.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez played for the Central Espanol club and currently for Hull City AFC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id19" size="2">
+      <originaltripleset>
+        <otriple>Abel_Hernández | team | Peñarol</otriple>
+        <otriple>Peñarol | manager | Jorge_Orosmán_da_Silva</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Peñarol</mtriple>
+        <mtriple>Peñarol | manager | Jorge_Orosmán_da_Silva</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez played for the club Penarol, which was managed by Jorge Orosmán da Silva.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez has played for the club Peñarol which is managed by Jorge Orosmán da Silva.</lex>
+      <lex comment="good" lid="Id3">Peñarol, managed by Jorge Orosmán da Silva, is a former club of the player Abel Hernandez.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id20" size="2">
+      <originaltripleset>
+        <otriple>Abel_Hernández | team | U.S._Città_di_Palermo</otriple>
+        <otriple>Abel_Hernández | clubs | Peñarol</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | U.S._Città_di_Palermo</mtriple>
+        <mtriple>Abel_Hernández | club | Peñarol</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez plays for the US Citta de Palermo club and also played for Penarol.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez's club is US Citta di Palermo and Penarol.</lex>
+      <lex comment="good" lid="Id3">Abel Hernández has played for the clubs US Città di Palermo and Penarol.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id21" size="2">
+      <originaltripleset>
+        <otriple>Abel_Hernández | team | Uruguay_national_football_team</otriple>
+        <otriple>Abel_Hernández | clubs | Peñarol</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Uruguay_national_football_team</mtriple>
+        <mtriple>Abel_Hernández | club | Peñarol</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez plays for the Uruguay national football team and Penarol.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez's club is the Uruguay National football team and he also played for Penarol.</lex>
+      <lex comment="good" lid="Id3">Abel Hernandez, whose club is Penarol, plays for the Uruguay national football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id22" size="2">
+      <originaltripleset>
+        <otriple>Abel_Hernández | team | Uruguay_national_football_team</otriple>
+        <otriple>Abel_Hernández | clubs | U.S._Città_di_Palermo</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Uruguay_national_football_team</mtriple>
+        <mtriple>Abel_Hernández | club | U.S._Città_di_Palermo</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez plays for U.S. Citta di Palermo of the Uruguay national football league.</lex>
+      <lex comment="good" lid="Id2">Abel Hernández plays for U.S. Città di Palermo club and the Uruguay National football team.</lex>
+      <lex comment="good" lid="Id3">Abel Hernandez's club is the Uruguay National football team and he also plays for US Citta di Palermo.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id23" size="2">
+      <originaltripleset>
+        <otriple>Abel_Hernández | team | Uruguay_national_under-20_football_team</otriple>
+        <otriple>Abel_Hernández | clubs | U.S._Città_di_Palermo</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Uruguay_national_under-20_football_team</mtriple>
+        <mtriple>Abel_Hernández | club | U.S._Città_di_Palermo</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez 's club is the Uruguay national under 20 football team and also US Citta di Palermo.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez's club is the Uruguay national under 20 football team and he plays for the club, U.S. Città di Palermo.</lex>
+      <lex comment="good" lid="Id3">Abel Hernandez plays for US Citta di Palermo and the Uraguay under 20 team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id24" size="2">
+      <originaltripleset>
+        <otriple>Abner_(footballer) | team | Brazil_national_under-17_football_team</otriple>
+        <otriple>Abner_(footballer) | clubs | Coritiba_Foot_Ball_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_(footballer) | club | Brazil_national_under-17_football_team</mtriple>
+        <mtriple>Abner_(footballer) | club | Coritiba_Foot_Ball_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner plays for Coritiba Football Club and has represented Brazil at Under 17 level.</lex>
+      <lex comment="good" lid="Id2">Abner, who plays for the Coritiba Football club, has represented Brazil at under 17 level.</lex>
+      <lex comment="good" lid="Id3">The footballer Abner plays for Coritiba Football Club and the Brazil national under-17 football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id25" size="2">
+      <originaltripleset>
+        <otriple>Abner_(footballer) | team | Brazil_national_under-20_football_team</otriple>
+        <otriple>Abner_(footballer) | clubs | Coritiba_Foot_Ball_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_(footballer) | club | Brazil_national_under-20_football_team</mtriple>
+        <mtriple>Abner_(footballer) | club | Coritiba_Foot_Ball_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner plays for Coritiba Football Club and has played for the Brazil under 20 team.</lex>
+      <lex comment="good" lid="Id2">The footballer Abner plays for the Brazilian national under 20 football team and the Coritiba Football club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id26" size="2">
+      <originaltripleset>
+        <otriple>Abner_(footballer) | clubs | Coritiba_Foot_Ball_Club</otriple>
+        <otriple>Abner_(footballer) | team | C.D._FAS</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_(footballer) | club | Coritiba_Foot_Ball_Club</mtriple>
+        <mtriple>Abner_(footballer) | club | C.D._FAS</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abners plays for the CD FAS Club and Coritiba Football Club.</lex>
+      <lex comment="good" lid="Id2">Abner has played for C.D. FAS. and Coritiba Football Club in his football career.</lex>
+      <lex comment="good" lid="Id3">Abner plays for Coritiba Football club and C.D. FAS.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id27" size="2">
+      <originaltripleset>
+        <otriple>Abner_(footballer) | clubs | Real_Madrid_Castilla</otriple>
+        <otriple>Abner_(footballer) | team | Brazil_national_under-20_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_(footballer) | club | Real_Madrid_Castilla</mtriple>
+        <mtriple>Abner_(footballer) | club | Brazil_national_under-20_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner is a footballer who has represented the Brazil national under 20 team and also played for Real Madrid Castilla.</lex>
+      <lex comment="good" lid="Id2">The footballer Abner plays for the Brazilian national under 20 football team and the club, Real Madrid Castilla.</lex>
+      <lex comment="good" lid="Id3">The footballer Abner has represented the Brazil national under 20 team and plays for Real Madrid Castilla.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id28" size="2">
+      <originaltripleset>
+        <otriple>Abner_(footballer) | clubs | Real_Madrid_Castilla</otriple>
+        <otriple>Abner_(footballer) | team | C.D._FAS</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_(footballer) | club | Real_Madrid_Castilla</mtriple>
+        <mtriple>Abner_(footballer) | club | C.D._FAS</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner has played football for Real Madrid Castilla and C.D. FAS.</lex>
+      <lex comment="good" lid="Id2">Previous clubs of the footballer Abner include Real Madrid Castilla and CD FAS.</lex>
+      <lex comment="good" lid="Id3">Abner plays for the club, Real Madrid Castilla and the CD FAS club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id29" size="2">
+      <originaltripleset>
+        <otriple>Abner_(footballer) | team | Real_Madrid_Castilla</otriple>
+        <otriple>Abner_(footballer) | clubs | Coritiba_Foot_Ball_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_(footballer) | club | Real_Madrid_Castilla</mtriple>
+        <mtriple>Abner_(footballer) | club | Coritiba_Foot_Ball_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner is a footballer for the Coritiba Football club and also Real Madrid Castilla.</lex>
+      <lex comment="good" lid="Id2">Footballer Abner plays for Real Madrid Castilla and Coritiba Football Club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id30" size="2">
+      <originaltripleset>
+        <otriple>Adam_Maher | team | Netherlands_national_under-17_football_team</otriple>
+        <otriple>Adam_Maher | clubs | AZ_Alkmaar</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Maher | club | Netherlands_national_under-17_football_team</mtriple>
+        <mtriple>Adam_Maher | club | AZ_Alkmaar</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Maher is connected to the AZ Alkmaar club and plays for the Netherlands National club for players under 17.</lex>
+      <lex comment="good" lid="Id2">AZ Alkmaar player Adam Maher represented the Netherlands national side at Under 17 level.</lex>
+      <lex comment="good" lid="Id3">Adam Maher is connected to the AZ Alkmaar club and played for the Netherlands national under-17 football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id31" size="2">
+      <originaltripleset>
+        <otriple>Adam_Maher | team | PSV_Eindhoven</otriple>
+        <otriple>Adam_Maher | clubs | AZ_Alkmaar</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adam_Maher | clubs | PSV_Eindhoven</otriple>
+        <otriple>Adam_Maher | team | AZ_Alkmaar</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Maher | club | PSV_Eindhoven</mtriple>
+        <mtriple>Adam_Maher | club | AZ_Alkmaar</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Maher's clubs are PSV Einddhoven and AZ Alkmaar.</lex>
+      <lex comment="good" lid="Id2">Adam Maher plays for PSV Eindhoven and has been connected to the club AZ Alkmaar.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id32" size="2">
+      <originaltripleset>
+        <otriple>Adam_Maher | clubs | PSV_Eindhoven</otriple>
+        <otriple>Adam_Maher | team | Netherlands_national_under-17_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Maher | club | PSV_Eindhoven</mtriple>
+        <mtriple>Adam_Maher | club | Netherlands_national_under-17_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Maher's club is PSV Eindhoven and he played for the Netherlands national under-17 football team.</lex>
+      <lex comment="good" lid="Id2">Adam Maher played for PSV Eindhoven and represented the Netherlands under 17 football team.</lex>
+      <lex comment="good" lid="Id3">Adam Maher, whose club is PSV Eindhoven, plays for Netherlands National under 17 club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id33" size="2">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | placeOfBirth | Canada</otriple>
+        <otriple>Adam_McQuaid | birthYear | "1986"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | birthPlace | Canada</mtriple>
+        <mtriple>Adam_McQuaid | birthYear | 1986</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born in Canada in 1986.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id34" size="2">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | placeOfBirth | Charlottetown</otriple>
+        <otriple>Adam_McQuaid | birthYear | "1986"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | birthPlace | Charlottetown</mtriple>
+        <mtriple>Adam_McQuaid | birthYear | 1986</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born in Charlottestown in 1986.</lex>
+      <lex comment="good" lid="Id2">Adam McQuaid was born in 1986, in Charlottetown.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id35" size="2">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | placeOfBirth | Prince_Edward_Island</otriple>
+        <otriple>Adam_McQuaid | birthYear | "1986"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | birthPlace | Prince_Edward_Island</mtriple>
+        <mtriple>Adam_McQuaid | birthYear | 1986</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born in 1986 on Prince Edward Island.</lex>
+      <lex comment="good" lid="Id2">Adam McQuaid was born on Prince Edward Island in 1986.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id36" size="2">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | draftTeam | Columbus_Blue_Jackets</otriple>
+        <otriple>Columbus_Blue_Jackets | city | Columbus,_Ohio</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adam_McQuaid | draftTeam | Columbus_Blue_Jackets</otriple>
+        <otriple>Columbus_Blue_Jackets | locationCity | Columbus,_Ohio</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | draftTeam | Columbus_Blue_Jackets</mtriple>
+        <mtriple>Columbus_Blue_Jackets | city | Columbus,_Ohio</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid's draft team is the Columbus Blue Jackets in Columbus, Ohio.</lex>
+      <lex comment="good" lid="Id2">Adam McQuaid's draft team is the Columbus Blue Jackets, which are based in Columbus, Ohio.</lex>
+      <lex comment="good" lid="Id3">The Columbus Blue Jackets in Columbus, Ohio drafted Adam McQuaid.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id37" size="2">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | draftTeam | Columbus_Blue_Jackets</otriple>
+        <otriple>Columbus_Blue_Jackets | generalManager | Jarmo_Kekäläinen</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | draftTeam | Columbus_Blue_Jackets</mtriple>
+        <mtriple>Columbus_Blue_Jackets | generalManager | Jarmo_Kekäläinen</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid's draft team is the Columbus Blue Jackets, whose general manager is Jarmo Kekalainen.</lex>
+      <lex comment="good" lid="Id2">Adam McQuaid was drafted to the Columbus Blue Jackets which is managed by Jarmo Kekalainen.</lex>
+      <lex comment="good" lid="Id3">Adam McQuaid's draft team was the Columbus Blue Jackets whose general manager is Jarmo Kekelainen.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id38" size="2">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | weight | "94802.4"^^xsd:double</otriple>
+        <otriple>Adam_McQuaid | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | weight | 94.8024 (kilograms)</mtriple>
+        <mtriple>Adam_McQuaid | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born in Canada and he weighs 94.8024 kg.</lex>
+      <lex comment="good" lid="Id2">Adam McQuaid was born in Canada and his weight is 94.8024 kgs.</lex>
+      <lex comment="good" lid="Id3">Adam McQuaid was born in Canada and weighs 94.8024 kilograms.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id39" size="2">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | weight | "94802.4"^^xsd:double</otriple>
+        <otriple>Adam_McQuaid | placeOfBirth | Charlottetown</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | weight | 94.8024 (kilograms)</mtriple>
+        <mtriple>Adam_McQuaid | birthPlace | Charlottetown</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid, who was born in Charlottetown, weighs 94.8024kg.</lex>
+      <lex comment="good" lid="Id2">Adam McQuaid's weight is 94.8024 kilograms and he was born in Charlottetown.</lex>
+      <lex comment="good" lid="Id3">Adam McQuaid was born in Charlottetown and weighs 94.8024 kgs.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id40" size="2">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | weight | "94802.4"^^xsd:double</otriple>
+        <otriple>Adam_McQuaid | placeOfBirth | Prince_Edward_Island</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | weight | 94.8024 (kilograms)</mtriple>
+        <mtriple>Adam_McQuaid | birthPlace | Prince_Edward_Island</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born on Prince Edward Island and weighs 94.8024 kg.</lex>
+      <lex comment="good" lid="Id2">Adam McQuaid was born on Prince Edward Island and weighs 94.8024 kilograms.</lex>
+      <lex comment="good" lid="Id3">Adam McQuaid weighs 94.8024 kilograms and was born on Prince Edward Island.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id41" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Al-Zawra'a_SC</otriple>
+        <otriple>Al-Zawra'a_SC | manager | Basim_Qasim</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Al-Zawra'a_SC</mtriple>
+        <mtriple>Al-Zawra'a_SC | manager | Basim_Qasim</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad plays for Al-Zawra'a SC, whose manager is Basim Qasim.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad plays for Al-Zawra'a SC managed by Basim Qasim.</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad's club is Al-Zawra'a SC which is managed by Basim Qasim.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id42" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Al_Shorta_SC</otriple>
+        <otriple>Ahmad_Kadhim_Assad | clubs | Al-Quwa_Al-Jawiya</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Al_Shorta_SC</mtriple>
+        <mtriple>Ahmad_Kadhim_Assad | club | Al-Quwa_Al-Jawiya</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad plays for Al-Quwa Al-Jawiya and his club is Al Shorta SC.</lex>
+      <lex comment="good" lid="Id2">hmad Kadhim Assad played for the clubs Al Shorta SC and Al-Quwa Al-Jawiya.</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad's club is Al Shorta SC and he played for the club Al-Quwa Al-Jawiya.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id43" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Esteghlal_Ahvaz_F.C.</otriple>
+        <otriple>Ahmad_Kadhim_Assad | clubs | Al-Quwa_Al-Jawiya</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Esteghlal_Ahvaz_F.C.</mtriple>
+        <mtriple>Ahmad_Kadhim_Assad | club | Al-Quwa_Al-Jawiya</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad plays for Al-Quwa Al-Jawiya and is part of the Esteghlal Ahvaz F.C.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad played for Esteghlal Ahvaz FC and Al-Quwa Al-Jawiya.</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad played for the club Al-Quwa Al-Jawiya and is part of the Esteghlal Ahvaz F.C.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id44" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Esteghlal_Ahvaz_F.C.</otriple>
+        <otriple>Esteghlal_Ahvaz_F.C. | manager | Adnan_Hamad</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Esteghlal_Ahvaz_F.C.</mtriple>
+        <mtriple>Esteghlal_Ahvaz_F.C. | manager | Adnan_Hamad</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad's club is Esteghlal Ahvaz FC which is managed by Adnan Hamad.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad played for the Esteghlal Ahvaz F C whose manager is Adnan Hamad.</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad plays for the Esteghlal Ahvaz F.C. which is managed by Adnan Hamad.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id45" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Steel_Azin_F.C.</otriple>
+        <otriple>Ahmad_Kadhim_Assad | clubs | Al-Jaish_SC_(Syria)</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | clubs | Steel_Azin_F.C.</otriple>
+        <otriple>Ahmad_Kadhim_Assad | team | Al-Jaish_SC_(Syria)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Steel_Azin_F.C.</mtriple>
+        <mtriple>Ahmad_Kadhim_Assad | club | Al-Jaish_SC_(Syria)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmas Kadhim Assad has played for the Syrian club Al Jaish SC and also Steel Azin FC.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad used to play for Steel Azin F.C. and now plays for Al-Jaish SC (Syria).</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad formerly played for Steel Azin F.C. and now plays for Al-Jaish SC in Syria.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id46" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Steel_Azin_F.C.</otriple>
+        <otriple>Ahmad_Kadhim_Assad | clubs | Al-Quwa_Al-Jawiya</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Steel_Azin_F.C.</mtriple>
+        <mtriple>Ahmad_Kadhim_Assad | club | Al-Quwa_Al-Jawiya</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad has played for both Steel Azin F.C. and Al-Quwa Al-Jawiya.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad played for club Al-Quwa Al-Jawiya of Steel Azin F.C.</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad has played for Al-Quwa Al-Jawiya and Steel Azin F.C.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id47" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Steel_Azin_F.C.</otriple>
+        <otriple>Ahmad_Kadhim_Assad | clubs | Al-Talaba_SC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Steel_Azin_F.C.</mtriple>
+        <mtriple>Ahmad_Kadhim_Assad | club | Al-Talaba_SC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad plays for Al Talaba SC and also for the club Steel Azin FC.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad, who plays for Steel Azin F.C. also plays for Al Talaba SC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id48" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Steel_Azin_F.C.</otriple>
+        <otriple>Ahmad_Kadhim_Assad | clubs | Al_Shorta_SC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Steel_Azin_F.C.</mtriple>
+        <mtriple>Ahmad_Kadhim_Assad | club | Al_Shorta_SC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad clubs are Steel Azin FC and Al Shorta SC.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad played for both Steel Azin F.C. and Al Shorta SC.</lex>
+      </entry>
+    <entry category="Athlete" eid="Id49" size="2">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | Steel_Azin_F.C.</otriple>
+        <otriple>Ahmad_Kadhim_Assad | clubs | PAS_Tehran_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | Steel_Azin_F.C.</mtriple>
+        <mtriple>Ahmad_Kadhim_Assad | club | PAS_Tehran_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad is a player forSteel Azin F.C. and also PAS Tehran FC.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad's club is Steel Azin FC and he plays for PAS Tahran FC.</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad plays for Steel Azin FC and also played for PAS Tehran FC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id50" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | team | Ferencvárosi_TC</otriple>
+        <otriple>Akeem_Adams | clubs | Central_F.C.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akeem_Adams | clubs | Ferencvárosi_TC</otriple>
+        <otriple>Akeem_Adams | team | Central_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | Ferencvárosi_TC</mtriple>
+        <mtriple>Akeem_Adams | club | Central_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams plays for Ferencvarosi TC and his club is Central FC.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams plays for Central fC and Ferencvarosi TC.</lex>
+      <lex comment="good" lid="Id3">Former clubs of Akeem Adams inlcude Central FC and Ferencvarosi FC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id51" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | clubs | Ferencvárosi_TC</otriple>
+        <otriple>Akeem_Adams | team | T&amp;TEC_Sports_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | Ferencvárosi_TC</mtriple>
+        <mtriple>Akeem_Adams | club | T&amp;TEC_Sports_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Former clubs of Akeem Adams include T&amp;TEC Sports Club and Ferencvarosi TC.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams club is Ferencvarosi TC and he plays for the T&amp;TEC Sports Club.</lex>
+      <lex comment="good" lid="Id3">Akeem Adams played for T&amp;TEC Sports Club and now plays for Ferencvarosi TC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id52" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | clubs | Ferencvárosi_TC</otriple>
+        <otriple>Akeem_Adams | team | Trinidad_and_Tobago_national_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | Ferencvárosi_TC</mtriple>
+        <mtriple>Akeem_Adams | club | Trinidad_and_Tobago_national_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams plays for Ferencvarosi TC and the Trinidad and Tobago national football team.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams is in Ferencvarosi TC. Plays for Trinidad and Tobago national football team.</lex>
+      <lex comment="good" lid="Id3">Akeem Adams club is Ferencvarosi TC and he plays for the Trinidad and Tobago national football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id53" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | clubs | Ferencvárosi_TC</otriple>
+        <otriple>Akeem_Adams | team | Trinidad_and_Tobago_national_under-17_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | Ferencvárosi_TC</mtriple>
+        <mtriple>Akeem_Adams | club | Trinidad_and_Tobago_national_under-17_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams, who represented the Trinidad and Tobago national under 17 football team, has played for the club Ferencvarosi TC.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams clubs are Ferencvarosi TC and Trinidad and Tobago national under 17 football teams.</lex>
+      <lex comment="good" lid="Id3">Akeem Adams plays for Ferencvarosi TC and the Trinidad and Tobago Under 17 football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id54" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | clubs | Ferencvárosi_TC</otriple>
+        <otriple>Akeem_Adams | team | Trinidad_and_Tobago_national_under-20_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | Ferencvárosi_TC</mtriple>
+        <mtriple>Akeem_Adams | club | Trinidad_and_Tobago_national_under-20_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams plays for the Trinidad and Tobago national under-20 football team and also for Ferencvarosi TC.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams played football for the Trinidad and Tobago national under 20 team and his club is Ferencvarosi TC.</lex>
+      <lex comment="good" lid="Id3">Akeem Adams has played for Ferencvarosi TC and represented Trinidad and Tobago at under 20 level.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id55" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | team | Ferencvárosi_TC</otriple>
+        <otriple>Ferencvárosi_TC | chairman | Gábor_Kubatov</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akeem_Adams | clubs | Ferencvárosi_TC</otriple>
+        <otriple>Ferencvárosi_TC | chairman | Gábor_Kubatov</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | Ferencvárosi_TC</mtriple>
+        <mtriple>Ferencvárosi_TC | chairman | Gábor_Kubatov</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams plays for Ferencvarosi TC, whose chairman is Gábor Kubatov.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams plays for Ferencvarosi TC chaired by Gabor Kubatov.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id56" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | clubs | Ferencvárosi_TC</otriple>
+        <otriple>Ferencvárosi_TC | manager | Thomas_Doll</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ferencvárosi_TC | manager | Thomas_Doll</otriple>
+        <otriple>Akeem_Adams | team | Ferencvárosi_TC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | Ferencvárosi_TC</mtriple>
+        <mtriple>Ferencvárosi_TC | manager | Thomas_Doll</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams played for Ferencvarosi TC, where the manager is Thomas Doll.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams club is Ferencvarosi TC, where the manager is Thomas Doll.</lex>
+      <lex comment="good" lid="Id3">Ferencvarosi TC is managed by Thomas Doll and is the club of Akeem Adams.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id57" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | clubs | T&amp;TEC_Sports_Club</otriple>
+        <otriple>Akeem_Adams | team | United_Petrotrin_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | T&amp;TEC_Sports_Club</mtriple>
+        <mtriple>Akeem_Adams | club | United_Petrotrin_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams played for the club T&amp;TEC Sports Club and played for United Petrotrin FC.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams plays for the T&amp;TEC Sports Club and also played for United Petrotrin F.C.</lex>
+      <lex comment="good" lid="Id3">Akeem Adams plays for T&amp;TEC Sports Club and formerly for United Petrotrin F.C.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id58" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | team | Trinidad_and_Tobago_national_football_team</otriple>
+        <otriple>Akeem_Adams | clubs | T&amp;TEC_Sports_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Adams | club | Trinidad_and_Tobago_national_football_team</mtriple>
+        <mtriple>Akeem_Adams | club | T&amp;TEC_Sports_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams plays for the Trinidad and Tobago National football team and the T&amp;TEC Sports Club.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams, who plays for the Trinidad and Tobago national football team formerly played for the T&amp;TEC Sports Club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id59" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</otriple>
+        <otriple>Akeem_Ayers | debutTeam | Tennessee_Titans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</mtriple>
+        <mtriple>Akeem_Ayers | debutTeam | Tennessee_Titans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers debuted for the Tennessee Titans and also played for the Los Angeles Rams.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers made his debut for the Tennessee Titans and played for the Los Angeles Rams.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers made his debut for the Tennessee Titans and used to play for the Los Angeles Rams.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id60" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</otriple>
+        <otriple>Akeem_Ayers | draftPick | "39"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</mtriple>
+        <mtriple>Akeem_Ayers | draftPick | "39"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers draft pick is 39 and he used to play for Los Angeles Rams.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers former team is the Los Angeles Rams and his draft pick is 39.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers once played for the Los Angeles Rams and was number 29 in the draft pick.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id61" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</otriple>
+        <otriple>Akeem_Ayers | draftRound | "2"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</mtriple>
+        <mtriple>Akeem_Ayers | draftRound | "2"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers' former team was the Los Angeles Rams and his draft round was 2.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers was in draft round 2 and his former team was the Los Angeles Rams.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers' draft round was 2 and he used to play for the Los Angeles Rams.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id62" size="2">
+      <originaltripleset>
+        <otriple>Los_Angeles_Rams | city | Los_Angeles_Memorial_Coliseum</otriple>
+        <otriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</otriple>
+        <otriple>Los_Angeles_Rams | locationCity | Los_Angeles_Memorial_Coliseum</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</mtriple>
+        <mtriple>Los_Angeles_Rams | city | Los_Angeles_Memorial_Coliseum</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers' former team was the Los Angeles Rams who play in their home city at Los Angeles Memorial Coliseum.</lex>
+      <lex comment="good" lid="Id2">Los Angeles Memorial Coliseum is home for the Los Angeles Rams, former team of Akeem Ayers.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers former team is the Los Angeles Rams who play at the Los Angeles Memorial Coliseum.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id63" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | New_England_Patriots</otriple>
+        <otriple>Akeem_Ayers | debutTeam | Tennessee_Titans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | New_England_Patriots</mtriple>
+        <mtriple>Akeem_Ayers | debutTeam | Tennessee_Titans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers, who made his debut for the Tennessee Titans, later played for the New England Patriots.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers debuted for Tennessee Titans, but has also played with The New England Patriots.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id64" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | New_England_Patriots</otriple>
+        <otriple>Akeem_Ayers | draftPick | "39"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | New_England_Patriots</mtriple>
+        <mtriple>Akeem_Ayers | draftPick | "39"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers was number 39 in the draft pick and his former team was New England Patriots.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers draft pick is 39 ad his former team is the New England Patriots.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers was number 39 in the draft pick and was a former member of the New England Patriots.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id65" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | History_of_the_St._Louis_Rams</otriple>
+        <otriple>Akeem_Ayers | debutTeam | Tennessee_Titans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | St._Louis_Rams</mtriple>
+        <mtriple>Akeem_Ayers | debutTeam | Tennessee_Titans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers made his debut for the Tennessee Titans and later played for the St Louis Rams.</lex>
+      <lex comment="good" lid="Id2">The debut team of Akeem Ayers was the Tennessee Titans and he also formerly played for the St Louis Rams.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id66" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | History_of_the_St._Louis_Rams</otriple>
+        <otriple>Akeem_Ayers | draftPick | "39"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | St._Louis_Rams</mtriple>
+        <mtriple>Akeem_Ayers | draftPick | "39"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers is 39 in the draft pick and used to play for the St. Louis Rams.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers was number 39 in the draft pick and once played for the St Louis Rams.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers was number 39 in the draft pick and played for the St. Louis Rams.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id67" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | History_of_the_St._Louis_Rams</otriple>
+        <otriple>Akeem_Ayers | draftRound | "2"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | St._Louis_Rams</mtriple>
+        <mtriple>Akeem_Ayers | draftRound | "2"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeen Ayers was drafted in round 2 and used to play for the St, Louis Rams.</lex>
+      <lex comment="good" lid="Id2">St Louis Rams is the former team of Akeem Ayers who was in draft round 2.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers, who used to play for the St. Louis Rams, was drafted in round 2.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id68" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | History_of_the_St._Louis_Rams</otriple>
+        <otriple>History_of_the_St._Louis_Rams | locationCity | St._Louis</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | History_of_the_St._Louis_Rams</otriple>
+        <otriple>History_of_the_St._Louis_Rams | city | St._Louis</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | St._Louis_Rams</mtriple>
+        <mtriple>St._Louis_Rams | city | St._Louis</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers played for the American Football team, St. Louis Rams.</lex>
+      <lex comment="good" lid="Id2">The St. Louis Rams, based in St. Louis, is Akeem Ayers' former team.</lex>
+      <lex comment="good" lid="Id3">Based in the city of St Louis, the St Louis Rams are a former team of Akeem Ayers.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id69" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | formerTeam | Tennessee_Titans</otriple>
+        <otriple>Akeem_Ayers | draftPick | "39"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | formerTeam | Tennessee_Titans</mtriple>
+        <mtriple>Akeem_Ayers | draftPick | "39"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers' former team was Tennessee Titans and he was number 39 in the draft pick.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers used to play for Tennessee Titans and he was number 39 in the draft pick.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers played for Tennessee Titans and was 39 in the draft pick.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id70" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Dent | dateOfBirth | "1987-09-27"^^xsd:date</otriple>
+        <otriple>Akeem_Dent | placeOfBirth | "Atlanta, Georgia"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Dent | birthDate | 1987-09-27</mtriple>
+        <mtriple>Akeem_Dent | birthPlace | "Atlanta, Georgia"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Dent was born in Atlanta, Georgia on the 27th September 1987.</lex>
+      <lex comment="good" lid="Id2">Akeem Dent was born on 27/09/1987 in Atlanta, Georgia.</lex>
+      <lex comment="good" lid="Id3">Akeem Dent was born in Atlanta, Georgia on 27 September 1987.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id71" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Dent | birthYear | "1987"^^xsd:gYear</otriple>
+        <otriple>Akeem_Dent | dateOfBirth | "1987-09-27"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Dent | birthYear | 1987</mtriple>
+        <mtriple>Akeem_Dent | birthDate | 1987-09-27</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Dent was born September 27, 1987.</lex>
+      <lex comment="good" lid="Id2">Akeem Dent date of birth is the 27th September 1987.</lex>
+      <lex comment="good" lid="Id3">Akeem Dent was born on 27 September 1987.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id72" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Dent | team | Houston_Texans</otriple>
+        <otriple>Akeem_Dent | placeOfBirth | "Atlanta, Georgia"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Dent | club | Houston_Texans</mtriple>
+        <mtriple>Akeem_Dent | birthPlace | "Atlanta, Georgia"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Dent was born in Atlanta, Georgia and his club is the Houston Texans.</lex>
+      <lex comment="good" lid="Id2">Akeem Dent was born in Atlanta Georgia and plays for the Houston Texans club.</lex>
+      <lex comment="good" lid="Id3">Akeem Dent, whose birthplace is Atlanta, Georgia, plays for the Houston Texans.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id73" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Dent | debutTeam | Atlanta_Falcons</otriple>
+        <otriple>Akeem_Dent | formerTeam | Houston_Texans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Dent | debutTeam | Atlanta_Falcons</mtriple>
+        <mtriple>Akeem_Dent | formerTeam | Houston_Texans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Dent's first team were the Atlanta Falcons and another former team was the Houston Texans.</lex>
+      <lex comment="good" lid="Id2">Akeem Dent debuted with the Atlanta Falcons and also played for the Houston Texans.</lex>
+      <lex comment="good" lid="Id3">Akeem Dent debuted with Atlanta Falcons and also played for Houston Texans.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id74" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Dent | formerTeam | Atlanta_Falcons</otriple>
+        <otriple>Atlanta_Falcons | coach | Dan_Quinn_(American_football)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Dent | formerTeam | Atlanta_Falcons</mtriple>
+        <mtriple>Atlanta_Falcons | coach | Dan_Quinn_(American_football)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Dent once played with the Atlanta Falcons whose coach was Dan Quinn.</lex>
+      <lex comment="good" lid="Id2">Dan Quinn, an American football coach, coaches the Atlanta Falcons which is the former team of Akeem Dent.</lex>
+      <lex comment="good" lid="Id3">Akeem Dent's former team is the Atlanta Falcons, where the team is now coached by Dan Quinn.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id75" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Dent | formerTeam | Houston_Texans</otriple>
+        <otriple>Houston_Texans | locationCity | Houston</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akeem_Dent | formerTeam | Houston_Texans</otriple>
+        <otriple>Houston_Texans | city | Houston</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Dent | formerTeam | Houston_Texans</mtriple>
+        <mtriple>Houston_Texans | city | Houston</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Dent's former team was the Houston based Houston Texans.</lex>
+      <lex comment="good" lid="Id2">Akeem Dent used to play for Houston Texans in Houston.</lex>
+      <lex comment="good" lid="Id3">The Houston Texans, based in the city of Houston, was Akeem Dent's former team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id76" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Dent | position | Linebacker</otriple>
+        <otriple>Akeem_Dent | placeOfBirth | "Atlanta, Georgia"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Dent | position | Linebacker</mtriple>
+        <mtriple>Akeem_Dent | birthPlace | "Atlanta, Georgia"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Linebacker Akeem Dent was born in Atlanta, Georgia.</lex>
+      <lex comment="good" lid="Id2">Akeem Dent, who was born in Atlanta, Georgia is a linebacker.</lex>
+      <lex comment="good" lid="Id3">Born in Atlanta, Georgia, Akeem Dent's position is linebacker.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id77" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | placeOfBirth | Jamaica</otriple>
+        <otriple>Jamaica | leaderName | Elizabeth_II</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akeem_Priestley | placeOfBirth | Jamaica</otriple>
+        <otriple>Jamaica | leader | Elizabeth_II</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | birthPlace | Jamaica</mtriple>
+        <mtriple>Jamaica | leaderName | Elizabeth_II</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley was born in Jamaica, where that country's leader is Elizabeth II.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley's birth place is Jamaica, which is led by Elizabeth II.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley was born in Jamaica, whose monarch is Queen Elizabeth II.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id78" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | Connecticut_Huskies</otriple>
+        <otriple>Akeem_Priestley | clubs | Sheikh_Russel_KC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | Connecticut_Huskies</mtriple>
+        <mtriple>Akeem_Priestley | club | Sheikh_Russel_KC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley's club is the Connecticut Huskies and he previously played for Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley plays for the Connecticut Huskies, having previously played for Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley plays for the Connecticut Huskies and formerly played for Sheikh Russel KC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id79" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | Dayton_Dutch_Lions</otriple>
+        <otriple>Akeem_Priestley | clubs | Harbour_View_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | Dayton_Dutch_Lions</mtriple>
+        <mtriple>Akeem_Priestley | club | Harbour_View_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley plays for Dayton Dutch Lions and Harbour View F.C.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley's clubs are Dayton Dutch Lions and Harbour View FC.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley's club is Dayton Dutch Lions and he plays for Harbour View F.C.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id80" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | FK_Mughan</otriple>
+        <otriple>Akeem_Priestley | clubs | Sheikh_Russel_KC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | FK_Mughan</mtriple>
+        <mtriple>Akeem_Priestley | club | Sheikh_Russel_KC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley played for FK Mughan and Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley plays for FK Mughan and formerly for Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley has played for the clubs FK Mughan and Sheikh Russel KC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id81" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | Harbour_View_F.C.</otriple>
+        <otriple>Akeem_Priestley | clubs | Antigua_GFC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | Harbour_View_F.C.</mtriple>
+        <mtriple>Akeem_Priestley | club | Antigua_GFC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley played for Antigua GFC and now plays for Harbour View FC.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley plays for Harbour View Fc and Antigua GFC.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley plays football for Harbour View FC and Antigua GFC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id82" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | Jacksonville_Dolphins</otriple>
+        <otriple>Akeem_Priestley | clubs | Harbour_View_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | Jacksonville_Dolphins</mtriple>
+        <mtriple>Akeem_Priestley | club | Harbour_View_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley plays for Jacksonville Dolphins and the Harbour View F.C.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley plays for Jacksonville Dolphins and his club is Harbour View F.C.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley's former clubs include Harbour View FC and Jackson Dolphins.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id83" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | Jacksonville_Dolphins</otriple>
+        <otriple>Akeem_Priestley | clubs | Sheikh_Russel_KC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | Jacksonville_Dolphins</mtriple>
+        <mtriple>Akeem_Priestley | club | Sheikh_Russel_KC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley is in the Jackson Dolphins club and previously played for the club Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley plays for Jackson Dolphins Club and for Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley plays for Jacksons Dolphins CLub and used to play for Sheikh Russel KC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id84" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | RoPS</otriple>
+        <otriple>Akeem_Priestley | clubs | Harbour_View_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | RoPS</mtriple>
+        <mtriple>Akeem_Priestley | club | Harbour_View_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley's clubs are Harbour View F.C. and RoPS.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley, a member of club RoPS, is a player for the Harbour View F.C.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley's former clubs include Harbour View FC and RoPS.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id85" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | RoPS</otriple>
+        <otriple>Akeem_Priestley | clubs | Sheikh_Russel_KC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | RoPS</mtriple>
+        <mtriple>Akeem_Priestley | club | Sheikh_Russel_KC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley’s club is RoPS and he played for Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley plays for Sheikh Russel KC and formerly for RoPS.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley played for the clubs RoPS and Sheikh Russel KC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id86" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | Sheikh_Russel_KC</otriple>
+        <otriple>Akeem_Priestley | clubs | Harbour_View_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | Sheikh_Russel_KC</mtriple>
+        <mtriple>Akeem_Priestley | club | Harbour_View_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley's club is Harbour View F.C and he plays for Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley, whose club is Harbour View FC, plays for Sheikh Russel KC.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley, whose club is Harbour View F.C. played for the club Sheikh Russel KC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id87" size="2">
+      <originaltripleset>
+        <otriple>Al-Khor_Sports_Club | league | Qatar_Stars_League</otriple>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al-Khor_Sports_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Al-Khor_Sports_Club | league | Qatar_Stars_League</mtriple>
+        <mtriple>Alaa_Abdul-Zahra | club | Al-Khor_Sports_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra is in the Al-Khor Sports Club which is in the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul-Zahra has played for the Al-Khor Sports Club in the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul Zahra plays for Al-Khor Sports Club which plays in the Qatar Stars League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id88" size="2">
+      <originaltripleset>
+        <otriple>Al-Wakrah_Sport_Club | league | Qatar_Stars_League</otriple>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al-Wakrah_Sport_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Al-Wakrah_Sport_Club | league | Qatar_Stars_League</mtriple>
+        <mtriple>Alaa_Abdul-Zahra | club | Al-Wakrah_Sport_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra plays for Al-Wakrah Sports Club which is part of the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul-Zahra plays for the Al-Wakrah Sport Club which is in the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul-Zahra plays for the Al-Wakrah Sports Club in the Qatar Stars League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id89" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | team | Al-Khor_Sports_Club</otriple>
+        <otriple>Al-Khor_Sports_Club | ground | Al_Khor</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al-Khor_Sports_Club</otriple>
+        <otriple>Al-Khor_Sports_Club | ground | Al_Khor</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Al-Khor_Sports_Club</mtriple>
+        <mtriple>Al-Khor_Sports_Club | ground | Al_Khor</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul Zahra plays for Al-Khor Sports Club located in Al-Khor.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul -Zahra has played for Al-Khor Sports Club, located in Al-Khor.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul Zahra plays for the Al-Khor Sports Club, located in Al-Khor.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id90" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al-Khor_Sports_Club</otriple>
+        <otriple>Al-Khor_Sports_Club | position | Qatar_Stars_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Al-Khor_Sports_Club</mtriple>
+        <mtriple>Al-Khor_Sports_Club | position | Qatar_Stars_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra is in the Al-Khor Sports Club which is in the Qatar Stars league.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul Zahra plays for Al Khor Sports Club in the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul Zahra plays for Al-Khor Sports Club within the Qatar Stars League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id91" size="2">
+      <originaltripleset>
+        <otriple>Al_Kharaitiyat_SC | ground | Al_Khor</otriple>
+        <otriple>Alaa_Abdul-Zahra | team | Al_Kharaitiyat_SC</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al_Kharaitiyat_SC</otriple>
+        <otriple>Al_Kharaitiyat_SC | ground | Al_Khor</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Al_Kharaitiyat_SC</mtriple>
+        <mtriple>Al_Kharaitiyat_SC | ground | Al_Khor</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul Zahra plays for Al Kharaitiyat SC who have their ground at Al Khor.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul Zahra plays for Al Kharaitiyat SC who play their home games at Al Khor.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul Zahra's club is AL Kharaitiyat SC located in Al Khor.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id92" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al_Kharaitiyat_SC</otriple>
+        <otriple>Al_Kharaitiyat_SC | league | Qatar_Stars_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Al_Kharaitiyat_SC</mtriple>
+        <mtriple>Al_Kharaitiyat_SC | league | Qatar_Stars_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul Zahra plays for Al Kharaitiyat SC in the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul Zahra's club is AL Kharaitiyat SC which is in the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul Zahra's club is AL Kharaitiyat SC who play in the Qatar Stars league.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id93" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al_Kharaitiyat_SC</otriple>
+        <otriple>Al_Kharaitiyat_SC | manager | Amar_Osim</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | team | Al_Kharaitiyat_SC</otriple>
+        <otriple>Al_Kharaitiyat_SC | manager | Amar_Osim</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Al_Kharaitiyat_SC</mtriple>
+        <mtriple>Al_Kharaitiyat_SC | manager | Amar_Osim</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul Zahra's club is AL Kharaitiyat SC managed by Amar Osim.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul Zahra plays for Al Kharaitiyat SC managed by Amar Osim.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id94" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al_Kharaitiyat_SC</otriple>
+        <otriple>Al_Kharaitiyat_SC | position | Qatar_Stars_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Al_Kharaitiyat_SC</mtriple>
+        <mtriple>Al_Kharaitiyat_SC | position | Qatar_Stars_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul Zahra plays for Al Kharaitiyat SC who are in the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul Zahra plays for Al Kharaitiyat SC which is part of the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul Zahra's club is AL Kharaitiyat SC which plays in the Qatar Stars League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id95" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | team | Iraq_national_under-20_football_team</otriple>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al_Kharaitiyat_SC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Iraq_national_under-20_football_team</mtriple>
+        <mtriple>Alaa_Abdul-Zahra | club | Al_Kharaitiyat_SC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra plays for the Iraq national under-20 football team and Al Kharaitiyat SC.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul Zahra plays for Al Kharaitiyat SC and the Iraq under 20 team.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul Zahra plays for the club AL Kharaitiyat SC and has represented the Iraq national Under 20 football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id96" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | clubs | Shabab_Al-Ordon_Club</otriple>
+        <otriple>Alaa_Abdul-Zahra | team | Al-Khor_Sports_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Shabab_Al-Ordon_Club</mtriple>
+        <mtriple>Alaa_Abdul-Zahra | club | Al-Khor_Sports_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra has payed for Shabah Al-Ordon Club and Al-Khor Sports Club.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul-Zahra belongs to Shabab Al-Ordon Club and plays for Al-Khor Sports Club.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul-Zahra has played for both Shabab Al-Ordon Club and Al-Khor Sports Club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id97" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | team | Shabab_Al-Ordon_Club</otriple>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al_Kharaitiyat_SC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Shabab_Al-Ordon_Club</mtriple>
+        <mtriple>Alaa_Abdul-Zahra | club | Al_Kharaitiyat_SC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra', whose club is Shabab Al-Ordon, plays for Al Kharaitiyat SC.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul-Zahra's clubs are Shabab Al-Ordon and AL Kharaitiyat SC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id98" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | clubs | Shabab_Al-Ordon_Club</otriple>
+        <otriple>Alaa_Abdul-Zahra | team | Iraq_national_under-20_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | club | Shabab_Al-Ordon_Club</mtriple>
+        <mtriple>Alaa_Abdul-Zahra | club | Iraq_national_under-20_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra plays for the Iraq national under-20 football team and his club is Shabab Al-Ordon.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul-Zahra's club is Shabab Al-Ordon Club and he plays for the Iraq national under 20 football team.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul-Zahra's club is Shabab Al-Ordon and he plays for the Iraq under 20 team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id99" size="2">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | position | Forward_(association_football)</otriple>
+        <otriple>Alaa_Abdul-Zahra | clubs | Al_Shorta_SC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | position | Forward_(football)</mtriple>
+        <mtriple>Alaa_Abdul-Zahra | club | Al_Shorta_SC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra is a forward and his club is Al Shorta SC.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul Zahra is a forward for Al Shorta SC.</lex>
+      <lex comment="good" lid="Id3">Footballer Alaa Abdul-Zahra is a forward and plays for the club Al Shorta SC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id100" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Accrington_Stanley_F.C.</otriple>
+        <otriple>Accrington_Stanley_F.C. | ground | Accrington</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Accrington_Stanley_F.C.</mtriple>
+        <mtriple>Accrington_Stanley_F.C. | ground | Accrington</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Martin played for the Accrington club, Accrington Stanley F.C.</lex>
+      <lex comment="good" lid="Id2">Alan Martin played for Accrington Stanley FC, whose ground can be found in Accrington.</lex>
+      <lex comment="good" lid="Id3">Alan Martin played football for Accrington Stanley F.C who are based in Accrington.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id101" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Accrington_Stanley_F.C.</otriple>
+        <otriple>Alan_Martin_(footballer,_born_1989) | clubs | Hamilton_Academical_F.C.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Hamilton_Academical_F.C.</otriple>
+        <otriple>Alan_Martin_(footballer,_born_1989) | clubs | "→ Accrington Stanley"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Accrington_Stanley_F.C.</mtriple>
+        <mtriple>Alan_Martin_(footballer) | club | Hamilton_Academical_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Martin is a footballer for the Hamilton Academical FC and also for Accrington Stanley FC.</lex>
+      <lex comment="good" lid="Id2">Alan Martin played football for Accrington Stanley F.C and now plays for Hamilton Academical F.C.</lex>
+      <lex comment="good" lid="Id3">Alan Martin is a footballer for the Hamilton Academical FC and previously played for Accrington Stanley FC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id102" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Clyde_F.C.</otriple>
+        <otriple>Clyde_F.C. | ground | Broadwood_Stadium</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Clyde_F.C.</mtriple>
+        <mtriple>Clyde_F.C. | ground | Broadwood_Stadium</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Martin played for the Clyde F.C. at Broadwood Stadium.</lex>
+      <lex comment="good" lid="Id2">Alan Martin plays football for the the Clyde FC club at The Broadwood Stadium.</lex>
+      <lex comment="good" lid="Id3">Alan Martin played for Clyde F.C. whose home ground is Broadwood Stadium.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id103" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Hamilton_Academical_F.C.</otriple>
+        <otriple>Alan_Martin_(footballer,_born_1989) | clubs | Aldershot_Town_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Hamilton_Academical_F.C.</mtriple>
+        <mtriple>Alan_Martin_(footballer) | club | Aldershot_Town_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Hamilton Academicals FC and Aldershot Town FC are former clubs of the footballer Alan Martin.</lex>
+      <lex comment="good" lid="Id2">The footballer Alan Martin has previously played for Aldershot Town FC and Hamilton Academicals FC.</lex>
+      <lex comment="good" lid="Id3">Alan Martin is a footballer for Aldershot Town FC and played for Hamilton Academical FC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id104" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Hamilton_Academical_F.C.</otriple>
+        <otriple>Alan_Martin_(footballer,_born_1989) | clubs | Crewe_Alexandra_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Hamilton_Academical_F.C.</mtriple>
+        <mtriple>Alan_Martin_(footballer) | club | Crewe_Alexandra_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Martin plays for Hamilton Academical F.C. and Crewe Alexandra F.C.</lex>
+      <lex comment="good" lid="Id2">Alan Martin is a footballer for the Hamilton Academical FC and also Crewe Alexandra F.C.</lex>
+      <lex comment="good" lid="Id3">Alan Martin is a footballer for the Crewe Alexandra FC and Hamilton Academicals.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id105" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Hamilton_Academical_F.C.</otriple>
+        <otriple>Alan_Martin_(footballer,_born_1989) | clubs | Leeds_United_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Hamilton_Academical_F.C.</mtriple>
+        <mtriple>Alan_Martin_(footballer) | club | Leeds_United_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Former clubs of the footballer Alan Martin include Hamilton Academicals FC and Leeds United FC.</lex>
+      <lex comment="good" lid="Id2">Alan Martin plays football for Hamilton Academical F.C and Leeds United F.C.</lex>
+      <lex comment="good" lid="Id3">Alan Martin is a footballer who plays for Hamilton Academical and Leeds United football clubs.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id106" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Hamilton_Academical_F.C.</otriple>
+        <otriple>Hamilton_Academical_F.C. | ground | Hamilton,_South_Lanarkshire</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Hamilton_Academical_F.C.</mtriple>
+        <mtriple>Hamilton_Academical_F.C. | ground | Hamilton,_South_Lanarkshire</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Martin played for Hamilton Academical F.C. where the ground is located in South Lanarkshire.</lex>
+      <lex comment="good" lid="Id2">The footballer Alan Martin played for Hamilton Academicals FC, located in Hamilton, South Lanarkshire.</lex>
+      <lex comment="good" lid="Id3">Alan Martin is a footballer for the Hamilton Academical FC who play in Hamilton, South Lanarkshire.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id107" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Hamilton_Academical_F.C.</otriple>
+        <otriple>Hamilton_Academical_F.C. | ground | New_Douglas_Park</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Hamilton_Academical_F.C.</mtriple>
+        <mtriple>Hamilton_Academical_F.C. | ground | New_Douglas_Park</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Martin once played for Hamilton Academicals FC, which plays their home games at New Douglas Park.</lex>
+      <lex comment="good" lid="Id2">Hamilton Academical FC's ground is New Douglas Park and is the club of Alan Martin.</lex>
+      <lex comment="good" lid="Id3">Alan Martin played for Hamilton Academical F.C. at New Douglas Park.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id108" size="2">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | nationalteam | Scotland_national_under-21_football_team</otriple>
+        <otriple>Scotland_national_under-21_football_team | coach | Ricky_Sbragia</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Scotland_national_under-21_football_team</mtriple>
+        <mtriple>Scotland_national_under-21_football_team | coach | Ricky_Sbragia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Martin played for the Scotland national under 21 team, which is managed by Ricky Sbragia.</lex>
+      <lex comment="good" lid="Id2">The footballer Alan Martin plays in the Scottish National under 21 football team who are coached by Ricky Sbragia.</lex>
+      <lex comment="good" lid="Id3">Alan Martin played for the Scotland under 21 football team, whose coach is Rcicky Sbragia.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id109" size="2">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | birthYear | "1995"^^xsd:gYear</otriple>
+        <otriple>Aleksander_Barkov,_Jr. | placeOfBirth | "Tampere, Finland"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | birthYear | 1995</mtriple>
+        <mtriple>Aleksander_Barkov,_Jr. | birthPlace | "Tampere, Finland"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksander Barkov Jr . was born in Tampere, Finland in 1995.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov Jr was born in 1995 in Tampere. Finland.</lex>
+      <lex comment="good" lid="Id3">Aleksander Barkov Jr was born in 1995 in Tampere, Finland.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id110" size="2">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | birthYear | "1995"^^xsd:gYear</otriple>
+        <otriple>Aleksander_Barkov,_Jr. | team | Florida_Panthers</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | birthYear | 1995</mtriple>
+        <mtriple>Aleksander_Barkov,_Jr. | club | Florida_Panthers</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Born in 1995, Aleksander Barkov Jr plays for the Florida Panthers.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov, Jr. was born in 1995 and has played for the Florida Panthers.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id111" size="2">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | team | Florida_Panthers</otriple>
+        <otriple>Aleksander_Barkov,_Jr. | dateOfBirth | "1995-09-02"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | club | Florida_Panthers</mtriple>
+        <mtriple>Aleksander_Barkov,_Jr. | birthDate | 1995-09-02</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksander Barkov was born on 2 September 1995 and plays for the Florida Panthers.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov Jr. was born on the 2nd September 1995 and plays for the Florida Panthers.</lex>
+      <lex comment="good" lid="Id3">Born on 2nd September 1995, Aleksander Barkov Jr plays for the Florida Panthers.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id112" size="2">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | team | Florida_Panthers</otriple>
+        <otriple>Aleksander_Barkov,_Jr. | placeOfBirth | "Tampere, Finland"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | club | Florida_Panthers</mtriple>
+        <mtriple>Aleksander_Barkov,_Jr. | birthPlace | "Tampere, Finland"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksander Barkov Jr . was born in Tampere, Finland and played with the Florida Panthers.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov Jr was born in Tampere Finland and plays for the Florida Panthers.</lex>
+      <lex comment="good" lid="Id3">Born in Tampere, Finland, Aleksander Barkov Jr played for the Florida Panthers.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id113" size="2">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | draftTeam | Florida_Panthers</otriple>
+        <otriple>Florida_Panthers | generalManager | Dale_Tallon</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | draftTeam | Florida_Panthers</mtriple>
+        <mtriple>Florida_Panthers | generalManager | Dale_Tallon</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksander Barkov Jr's draft team was the Florida Panthers whose general manager is Dale Tallon.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov Jr's draft team is the Florida Panthers which is managed by Dale Tallon.</lex>
+      </entry>
+    <entry category="Athlete" eid="Id114" size="2">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | league | National_Hockey_League</otriple>
+        <otriple>National_Hockey_League | mostChamps | Montreal_Canadiens</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | league | National_Hockey_League</mtriple>
+        <mtriple>National_Hockey_League | mostChampions | Montreal_Canadiens</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksander Barkov Jr. plays in the National Hockey League where the Montreal Canadiens have won the most championships.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov Jr. plays in the National Hockey League where most championships have been won by the Montreal Canadiens.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id115" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Chumakov | team | FC_Torpedo_Moscow</otriple>
+        <otriple>Aleksandr_Chumakov | placeOfBirth | Soviet_Union</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Chumakov | club | FC_Torpedo_Moscow</mtriple>
+        <mtriple>Aleksandr_Chumakov | birthPlace | Soviet_Union</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Chumakov was born in the Soviet Union and his club was FC Torpedo Moscow.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Chumakov, who was born in the Soviet Union, has played for FC Torpedo Moscow.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Chumakov was born in the Soviet Union and played for FC Torpedo Moscow.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id116" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Chumakov | clubs | FC_Torpedo_Moscow</otriple>
+        <otriple>FC_Torpedo_Moscow | chairman | Aleksandr_Tukmanov</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Chumakov | club | FC_Torpedo_Moscow</mtriple>
+        <mtriple>FC_Torpedo_Moscow | chairman | Aleksandr_Tukmanov</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Chumakov was in the Torpedo Moscow FC whose chairman is Aleksandr Tukmanov.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Chumakov played for FC Torpedo Moscow, the chairman of which is Aleksandr Tukmanov.</lex>
+      </entry>
+    <entry category="Athlete" eid="Id117" size="2">
+      <originaltripleset>
+        <otriple>FC_Torpedo_Moscow | manager | Valery_Petrakov</otriple>
+        <otriple>Aleksandr_Chumakov | team | FC_Torpedo_Moscow</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandr_Chumakov | clubs | FC_Torpedo_Moscow</otriple>
+        <otriple>FC_Torpedo_Moscow | manager | Valery_Petrakov</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Chumakov | club | FC_Torpedo_Moscow</mtriple>
+        <mtriple>FC_Torpedo_Moscow | manager | Valery_Petrakov</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Chumakov has played for the club FC Torpedo Moscow, which is managed by Valery Petrakov.</lex>
+      <lex comment="good" lid="Id2">FC Torpedo Moscow, managed by Valery Petrakov, is a former club of Aleksandr Chumakov.</lex>
+      <lex comment="good" lid="Id3">FC Torpedo Moscow, managed by Valery Petrakov, is the former club of Aleksandr Chumakov.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id118" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Chumakov | team | Soviet_Union_national_football_team</otriple>
+        <otriple>Aleksandr_Chumakov | placeOfBirth | Moscow</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Chumakov | club | Soviet_Union_national_football_team</mtriple>
+        <mtriple>Aleksandr_Chumakov | birthPlace | Moscow</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Chumakov was born in Moscow and plays for the Soviet Union national football team.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Chumakov was born in Moscow and has represented the Soviet Union national football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id119" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Chumakov | team | Soviet_Union_national_football_team</otriple>
+        <otriple>Aleksandr_Chumakov | placeOfBirth | Soviet_Union</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Chumakov | club | Soviet_Union_national_football_team</mtriple>
+        <mtriple>Aleksandr_Chumakov | birthPlace | Soviet_Union</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Chumakov was born in the Soviet Union and was a member of the Soviet Union national football team.</lex>
+      <lex comment="good" lid="Id2">Soviet Union born Aleksandr Chumakov has represented his national football team.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Chumakov was born in the Soviet Union and plays for the Soviet Union national football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id120" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Chumakov | team | Soviet_Union_national_football_team</otriple>
+        <otriple>Aleksandr_Chumakov | clubs | FC_Torpedo_Moscow</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Chumakov | club | Soviet_Union_national_football_team</mtriple>
+        <mtriple>Aleksandr_Chumakov | club | FC_Torpedo_Moscow</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Chumakov played for FC Torpedo Moscow and represented the Soviet Union national football team.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Chumakov plays for FC Torpedo Moscow and the Soviet Union national football team.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Chumakov was a member of the Soviet Union national football team and played for FC Torpedo Moscow.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id121" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Chumakov | deathPlace | Russia</otriple>
+        <otriple>Russia | leaderName | Valentina_Matviyenko</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Chumakov | deathPlace | Russia</mtriple>
+        <mtriple>Russia | leaderName | Valentina_Matviyenko</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Chumakov died in Russia, where Valentina Matviyenko is the leader.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Chumakov died in Russia where Valentina Matviyenko is a leader.</lex>
+      <lex comment="good" lid="Id3">Valentina Matviyenko is a leader in Russia which is where Aleksandr Chumakov died.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id122" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Amkar_Perm</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | "→ Tom Tomsk"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Amkar_Perm</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Tom_Tomsk</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov plays for FC Amkar Perm and FC Tom Tomsk.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov played for FC Amkar Perm and his club is Tom Tomsk.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov plays for FC Tom Tomsk and FC Amkar Perm football club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id123" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Kuban_Krasnodar</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | "→ Tom Tomsk"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Kuban_Krasnodar</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Tom_Tomsk</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov's club is FC Tom Tomsk and he also plays for FC Kuban Krasnodar.</lex>
+      <lex comment="good" lid="Id2">Aleksander Prudnikov plays football for FC Kuban Krasnodar and FC Tom Tomsk.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov plays for FC Tom Tomsk and FC Kuban Krasnodar club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id124" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Kuban_Krasnodar</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | "→ Sparta Prague"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Kuban_Krasnodar</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | Sparta_Prague</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov's club is called Sparta Prague and he plays for FC Kuban Krasnodar.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov plays for Sparta Prague and FC Kuban Krasnodar.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov plays for FC Kuban Krasnodar and his club is called Sparta Prague.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id125" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Spartak_Moscow</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | FC_Amkar_Perm</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Spartak_Moscow</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Amkar_Perm</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov has played for FC Amkar Perm and for FC Spartak Moscow.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov plays for FC Spartak Moscow and also for FC Amkar Perm football club.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov plays for FC Amkar Perm and played for FC Spartak Moscow.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id126" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Spartak_Moscow</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | FC_Kuban_Krasnodar</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Spartak_Moscow</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Kuban_Krasnodar</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov's club is FC Spartak Moscow and he also plays for the FC Kuban Krasnodar club.</lex>
+      <lex comment="good" lid="Id2">Former clubs of Aleksandr Prudnikov include FC Spartak Moscow and FC Kuban Krasnodar.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov has played for FC Spartak Moscow and FC Kuban Krasnodar.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id127" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Spartak_Moscow</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | "→ Tom Tomsk"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Spartak_Moscow</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Tom_Tomsk</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alexsandr Prudnikov plays for FC Spartak Moscow and FC Tom Tomsk.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov plays for FC Tom Tomsk and previously played for FC Spartak Moscow.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov plays for FC Tom Tomsk and the FC Spartak Moscow club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id128" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Spartak_Moscow</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | "→ Sparta Prague"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Spartak_Moscow</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | Sparta_Prague</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Former clubs of Aleksandr Prudnikov include Sparta Prague and FC Spartak Moscow.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov played for FC Spartak Moscow and his club is called Sparta Prague.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov's club is called Sparta Prague or FC Spartak Moscow.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id129" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Terek_Grozny</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | FC_Alania_Vladikavkaz</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Terek_Grozny</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Alania_Vladikavkaz</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov played for FC Terek Grozny however he now plays for FC Alania Vladikavkaz.</lex>
+      <lex comment="good" lid="Id2">Former clubs of Aleksandr Prudnikov include FC Terek Grozny and FC Alania Vladikavkaz.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prydnikov is in the FC Terek Grozny club and he plays for FC Alania Vladikavkaz.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id130" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Terek_Grozny</otriple>
+        <otriple>FC_Terek_Grozny | manager | Rashid_Rakhimov</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Terek_Grozny</mtriple>
+        <mtriple>FC_Terek_Grozny | manager | Rashid_Rakhimov</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov played for FC Terek Grozny managed by Rashid Rakhimov.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov plays for FC Terek Grozny which is managed by Rashid Rakhimov.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov played for FC Terek Grozny which is managed by Rashid Rakhimov.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id131" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Tom_Tomsk</otriple>
+        <otriple>FC_Tom_Tomsk | league | Russian_Football_National_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Tom_Tomsk</mtriple>
+        <mtriple>FC_Tom_Tomsk | league | Russian_Football_National_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudinov plays for FC Tom Tomsk, which plays in the Russian National Football League.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov plays for FC Tom Tomsk which plays in the Russian Football National league.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov is with the FC Tom Tomsk which is in the Russian Football National League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id132" size="2">
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | currentclub | FC_Amkar_Perm</otriple>
+        <otriple>FC_Amkar_Perm | manager | Gadzhi_Gadzhiyev</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandr_Prudnikov | currentclub | FC_Amkar_Perm</mtriple>
+        <mtriple>FC_Amkar_Perm | manager | Gadzhi_Gadzhiyev</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov currently plays for the team FC Amkar Perm, which is managed by Gadzhi Gadzhiyev.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov plays for FC Amkar Perm which is managed by Gadzhi Gadzhiyev.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov's current club is FC Amkar Perm which is managed by Gadzhi Gadzhiyev.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id133" size="2">
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | FC_Karpaty_Lviv</otriple>
+        <otriple>Aleksandre_Guruli | clubs | FC_Dila_Gori</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandre_Guruli | club | FC_Karpaty_Lviv</mtriple>
+        <mtriple>Aleksandre_Guruli | club | FC_Dila_Gori</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli played for FC Karpaty Lviv and FC Dila Gori.</lex>
+      <lex comment="good" lid="Id2">Aleksandre Guruli plays for FC Dila Gori and used to play for FC Karpaty Lviv.</lex>
+      <lex comment="good" lid="Id3">Aleksandre Guruli has represented the clubs FC Dila Gori and FC Karpaty Lviv.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id134" size="2">
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | FC_Karpaty_Lviv</otriple>
+        <otriple>Aleksandre_Guruli | clubs | FC_Dinamo_Batumi</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandre_Guruli | club | FC_Karpaty_Lviv</mtriple>
+        <mtriple>Aleksandre_Guruli | club | FC_Dinamo_Batumi</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli played for FC Karpaty Lviv and FC Dinamo Batumi.</lex>
+      <lex comment="good" lid="Id2">Aleksandre Guruli's club is FC Karpaty Lviv and he also played for FC Dinamo Batumi.</lex>
+      <lex comment="good" lid="Id3">Aleksandre Guruli plays for FC Karpaty Lviv club and FC Dinamo Batumi.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id135" size="2">
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | FC_Karpaty_Lviv</otriple>
+        <otriple>Aleksandre_Guruli | clubs | FC_Zestafoni</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandre_Guruli | club | FC_Karpaty_Lviv</mtriple>
+        <mtriple>Aleksandre_Guruli | club | FC_Zestafoni</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli played for FC Karpaty Lviv and FC Zestafoni.</lex>
+      <lex comment="good" lid="Id2">Former clubs of Aleksandre Guruli include FC Karpaty Lviv and FC Zestafoni.</lex>
+      <lex comment="good" lid="Id3">Aleksandre Guruli is in the FC Zestafoni club and he played for FC Karpaty Lviv.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id136" size="2">
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | clubs | Olympique_Lyonnais</otriple>
+        <otriple>Olympique_Lyonnais | ground | Parc_Olympique_Lyonnais</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | Olympique_Lyonnais</otriple>
+        <otriple>Olympique_Lyonnais | ground | Parc_Olympique_Lyonnais</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandre_Guruli | club | Olympique_Lyonnais</mtriple>
+        <mtriple>Olympique_Lyonnais | ground | Parc_Olympique_Lyonnais</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli played for the Olympique Lyonnais club who play their home games at the Parc Olympique Lyonnais.</lex>
+      <lex comment="good" lid="Id2">Aleksandre Guruli played for the Olympique Lyonnais club whose home ground is the Parc Olympique Lyonnais stadium.</lex>
+      <lex comment="good" lid="Id3">Aleksandre Guruli's club is Olympique Lyonnais whose home ground is the Parc Olympique Lyonnais stadium.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id137" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | clubs | A.C._Milan</otriple>
+        <otriple>A.C._Milan | manager | Siniša_Mihajlović</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | team | A.C._Milan</otriple>
+        <otriple>A.C._Milan | manager | Siniša_Mihajlović</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | club | A.C._Milan</mtriple>
+        <mtriple>A.C._Milan | manager | Siniša_Mihajlović</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli plays for A.C. Milan which is managed by Siniša Mihajlović .</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli plays for A.C. Milan managed by Sinisa Mihajlovic.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id138" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | team | A.S._Roma</otriple>
+        <otriple>Alessio_Romagnoli | clubs | "→ Sampdoria"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | club | A.S._Roma</mtriple>
+        <mtriple>Alessio_Romagnoli | club | U.C._Sampdoria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Former clubs of Alessio Romagnoli include UC Sampdoria and AS Roma.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli, a member of A.S. Roma, is connected to UC Sampdoria.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli has previously played for AS Roma and UC Sampdoria.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id139" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | team | Italy_national_under-16_football_team</otriple>
+        <otriple>Alessio_Romagnoli | clubs | A.S._Roma</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | club | Italy_national_under-16_football_team</mtriple>
+        <mtriple>Alessio_Romagnoli | club | A.S._Roma</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AS Roma player Alessio Romagnoli represented Italy at Under 16 level.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli plays for A S Roma and is also in the Italy national under 16's football team.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli plays for A.S. Roma and formerly for the Italian national under 16 football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id140" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | team | Italy_national_under-16_football_team</otriple>
+        <otriple>Alessio_Romagnoli | clubs | "→ Sampdoria"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | club | Italy_national_under-16_football_team</mtriple>
+        <mtriple>Alessio_Romagnoli | club | U.C._Sampdoria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli is connected to UC Sampdoria of the Italy national under 16's football league.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli has represented U.C. Sampdoria in the Italy national under 16's football league.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli played for U.C. Sampdoria in the Italy national under-16 football league.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id141" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | nationalteam | Italy_national_under-16_football_team</otriple>
+        <otriple>Italy_national_under-16_football_team | coach | Daniele_Zoratto</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | club | Italy_national_under-16_football_team</mtriple>
+        <mtriple>Italy_national_under-16_football_team | coach | Daniele_Zoratto</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli played for the Italy national under-16 football team coached by Daniele Zoratto.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli is in the Italy national under 16's football team which is coach by Daniele Zoratto.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli played for the Italian national under 16 football team which is coached by Daniele Zoratto.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id142" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | team | Italy_national_under-17_football_team</otriple>
+        <otriple>Alessio_Romagnoli | clubs | A.S._Roma</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | club | Italy_national_under-17_football_team</mtriple>
+        <mtriple>Alessio_Romagnoli | club | A.S._Roma</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli is a member of the Italian national under 17 football team and plays for A.S. Roma.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli plays for AS Roma and the Italian under 17 teams.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli is a member of the Italian national under 17 football team and A.S. Roma.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id143" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | team | Italy_national_under-17_football_team</otriple>
+        <otriple>Alessio_Romagnoli | clubs | "→ Sampdoria"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | club | Italy_national_under-17_football_team</mtriple>
+        <mtriple>Alessio_Romagnoli | club | U.C._Sampdoria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli plays for the Italy national under-17 football team and for the club U.C. Sampdoria.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli is in the club Italy national under 17's for the club U.C. Sampdoria.</lex>
+      <lex comment="good" lid="Id3">Footballer Alessio Romagnoli, who represented Italy at under 17 level, is connected to UC Sampdoria.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id144" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | nationalteam | Italy_national_under-17_football_team</otriple>
+        <otriple>Italy_national_under-17_football_team | coach | Alessandro_Dal_Canto</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | club | Italy_national_under-17_football_team</mtriple>
+        <mtriple>Italy_national_under-17_football_team | coach | Alessandro_Dal_Canto</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli plays for the Italy national under-17 football team which is coached by Alessandro Dal Canto .</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli is a member of the Italian national under 17 football team coached by Alessandro Dal Canto.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli plays for the Italy national under-17 football team, where Alessandro Dal Canto is the coach.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id145" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | currentclub | A.C._Milan</otriple>
+        <otriple>A.C._Milan | manager | Siniša_Mihajlović</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | currentclub | A.C._Milan</mtriple>
+        <mtriple>A.C._Milan | manager | Siniša_Mihajlović</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli's current club is AC Milan, which is managed by Siniša Mihajlović.</lex>
+      <lex comment="good" lid="Id2">Siniša Mihajlović manages A. C. Milan where Alessio Romagnoli currently plays.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli is currently with A.C. Milan whose manager is Sinisa Mihajlovic.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id146" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | position | Defender_(association_football)</otriple>
+        <otriple>Alessio_Romagnoli | clubs | A.S._Roma</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | position | Defender_(football)</mtriple>
+        <mtriple>Alessio_Romagnoli | club | A.S._Roma</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli is a defender for A.S. Roma.</lex>
+      <lex comment="good" lid="Id2">Alessio Rmagnoli was a defender for AS Roma.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli plays for A.S. Roma as a defender.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id147" size="2">
+      <originaltripleset>
+        <otriple>Alessio_Romagnoli | position | Defender_(association_football)</otriple>
+        <otriple>Alessio_Romagnoli | clubs | "→ Sampdoria"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alessio_Romagnoli | position | Defender_(football)</mtriple>
+        <mtriple>Alessio_Romagnoli | club | U.C._Sampdoria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alessio Romagnoli plays for the club U.C. Sampdoria as one of the team's Defenders.</lex>
+      <lex comment="good" lid="Id2">Alessio Romagnoli plays for the club U.C. Sampdoria as a defender.</lex>
+      <lex comment="good" lid="Id3">Alessio Romagnoli, a defender, played for the club UC Sampdoria.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id148" size="2">
+      <originaltripleset>
+        <otriple>Alex_Plante | placeOfBirth | Brandon,_Manitoba</otriple>
+        <otriple>Alex_Plante | birthYear | "1989"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | birthPlace | Brandon,_Manitoba</mtriple>
+        <mtriple>Alex_Plante | birthYear | 1989</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in Brandon, Manitoba in 1989.</lex>
+      <lex comment="good" lid="Id2">Alex Plante's birth place is Brandon Manitoba, where he was born in 1989.</lex>
+      <lex comment="good" lid="Id3">Alex Plante was born in 1989 in Brandon, Manitoba.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id149" size="2">
+      <originaltripleset>
+        <otriple>Alex_Plante | placeOfBirth | Brandon,_Manitoba</otriple>
+        <otriple>Alex_Plante | team | Anyang_Halla</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | birthPlace | Brandon,_Manitoba</mtriple>
+        <mtriple>Alex_Plante | club | Anyang_Halla</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante has played for the club Anyang Halla and was born in Brandon Manitoba.</lex>
+      <lex comment="good" lid="Id2">Alex Plante was born in Brandon, Manitoba and plays for Anyan Halla.</lex>
+      <lex comment="good" lid="Id3">Alex Plante was born in Brandon, Manitoba and played for Anyang Halla.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id150" size="2">
+      <originaltripleset>
+        <otriple>Alex_Plante | placeOfBirth | Brandon,_Manitoba</otriple>
+        <otriple>Brandon,_Manitoba | leaderName | Larry_Maguire</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | birthPlace | Brandon,_Manitoba</mtriple>
+        <mtriple>Brandon,_Manitoba | leaderName | Larry_Maguire</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Larry Maguire is the leader of Brandon, Manitoba, the birthplace of Alex Plante.</lex>
+      <lex comment="good" lid="Id2">Alex Plante was born in Brandon, Manitoba where the leader is Larry Maguire.</lex>
+      <lex comment="good" lid="Id3">Larry Maguire is the leader in Brandon, Manitoba which is where Alex Plante was born.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id151" size="2">
+      <originaltripleset>
+        <otriple>Alex_Plante | birthYear | "1989"^^xsd:gYear</otriple>
+        <otriple>Alex_Plante | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | birthYear | 1989</mtriple>
+        <mtriple>Alex_Plante | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in Canada in 1989.</lex>
+      <lex comment="good" lid="Id2">Alex Plante was born in 1989 in Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id152" size="2">
+      <originaltripleset>
+        <otriple>Alex_Plante | birthYear | "1989"^^xsd:gYear</otriple>
+        <otriple>Alex_Plante | placeOfBirth | Manitoba</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | birthYear | 1989</mtriple>
+        <mtriple>Alex_Plante | birthPlace | Manitoba</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in 1989 in Manitoba.</lex>
+      <lex comment="good" lid="Id2">Alex Plante was born in Manitoba in 1989.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id153" size="2">
+      <originaltripleset>
+        <otriple>Alex_Plante | team | Anyang_Halla</otriple>
+        <otriple>Alex_Plante | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | club | Anyang_Halla</mtriple>
+        <mtriple>Alex_Plante | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in Canada and plays for Anyang Halla.</lex>
+      <lex comment="good" lid="Id2">Alex Plante, who was born in Canada, played for the club Anyang Halla.</lex>
+      <lex comment="good" lid="Id3">Alex Plante who has played for the club Anyang Halla was born in Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id154" size="2">
+      <originaltripleset>
+        <otriple>Alex_Plante | team | Anyang_Halla</otriple>
+        <otriple>Alex_Plante | placeOfBirth | Manitoba</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | club | Anyang_Halla</mtriple>
+        <mtriple>Alex_Plante | birthPlace | Manitoba</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in Manitoba and his club is Anyang Halla.</lex>
+      <lex comment="good" lid="Id2">Alex Plante, who was born in Manitoba, has played for the club Anyang Halla.</lex>
+      <lex comment="good" lid="Id3">Born in Manitoba, Alex Plante played for Anyang Halla club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id155" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | team | Anadolu_Efes_S.K.</otriple>
+        <otriple>Alex_Tyus | league | Euroleague</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | club | Anadolu_Efes_S.K.</mtriple>
+        <mtriple>Alex_Tyus | league | Euroleague</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus plays in the Euroleague and also for Anadolu Efes SK.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus plays for the Euroleague club Anadolu Efes SK.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus played for Anadolu Efes SK in the Euroleague.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id156" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | team | Anadolu_Efes_S.K.</otriple>
+        <otriple>Alex_Tyus | league | Turkish_Basketball_Super_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | club | Anadolu_Efes_S.K.</mtriple>
+        <mtriple>Alex_Tyus | league | Turkish_Basketball_Super_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus has played for Anadolu Efes Sk in the Turkish Basketball Super League.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus plays for Anadolu Efes SK in the Turkish Basketball Super League.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus played for the club Anadolu Efes S.K and he plays in the Turkish Basketball Super League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id157" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | team | Maccabi_Tel_Aviv_B.C.</otriple>
+        <otriple>Alex_Tyus | dateOfBirth | "1988-01-08"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | club | Maccabi_Tel_Aviv_B.C.</mtriple>
+        <mtriple>Alex_Tyus | birthDate | 1988-01-08</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus was born on 8th January 1988 and played for Maccabi Tel Aviv B.C.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus was born on 8th January 1988 and plays for the club Maccabi Tel Aviv BC.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus, who was born on 8 January 1988 and his club is Maccabi Tel Aviv BC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id158" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | team | Pallacanestro_Cantù</otriple>
+        <otriple>Alex_Tyus | dateOfBirth | "1988-01-08"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | club | Pallacanestro_Cantù</mtriple>
+        <mtriple>Alex_Tyus | birthDate | 1988-01-08</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus was born on the 8th January 1988 and plays for the club Pallacanestro Cantu.</lex>
+      <lex comment="good" lid="Id2">Born on January 8th 1988, Alex Tyus plays for the club Pallacanestro Cantu.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus was born on the 8th January 1988 and his club is Pallacanestro Cantu.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id159" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | team | Pallacanestro_Cantù</otriple>
+        <otriple>Alex_Tyus | league | Euroleague</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | club | Pallacanestro_Cantù</mtriple>
+        <mtriple>Alex_Tyus | league | Euroleague</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus belongs to the Pallacanestro Cantu club, which is in the Euroleague.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus plays in the Euroleague for the club Pallacanestro Cantù.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus plays in the Euroleague for club Pallacanestro Cantu.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id160" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | team | Pallacanestro_Cantù</otriple>
+        <otriple>Alex_Tyus | league | Turkish_Basketball_Super_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | club | Pallacanestro_Cantù</mtriple>
+        <mtriple>Alex_Tyus | league | Turkish_Basketball_Super_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus plays for Pallacanestro Cantu in the Turkish Basketball Super League.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus plays with the club Pallacanestro Cantù in the Turkish Basketball Super League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id161" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | team | Pallacanestro_Cantù</otriple>
+        <otriple>Pallacanestro_Cantù | league | Lega_Basket_Serie_A</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | club | Pallacanestro_Cantù</mtriple>
+        <mtriple>Pallacanestro_Cantù | league | Lega_Basket_Serie_A</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus belongs to the club, Pallacanestro Cantu, in the Lega Basket Serie A league.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus plays for Pallacanestro Cantu of the Lega Basket Serie A.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus plays for the club Pallacanestro Cantù which is in the Lega Basket Serie A league.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id162" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | league | Euroleague</otriple>
+        <otriple>Alex_Tyus | team | Maccabi_Ashdod_B.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | league | Euroleague</mtriple>
+        <mtriple>Alex_Tyus | club | Maccabi_Ashdod_B.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus is in the Euroleague and plays for Maccabi Ashdod B.C.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus is in the Euroleague with club Maccabi Ashdod BC.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus has played in the Euroleague and for the Maccabi Ashdod B.C.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id163" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | league | Euroleague</otriple>
+        <otriple>Alex_Tyus | team | Maccabi_Tel_Aviv_B.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | league | Euroleague</mtriple>
+        <mtriple>Alex_Tyus | club | Maccabi_Tel_Aviv_B.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus plays in the Euroleague for the club, Maccabi Tel Aviv B.C.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus, now in the Euroleague, played for Maccabi Tel Aviv B.C.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus, who played for Maccabi Tel Aviv B.C. , plays in the Euroleague.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id164" size="2">
+      <originaltripleset>
+        <otriple>Alex_Tyus | league | Turkish_Basketball_Super_League</otriple>
+        <otriple>Alex_Tyus | team | Maccabi_Tel_Aviv_B.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Tyus | league | Turkish_Basketball_Super_League</mtriple>
+        <mtriple>Alex_Tyus | club | Maccabi_Tel_Aviv_B.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Tyus plays for the club, Maccabi Tel Aviv B.C which is in the Turkish Basketball Super league.</lex>
+      <lex comment="good" lid="Id2">Alex Tyus has played in the Turkish Basketball Super League and has also represented the club Maccabi Tel Aviv BC.</lex>
+      <lex comment="good" lid="Id3">Alex Tyus plays for Maccabi Tel Aviv B.C. in the Turkish Basketball Super League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id165" size="2">
+      <originaltripleset>
+        <otriple>Brandon,_Manitoba | leaderName | Conservative_Party_of_Canada</otriple>
+        <otriple>Alex_Plante | placeOfBirth | Brandon,_Manitoba</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Brandon,_Manitoba | leaderName | Conservative_Party_of_Canada</mtriple>
+        <mtriple>Alex_Plante | birthPlace | Brandon,_Manitoba</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in Brandon, Manitoba, which is led by the Conservative Party of Canada.</lex>
+      <lex comment="good" lid="Id2">The Conservative Party of Canada is the leader of Brandon, Manitoba, where Alex Plante was born.</lex>
+      <lex comment="good" lid="Id3">Alex Plante's birth place is Brandon, Manitoba where the leader is the Conservative Party of Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id166" size="2">
+      <originaltripleset>
+        <otriple>Brandon,_Manitoba | leaderName | Drew_Caldwell</otriple>
+        <otriple>Alex_Plante | placeOfBirth | Brandon,_Manitoba</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Brandon,_Manitoba | leaderName | Drew_Caldwell</mtriple>
+        <mtriple>Alex_Plante | birthPlace | Brandon,_Manitoba</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in Brandon, Manitoba where the leader is Drew Caldwell.</lex>
+      <lex comment="good" lid="Id2">Alex Plante's birth place is Brandon, Manitoba where the leader is Drew Caldwell.</lex>
+      <lex comment="good" lid="Id3">Drew Calder is a leader in Brandon, Manitoba where Alex Plante was born.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id167" size="2">
+      <originaltripleset>
+        <otriple>Budapest | country | Hungary</otriple>
+        <otriple>Akeem_Adams | deathPlace | Budapest</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Budapest | country | Hungary</mtriple>
+        <mtriple>Akeem_Adams | deathPlace | Budapest</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams died in Budapest, Hungary.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams died in the Hungarian ciry of Budapest.</lex>
+      <lex comment="good" lid="Id3">Akeem Adams died in the city of Budapest, Hungary.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id168" size="2">
+      <originaltripleset>
+        <otriple>C.D._FAS | league | Salvadoran_Primera_División</otriple>
+        <otriple>Abner_(footballer) | team | C.D._FAS</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>C.D._FAS | league | Salvadoran_Primera_División</mtriple>
+        <mtriple>Abner_(footballer) | club | C.D._FAS</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner plays for CD FAS in the Salvadoran Primera Division.</lex>
+      <lex comment="good" lid="Id2">Abner is a footballer for the CD FAS club whose league is the Salvadoran Primera Divison.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id169" size="2">
+      <originaltripleset>
+        <otriple>C.D._FAS | position | Salvadoran_Primera_División</otriple>
+        <otriple>Abner_(footballer) | team | C.D._FAS</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>C.D._FAS | position | Salvadoran_Primera_División</mtriple>
+        <mtriple>Abner_(footballer) | club | C.D._FAS</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner is a footballer for the CD FAS club, which is a member team of the Salvadoran Primera Division.</lex>
+      <lex comment="good" lid="Id2">C.D FAS play in the Salvadoran Primera Division and is a former club of the footballer Abner.</lex>
+      <lex comment="good" lid="Id3">Abner plays for CD FAS in the Salvadoran Primera Division.</lex>
+      <lex comment="good" lid="Id4">Abner is a footballer for the CD FAS club which plays in the Salvadoran Primera division.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id170" size="2">
+      <originaltripleset>
+        <otriple>Canada | anthem | O_Canada</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | anthem | O_Canada</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard was born in Canada, where the national anthem is 'O Canada'.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard was born in Canada where the national anthem is called "O Canada".</lex>
+      <lex comment="good" lid="Id3">Aaron Boogaard's birthplace is Canada where the national anthem is O Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id171" size="2">
+      <originaltripleset>
+        <otriple>Canada | anthem | O_Canada</otriple>
+        <otriple>Adam_McQuaid | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | anthem | O_Canada</mtriple>
+        <mtriple>Adam_McQuaid | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born in Canada where the national anthem is O Canada.</lex>
+      <lex comment="good" lid="Id2">Adam McQuaid came from Canada whose anthem is O Canada.</lex>
+      <lex comment="good" lid="Id3">Canada is the birthplace of Adam McQuaid and their national anthem is O Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id172" size="2">
+      <originaltripleset>
+        <otriple>Canada | anthem | O_Canada</otriple>
+        <otriple>Alex_Plante | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | anthem | O_Canada</mtriple>
+        <mtriple>Alex_Plante | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The national anthem of Canada, where Alex Plante was born, is O Canada.</lex>
+      <lex comment="good" lid="Id2">Alex Plante was born in Canada where the country's anthem is O Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id173" size="2">
+      <originaltripleset>
+        <otriple>Canada | ethnicGroup | Asian_Canadians</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | ethnicGroup | Asian_Canadians</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Asian Canadians are an ethnic group in Canada which is the birthplace of Aaron Boogaard.</lex>
+      <lex comment="good" lid="Id2">Asian Canadians are one of the ethnic groups in Canada which is the birthplace of Aaron Boogaard.</lex>
+      <lex comment="good" lid="Id3">Asian Canadians are one of the ethnic groups in Canada which is where Aaron Boogaard was born.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id174" size="2">
+      <originaltripleset>
+        <otriple>Canada | language | English_language</otriple>
+        <otriple>Adam_McQuaid | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | language | English_language</mtriple>
+        <mtriple>Adam_McQuaid | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born in Canada where the English language is spoken.</lex>
+      <lex comment="good" lid="Id2">The English language is spoken in Canada which is the birthplace of Adam McQuaid.</lex>
+      </entry>
+    <entry category="Athlete" eid="Id175" size="2">
+      <originaltripleset>
+        <otriple>Canada | language | French_language</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | language | French_language</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard's birthplace is Canada where one of the languages used is French.</lex>
+      <lex comment="good" lid="Id2">The French language is spoken in Canada which is the birthplace of Aaron Boogaard.</lex>
+      <lex comment="good" lid="Id3">Canada, where one of the languages spoken is French, was the birthplace of Aaron Boogaard.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id176" size="2">
+      <originaltripleset>
+        <otriple>Canada | language | French_language</otriple>
+        <otriple>Adam_McQuaid | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | language | French_language</mtriple>
+        <mtriple>Adam_McQuaid | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Canada's spoken languages include French and is the birthplace of Adam McQuaid.</lex>
+      <lex comment="good" lid="Id2">French is a spoken language of Canada which is the birthplace of Adam McQuaid.</lex>
+      <lex comment="good" lid="Id3">The French language is spoken in Canada, the birthplace of Adam McQuaid.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id177" size="2">
+      <originaltripleset>
+        <otriple>Canada | language | Inuktitut</otriple>
+        <otriple>Adam_McQuaid | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | language | Inuktitut</mtriple>
+        <mtriple>Adam_McQuaid | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born in Canada where one of the spoken languages is Inuktitut.</lex>
+      <lex comment="good" lid="Id2">Canada uses the Inuktitut language and is the birthplace of Adam McQuaid.</lex>
+      <lex comment="good" lid="Id3">Canada is the birthplace of both Adam McQuaid and the Inuktitut language.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id178" size="2">
+      <originaltripleset>
+        <otriple>Canada | language | Slavey_language</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | language | Slavey_language</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Slavey language is used in Canada, the birthplace of Aaron Boogaard.</lex>
+      <lex comment="good" lid="Id2">Aaro Boogaard was born in Canada, where Slavey is one of the languages spoken.</lex>
+      <lex comment="good" lid="Id3">Aaron Boogaard came from Canada. The Slavey language is spoken in Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id179" size="2">
+      <originaltripleset>
+        <otriple>Canada | leaderName | Elizabeth_II</otriple>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | leaderName | Elizabeth_II</mtriple>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Canada is led by Elizabeth II and is the birthplace of Aaron Boogaard.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard was born in Canada where the leader is Elizabeth II.</lex>
+      <lex comment="good" lid="Id3">Aaron Boogaard was born in Canada, which is led by Elizabeth II.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id180" size="2">
+      <originaltripleset>
+        <otriple>Canada | leaderName | Elizabeth_II</otriple>
+        <otriple>Adam_McQuaid | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | leaderName | Elizabeth_II</mtriple>
+        <mtriple>Adam_McQuaid | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Canada is led by Elizabeth II and is where Adam McQuaid was born.</lex>
+      <lex comment="good" lid="Id2">Canada, which is led by Elizabeth II, is the birth place of Adam McQuaid.</lex>
+      <lex comment="good" lid="Id3">Adam McQuaid was born in Canada where the leader is Elizabeth II.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id181" size="2">
+      <originaltripleset>
+        <otriple>Canada | leaderName | Elizabeth_II</otriple>
+        <otriple>Alex_Plante | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | leaderName | Elizabeth_II</mtriple>
+        <mtriple>Alex_Plante | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in Canada, whose leaser is Elizabeth II.</lex>
+      <lex comment="good" lid="Id2">Canada, where the leader is Elizabeth II, was the birthplace of Alex Plante.</lex>
+      <lex comment="good" lid="Id3">Alex Plante was born in Canada, which is led by Elizabeth II.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id182" size="2">
+      <originaltripleset>
+        <otriple>FC_Dinamo_Batumi | manager | Levan_Khomeriki</otriple>
+        <otriple>Aleksandre_Guruli | clubs | FC_Dinamo_Batumi</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | FC_Dinamo_Batumi</otriple>
+        <otriple>FC_Dinamo_Batumi | manager | Levan_Khomeriki</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Dinamo_Batumi | manager | Levan_Khomeriki</mtriple>
+        <mtriple>Aleksandre_Guruli | club | FC_Dinamo_Batumi</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli played for FC Dinamo Batumi managed by Levan Khomeriki.</lex>
+      <lex comment="good" lid="Id2">Aleksandre Guruli plays for FC Dinamo Batumi managed by Levan Khomeriki.</lex>
+      <lex comment="good" lid="Id3">Aleksandre Guruli played for FC Dinamo Batumi, managed by Levan Khomeriki.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id183" size="2">
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | FC_Karpaty_Lviv</otriple>
+        <otriple>FC_Karpaty_Lviv | manager | Oleh_Luzhny</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>FC_Karpaty_Lviv | manager | Oleh_Luzhny</otriple>
+        <otriple>Aleksandre_Guruli | clubs | FC_Karpaty_Lviv</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Karpaty_Lviv | manager | Oleh_Luzhny</mtriple>
+        <mtriple>Aleksandre_Guruli | club | FC_Karpaty_Lviv</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli played for FC Karpaty Lviv who is managed by Oleh Luzhny.</lex>
+      <lex comment="good" lid="Id2">Aleksandre Guruli played for the club FC Karpaty Lviv, where the manager was Oleh Luzhny.</lex>
+      <lex comment="good" lid="Id3">Aleksandre Guruli played for FC Karpaty Lviv, which is managed by Oleh Luzhny.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id184" size="2">
+      <originaltripleset>
+        <otriple>FC_Samtredia | ground | Erosi_Manjgaladze_Stadium</otriple>
+        <otriple>Aleksandre_Guruli | clubs | FC_Samtredia</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | FC_Samtredia</otriple>
+        <otriple>FC_Samtredia | ground | Erosi_Manjgaladze_Stadium</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Samtredia | ground | Erosi_Manjgaladze_Stadium</mtriple>
+        <mtriple>Aleksandre_Guruli | club | FC_Samtredia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli has played for FC Samtredia, whose home ground is at the Erosi Manjgaladze Stadium.</lex>
+      <lex comment="good" lid="Id2">Aleksandre Guruli plays for FC Samtredia whose home ground is located in Erosi Manjgaladze Stadium.</lex>
+      <lex comment="good" lid="Id3">Aleksandre Guruli's club is FC Samtredia who play their home games at the Erosi Manjgaladze stadium.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id185" size="2">
+      <originaltripleset>
+        <otriple>FC_Spartak_Moscow | chairman | Sergey_Rodionov</otriple>
+        <otriple>Aleksandr_Prudnikov | youthclubs | FC_Spartak_Moscow</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Spartak_Moscow | chairman | Sergey_Rodionov</mtriple>
+        <mtriple>Aleksandr_Prudnikov | youthclub | FC_Spartak_Moscow</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The chairman of FC Spartak Moscow is Sergey Rodionov and Aleksandr Prudnikov played for their youth team.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov's youth football club was FC Spartak Moscow chaired by Sergey Rodionov.</lex>
+      <lex comment="good" lid="Id3">FC Spartak Moscow's chairman is Sergey Rodionov and Aleksandr Prunikov once played for the club's youth side.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id186" size="2">
+      <originaltripleset>
+        <otriple>FC_Spartak_Moscow | ground | Otkrytiye_Arena</otriple>
+        <otriple>Aleksandr_Prudnikov | clubs | FC_Spartak_Moscow</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandr_Prudnikov | team | FC_Spartak_Moscow</otriple>
+        <otriple>FC_Spartak_Moscow | ground | Otkrytiye_Arena</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Spartak_Moscow | ground | Otkrytiye_Arena</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Spartak_Moscow</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov played with the Spartak Moscow FC whose playing ground is the Otkrytiye Arena.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov plays for FC Spartak Moscow at the Otkrytiye Arena.</lex>
+      </entry>
+    <entry category="Athlete" eid="Id187" size="2">
+      <originaltripleset>
+        <otriple>FC_Spartak_Moscow | ground | Otkrytiye_Arena</otriple>
+        <otriple>Aleksandr_Prudnikov | youthclubs | FC_Spartak_Moscow</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Spartak_Moscow | ground | Otkrytiye_Arena</mtriple>
+        <mtriple>Aleksandr_Prudnikov | youthclub | FC_Spartak_Moscow</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov's youth football club was FC Spartak Moscow whose ground is at the Otkrytiye Arena.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov played at Otkrytiye Arena for FC Spartak Moscow's youth team.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Prudnikov's played youth football for FC Spartak Moscow in the Otkrytiye Arena .</lex>
+    </entry>
+    <entry category="Athlete" eid="Id188" size="2">
+      <originaltripleset>
+        <otriple>FC_Terek_Grozny | ground | Grozny</otriple>
+        <otriple>Aleksandr_Prudnikov | team | FC_Terek_Grozny</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Terek_Grozny | ground | Grozny</mtriple>
+        <mtriple>Aleksandr_Prudnikov | club | FC_Terek_Grozny</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Prudnikov played for FC Terek Grozny based in Grozny.</lex>
+      <lex comment="good" lid="Id2">Aleksandr Prudnikov plays for FC Terek Grozny who have their home ground in Grozny.</lex>
+      <lex comment="good" lid="Id3">FC Terek Grozny, whose ground is located in Grozny, is the former club of the player Aleksandr Prydnikov.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id189" size="2">
+      <originaltripleset>
+        <otriple>FC_Torpedo_Moscow | season | 2014–15_Russian_Premier_League</otriple>
+        <otriple>Aleksandr_Chumakov | team | FC_Torpedo_Moscow</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>FC_Torpedo_Moscow | season | 2014–15_Russian_Premier_League</otriple>
+        <otriple>Aleksandr_Chumakov | clubs | FC_Torpedo_Moscow</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Torpedo_Moscow | season | 2014–15_Russian_Premier_League</mtriple>
+        <mtriple>Aleksandr_Chumakov | club | FC_Torpedo_Moscow</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandr Chumakov has played for FC Torpedo Moscow who played the 2014–15 season in the Russian Premier League.</lex>
+      <lex comment="good" lid="Id2">The club Aleksandr Chumakov plays for is FC Torpedo Moscow who played in the 2014-15 Russian Premier league.</lex>
+      <lex comment="good" lid="Id3">Aleksandr Chumakov played for the club FC Torpedo Moscow, which was part of the Russian Premier League in the 2014-15 season.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id190" size="2">
+      <originaltripleset>
+        <otriple>Houston_Texans | locationCity | Texas</otriple>
+        <otriple>Akeem_Dent | formerTeam | Houston_Texans</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Houston_Texans | city | Texas</otriple>
+        <otriple>Akeem_Dent | formerTeam | Houston_Texans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Houston_Texans | city | Texas</mtriple>
+        <mtriple>Akeem_Dent | formerTeam | Houston_Texans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Dent used to play for the Houston Texans who are based in Texas.</lex>
+      <lex comment="good" lid="Id2">Akeem Dent used to play for the Houston Texans, who play in Texas.</lex>
+      <lex comment="good" lid="Id3">Houston Texans reside in Texas, which is Akeem Dent's former team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id191" size="2">
+      <originaltripleset>
+        <otriple>Los_Angeles_Rams | locationCity | Los_Angeles</otriple>
+        <otriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Los_Angeles_Rams | city | Los_Angeles</otriple>
+        <otriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Los_Angeles_Rams | city | Los_Angeles</mtriple>
+        <mtriple>Akeem_Ayers | formerTeam | Los_Angeles_Rams</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers once played for the Los Angeles Rams, who are located in LA.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers has played for the Los Angeles Rams, the club which is located in LA.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers used to play for Los Angeles Rams who are based in LA.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id192" size="2">
+      <originaltripleset>
+        <otriple>Motherwell_F.C. | ground | Fir_Park</otriple>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Motherwell_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Motherwell_F.C. | ground | Fir_Park</mtriple>
+        <mtriple>Alan_Martin_(footballer) | club | Motherwell_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Motherwell FC, who play their home games at Fir Park, is a former club of footballer Alan Martin.</lex>
+      <lex comment="good" lid="Id2">Fir Park is the home ground of Motherwell FC where Alan Martin plays football,,.</lex>
+      <lex comment="good" lid="Id3">Motherwell FC, former club of the player Alan Martin, play their home games at Fir Park.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id193" size="2">
+      <originaltripleset>
+        <otriple>Olympique_Lyonnais | chairman | Jean-Michel_Aulas</otriple>
+        <otriple>Aleksandre_Guruli | clubs | Olympique_Lyonnais</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | Olympique_Lyonnais</otriple>
+        <otriple>Olympique_Lyonnais | chairman | Jean-Michel_Aulas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Olympique_Lyonnais | chairman | Jean-Michel_Aulas</mtriple>
+        <mtriple>Aleksandre_Guruli | club | Olympique_Lyonnais</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli played for the Olympique Lyonnais, whose chairman is Jean-Michel Aulas.</lex>
+      <lex comment="good" lid="Id2">Aleksandre Guruli played for the Olympique Lyonnais club whose chairman is Jean-Michel Aulas.</lex>
+      <lex comment="good" lid="Id3">Aleksandre Guruli's club is Olympique Lyonnais where Jean-Michel Aulas is the chairman.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id194" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | Orange_County_Blues_FC</otriple>
+        <otriple>Orange_County_Blues_FC | manager | Oliver_Wyss</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Orange_County_Blues_FC | manager | Oliver_Wyss</otriple>
+        <otriple>Akeem_Priestley | clubs | Orange_County_Blues_FC</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Orange_County_Blues_FC | manager | Oliver_Wyss</mtriple>
+        <mtriple>Akeem_Priestley | club | Orange_County_Blues_FC</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley is connected to the Orange County Blues Football Club which is managed by Oliver Wyss.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley plays for Orange County Blues FC which is managed by Oliver Wyss.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley played for the Orange County Blues FC, the manager of which is Oliver Wyss.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id195" size="2">
+      <originaltripleset>
+        <otriple>Real_Madrid_Castilla | manager | Luis_Miguel_Ramis</otriple>
+        <otriple>Abner_(footballer) | team | Real_Madrid_Castilla</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Real_Madrid_Castilla | manager | Luis_Miguel_Ramis</mtriple>
+        <mtriple>Abner_(footballer) | club | Real_Madrid_Castilla</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Footballer, Abner plays for the club Real Madrid Castilla managed by Luis Miguel Ramis.</lex>
+      <lex comment="good" lid="Id2">Abner played for the football club Real Madrid Castilla which is managed by Luis Miguel Ramis.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id196" size="2">
+      <originaltripleset>
+        <otriple>RoPS | league | Veikkausliiga</otriple>
+        <otriple>Akeem_Priestley | clubs | RoPS</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>RoPS | league | Veikkausliiga</otriple>
+        <otriple>Akeem_Priestley | team | RoPS</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>RoPS | league | Veikkausliiga</mtriple>
+        <mtriple>Akeem_Priestley | club | RoPS</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley’s club is RoPS which plays in the Veikkausliiga.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley plays for the club RoPS in the Veikkausliiga league.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley played for club RoPS in the Veikkausliiga.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id197" size="2">
+      <originaltripleset>
+        <otriple>Shabab_Al-Ordon_Club | league | Jordan_Premier_League</otriple>
+        <otriple>Alaa_Abdul-Zahra | clubs | Shabab_Al-Ordon_Club</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Shabab_Al-Ordon_Club | league | Jordan_Premier_League</mtriple>
+        <mtriple>Alaa_Abdul-Zahra | club | Shabab_Al-Ordon_Club</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra plays for Shabab Al-Ordon Club in the Jordan Premier league.</lex>
+      <lex comment="good" lid="Id2">Alaa Abdul-Zahra's club is Shabab Al-Ordon Club who play in the Jordan Premier League.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul-Zahra plays for Shabab Al-Ordon Club in the Jordan Permier League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id198" size="2">
+      <originaltripleset>
+        <otriple>Tennessee_Titans | locationCity | Nashville,_Tennessee</otriple>
+        <otriple>Akeem_Ayers | debutTeam | Tennessee_Titans</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Tennessee_Titans | city | Nashville,_Tennessee</otriple>
+        <otriple>Akeem_Ayers | debutTeam | Tennessee_Titans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Tennessee_Titans | city | Nashville,_Tennessee</mtriple>
+        <mtriple>Akeem_Ayers | debutTeam | Tennessee_Titans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers made his debut with the Tennessee Titans who are based in Nashville, Tennessee.</lex>
+      <lex comment="good" lid="Id2">The debut team of Akeem Ayers was the Tennessee Titans who are based in Nashville, Tennessee.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers made his debut for the Tennessee Titans who are based in Nashville, Tennessee.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id199" size="2">
+      <originaltripleset>
+        <otriple>Tennessee_Titans | city | Nashville,_Tennessee</otriple>
+        <otriple>Akeem_Ayers | formerTeam | Tennessee_Titans</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Tennessee_Titans | locationCity | Nashville,_Tennessee</otriple>
+        <otriple>Akeem_Ayers | formerTeam | Tennessee_Titans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Tennessee_Titans | city | Nashville,_Tennessee</mtriple>
+        <mtriple>Akeem_Ayers | formerTeam | Tennessee_Titans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers' former team was Tennessee Titans who are based in Nashville, Tennessee.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers used to play for Tennessee Titans who are based in the city of Nashville, Tennessee.</lex>
+      <lex comment="good" lid="Id3">Akeem Ayers once played for the Tennessee Titans who are based in the city of Nashville, Tennessee.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id200" size="2">
+      <originaltripleset>
+        <otriple>U.S._Città_di_Palermo | manager | Giuseppe_Iachini</otriple>
+        <otriple>Abel_Hernández | team | U.S._Città_di_Palermo</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>U.S._Città_di_Palermo | manager | Giuseppe_Iachini</mtriple>
+        <mtriple>Abel_Hernández | club | U.S._Città_di_Palermo</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernández plays for the club, U.S. Città di Palermo which is managed by Guiseppe Iachini.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez has played for the club US Citta di Palermo whose manager is Giuseppe Iachini.</lex>
+      <lex comment="good" lid="Id3">Abel Hernandez plays for the club, U.S. Citta di Palermo, managed by Giuseppe lachini.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id201" size="2">
+      <originaltripleset>
+        <otriple>Akeem_Adams | team | United_Petrotrin_F.C.</otriple>
+        <otriple>United_Petrotrin_F.C. | ground | Palo_Seco</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>United_Petrotrin_F.C. | ground | Palo_Seco</otriple>
+        <otriple>Akeem_Adams | clubs | United_Petrotrin_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_Petrotrin_F.C. | ground | Palo_Seco</mtriple>
+        <mtriple>Akeem_Adams | club | United_Petrotrin_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams is a member of the United Petrotrin F.C. club who play in Palo Seco.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams played for United Petrotrin FC whose ground is Palo Seco.</lex>
+      <lex comment="good" lid="Id3">Akeem Adams is a member of the United Petrotrin F.C. club whose ground is Palo Seco.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id202" size="2">
+      <originaltripleset>
+        <otriple>United_Petrotrin_F.C. | ground | Palo_Seco_Velodrome</otriple>
+        <otriple>Akeem_Adams | clubs | United_Petrotrin_F.C.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>United_Petrotrin_F.C. | ground | Palo_Seco_Velodrome</otriple>
+        <otriple>Akeem_Adams | team | United_Petrotrin_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_Petrotrin_F.C. | ground | Palo_Seco_Velodrome</mtriple>
+        <mtriple>Akeem_Adams | club | United_Petrotrin_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Adams played for United Petrotrin FC whose ground is Palo Seco Velodrome.</lex>
+      <lex comment="good" lid="Id2">Akeem Adams played for United Petrotrin FC, who were playing in Palo Seco Velodrome.</lex>
+    </entry>
+  </entries>
+</benchmark>
