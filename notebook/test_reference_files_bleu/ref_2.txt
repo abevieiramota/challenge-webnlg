@@ -318,7 +318,7 @@ a.s . gubbio 1910 has 5300 members and a ground in gubbio .
 the as livorno club in serie b plays in livorno .
 a.s . livorno calcio is managed by christian panucci who plays at the a.s . roma .
 
-acf fiorentina ( with full name being acf fiorentina s.p.a . ) has 47290 members .
+acf fiorentina ( with full name being acf fiorentina s.p . a. ) has 47290 members .
 aek athen 's ground is in greece and has 69618 members .
 aek athens f.c . play in the superleague greece and have the olympic stadium ( athens ) as their home ground .
 jong ajax are the tenants of the de toekomst sportpark which is the ground of afc ajax ( amateurs ) .
@@ -345,7 +345,7 @@ julius springer founded springer science and business media which publishes abha
 alcatraz versus the evil librarians is a fantasy book , with the isbn number of 0 - 439 - 92550 - 9 .
 the book alcatraz versus the evil librarians has the oclc number of 7877110 and the isbn number 0 - 439 - 92550 - 9 .
 " alcatraz versus the scrivener 's bones , " written by brandon sanderson , followed " alcatraz versus the evil librarians . " .
-the american journal of mathematics , dedicated to mathematical study , is sometimes shortened to am.j.math .
+the american journal of mathematics , dedicated to mathematical study , is sometimes shortened to am . j.math .
 
 ' 1634 the ram rebellion ' was written in the united states where the capital is washington d. c.
 
@@ -413,7 +413,7 @@ written by qiu xiaolong , a loyal character dancer has the isbn number 1 - 56947
 a loyal character dancer is written in english and published by soho press from the united states .
 
 a severed wasp , with 388 pages , was published in hardcover . its oclc number is 8805735 .
-abh.math.semin.univ.hambg is the abbreviation for abhandlungen aus dem mathematischen seminar der universitt hamburg . which has the issn number1865 - 8784 as well as the lccn number 32024459 .
+abh . math . semin . univ . hambg is the abbreviation for abhandlungen aus dem mathematischen seminar der universitt hamburg . which has the issn number1865 - 8784 as well as the lccn number 32024459 .
 aenir is written in english and followed up by above the veil which is from australia .
 garth nix wrote the novel aenir which was followed by above the veil that was written in english .
 above the veil , written by garth nix , is 248 pages long and available in hardcover .
@@ -441,7 +441,7 @@ the ground of a.e . dimitra efxeinoupolis is located in efeinoupoli , has 1500 m
 association football club blackpool ( abbreviated to a.f.c . blackpool ) has 1500 members and is located in blackpool .
 afc blackpool have had stuart parker as their manager , he was also a footballer for chesterfield fc and runcorn fc halton .
 dave challinor played for stockport county f.c . , is at colwyn bay fc and manages a.f.c fylde .
-the full name of a.s . livorno calcio is livorno calcio s.p.a , they have 19238 members and their ground is in livorno , italy .
+the full name of a.s . livorno calcio is livorno calcio s.p . a , they have 19238 members and their ground is in livorno , italy .
 a.s . livorno calcio is in serie b and is managed by christian panucci . carpi f.c . 1909 won the serie b championship previously .
 a.s . livorno calcio are managed by christian panucci , who also played for chelsea f.c . , and was attached to the real madrid cf club .
 
@@ -530,7 +530,7 @@ the four world trade center is the headquarters of the port authority of new yor
 atlantic city international airport can be found in egg harbor township , new jersey of the u.s.a . and it has a runway that 's 3.048 long .
 
 
-ahora madrid is the leading party of madrid , spain . adolfo surez madridbarajas airport is found in madrid .
+ahora madrid is the leading party of madrid , spain . adolfo surez madrid   barajas airport is found in madrid .
 the people 's party is the lead party of san sebastian de los reyes , spain where the adolfo suarez madrid - barajas airport is located .
 
 
@@ -648,7 +648,7 @@ atlantic city , new jersey is located within the united states which the biggest
 albuquerque , new mexico is in the united states , where asian americans are an ethnic group . albuquerque , new mexico is led by the new mexico senate , where john snchez is one of the leaders .
 the city of albany is part of benton county , oregon , in the united states , where washington d.c . is the capital , and where asian americans are one of the ethnic groups .
 
-albany , georgia is located in the united states where english is the official language.the native americans are an ethnic group within the united states .
+albany , georgia is located in the united states where english is the official language . the native americans are an ethnic group within the united states .
 the city of angola , indiana is located in the united states . some asian americans live there and the language spoken is english .
 english is the language of the united states , where there is an ethnic group called asian americans . also part of the us is the town of angola , which can be found in pleasant township , steuben county , indiana .
 
@@ -672,7 +672,7 @@ st vincent - st mary high school , akron , summit county , ohio , united states 
 
 abilene regional airport serves abilene , texas an f elevated 546 metres above sea level . its runway is called 17l/35r and its length is 2194.0 metres .
 adirondack regional airport serves the city of saranac lake and lake placid in new york . it is 507 m above sea level and its runway is 2003 m long .
-adolfo surez madridbarajas airport can be found in madrid , paracuellos de jarama , san sebastin de los reyes and alcobendas and is operated by enaire . the airport has a runway length of 3500 , which is named 18l/36r .
+adolfo surez madrid   barajas airport can be found in madrid , paracuellos de jarama , san sebastin de los reyes and alcobendas and is operated by enaire . the airport has a runway length of 3500 , which is named 18l/36r .
 agra airport in india is operated by the indian air force . it has the iata location identifier of agr and the icao identifier of viag .
 the us air force operates the al asad airbase in iraq . it has a runway length of 3,990 and it 's runway is named 08/26 .
 
@@ -766,7 +766,7 @@ batagor , found in indonesia , is a variation of the dish siomay . another varia
 batchoy is a soup dish from the philippines and is made with noodles , pork organs , vegetables , chicken , shrimp and beef .
 beef kway teow is a dish popular in singapore and indonesia . kway teow , beef tender loin , gula melaka , sliced , dried black beans , garlic , dark soy sauce , lengkuas , oyster sauce , soya sauce , chilli and sesame oil are the main ingredients .
 
-beef kway teow originates from singapore and indonesia.the main ingredients of the dish are : kway teow , beef tender loin , gula melaka , sliced , dried black beans , garlic , dark soy sauce , lengkuas , oyster sauce , soya sauce , chilli and sesame oil .
+beef kway teow originates from singapore and indonesia . the main ingredients of the dish are : kway teow , beef tender loin , gula melaka , sliced , dried black beans , garlic , dark soy sauce , lengkuas , oyster sauce , soya sauce , chilli and sesame oil .
 
 bhajji ( aka bhaji or bajji ) is from the karnataka region . it includes gram flour and vegetables .
 
@@ -840,11 +840,11 @@ baymax was created by american duncan rouleau and steven t. seagle . baymax is a
 
 the ground of a.s . gubbio 1910 is located in italy . in this country ; the language spoken is italian , rome is the capital , the inhabitants are called italians , and the leader is pietro grasso .
 italians inhabit italy , where the official language is italian . rome is the capital and one of the leaders is sergio mattarella . also in italy , is the ground of a.s . gubbio 1910 .
-arem - arem is nationwide dish in indonesia where indonesian is the spoken language , but originates from the island of java.the country 's vice - president is jusuf kalla and the local currency is indonesian rupiah .
+arem - arem is nationwide dish in indonesia where indonesian is the spoken language , but originates from the island of java . the country 's vice - president is jusuf kalla and the local currency is indonesian rupiah .
 asam pedas is from the sumatra and malay peninsula regions of malaysia . malaysia , with its capital city of kuala lumpur , is the home to both malay and malaysian chinese people .
 the dish asam pedas comes from the region of sumatra and the malay peninsula , malaysia ( capital kuala lumpur ) . ethnic groups of the region include malaysian indian and malaysian malay .
 asam pedas is a dish found in sumatra and malaysia . malaysian indians and malay are ethnic groups of malaysia , where the capital is kuala lumpur .
-asam pedas is a food from malaysia and can be found throughout the malaysian peninsula region.the country 's leader is abu zahar ujang and among its ethnic groups are the malay and malaysian indians .
+asam pedas is a food from malaysia and can be found throughout the malaysian peninsula region . the country 's leader is abu zahar ujang and among its ethnic groups are the malay and malaysian indians .
 bacon explosion originates from the kansas city metropolitan area of the united states . its main ingredients are bacon and sausage .
 
 the variant blt bacon sandwich includes : bread , bacon , and ketchup or brown sauce . it originates from the united kingdom and goes by the various names : bacon butty , bacon sarnie , rasher sandwich , bacon sanger , piece n ' bacon , bacon barm , bacon cob and bacon muffin .
@@ -874,7 +874,7 @@ alan bean is a us national born in wheeler , texas . he is a retired test pilot 
 william anders , a us national ( although born in british hong kong ) served as a crew member on the nasa operated apollo 8 , under commander frank borman .
 
 buzz aldrin , ( born glen ridge , new jerseyi is a us national who became a member of the nasa operated apollo 11 crew , having previously served as a fighter pilot .
-buzz aldrin was born in glen ridge , new jersey and graduated from mit , sc.d . in 1963 . he is a retired fighter pilot and was a member of the apollo 11 crew .
+buzz aldrin was born in glen ridge , new jersey and graduated from mit , sc . d. in 1963 . he is a retired fighter pilot and was a member of the apollo 11 crew .
 buzz aldrin was born in glen ridge , new jersey he is now retired but served as crew member on the nasa operated apollo 11 mission on which william anders was the backup pilot .
 
 
@@ -903,7 +903,7 @@ the atlantic city international airport in egg harbor township , n.j . in the un
 
 adirondack regional airport serves the city of saranac lake and lake placid both in new york . saranac lake is part of essex county where you will also find harriestown .
 
-agra airport is located in uttar pradesh(part of bundelkhand ) and operated by the indian air force.ram naik is the leader of uttar pradesh.the indian air force uses hal light combat helicopters .
+agra airport is located in uttar pradesh(part of bundelkhand ) and operated by the indian air force . ram naik is the leader of uttar pradesh . the indian air force uses hal light combat helicopters .
 al - taqaddum air base serves the city of fallujah in iraq . leaders in iraq include haider al - abadi and fuad masum and arabic is spoken in the country .
 200 public square was completed in 1985 , and is located in cleveland , cuyahoga county , ohio , united states .
 
@@ -965,7 +965,7 @@ edwin e. " buzz " aldrin jr was a fighter pilot who was born in glen ridge , new
 buzz aldrin was born on january 20 , 1930 in glen ridge , new jersey . he graduated from mit with a sc . d 1n 1963 ; served as a fighter pilot , and was a member of the apollo 11 crew . he spent 52 minutes in space .
 
 
-buzz aldrin was an american born in glen ridge , new jersey and graduated from massachusetts institute of technology with a sc.d in 1963 . he was a crew member of apollo 11 operated by nasa with william anders as the backup pilot .
+buzz aldrin was an american born in glen ridge , new jersey and graduated from massachusetts institute of technology with a sc . d in 1963 . he was a crew member of apollo 11 operated by nasa with william anders as the backup pilot .
 william anders was a us national who was born in british hong kong on 17 october 1933 . he became a test pilot and was a member of the crew aboard apollo 8 . he retired on 1 september 1969 .
 william anders was from the us and he was born in british hong kong . alongside frank borman , he crewed the nasa operated apollo 8 before he retired on1969 - 09 - 01 . apollo 8 's backup pilot was buzz aldrin .
 selected in 1963 by nasa as a test pilot , william anders was born in hong kong on october 17 1933 , retired in 1969 , and served as a crew member of apollo 8 spending 8820 minutes in space .
@@ -1390,7 +1390,7 @@ ridgewood , queens is the birthplace of abner w. sibal . he was a member of the 
 adam holloway served in the grenadier guards and fought in the gulf war . george h. w. bush was a commander in the gulf war .
 adam holloway was born in faversham , graduated from magdalene college , cambridge and is a member of the tory party .
 
-adam koc fought in the polishsoviet war which was a conflict within the russian civil war . leon trotsky was the commender in the polish - soviet war .
+adam koc fought in the polish   soviet war which was a conflict within the russian civil war . leon trotsky was the commender in the polish - soviet war .
 adonis georgiadis , was born in athens ( greece ) , and worked as the deputy parliamentary spokesman for the popular orthodox rally .
 adonis georgiadis , born athens ( greece ) , held office as the minister for health .
 greek new democracy party ( represented by the color blue ) member adonis georgiadis was in office during prime minister antonis samaras ' leadership .
@@ -1673,7 +1673,7 @@ acoustic musician alex day plays with the bands chameleon circuit and the musici
 chameleon circuit member and electronic musician alex day began in 2006 and is associated with artist charlie mcdonnell .
 alfred garth jones was born in 1872 , in manchester ( england ) and died in london .
 alfredo zitarrosa died in montevideo , uruguay , where daniel martinez is a political leader . uruguayans is a demonym for uruguay .
-alfredo zitarrosa 's birth place was uruguay and has a recording label in rca records.he started out as a solo singer and plays candombe musical genre .
+alfredo zitarrosa 's birth place was uruguay and has a recording label in rca records . he started out as a solo singer and plays candombe musical genre .
 flibbertigibbet band member , bajik associate and folk artist , alison o'donnell , became active in 1963 .
 folk musician alison o'donnell , who began her career in 1963 , has played with the bands mellow candle and head south by weaving .
 alison o'donnell was once signed to london based , deram records . a jazz musician , alison o'donnell is signed with the label , floating world records .
@@ -1693,7 +1693,7 @@ agustin barboza was born in paraguay and died in asuncion , part of gran asuncin
 country musician al anderson , twho plays with the band nrbq , played once with the wildweeds . the banjo instrument is closely associated with country music .
 the musical genre of allen forrest is hip hop music which has its origins in disco and its stylistic origins in funk . drum and bass is a derivative of hip hop music .
 alfred garth jones was born in manchester , great manchester , england , where the majority is the labour party .
-aaron turner is a performer of the musical genre post metal , which uses cello as a musical instrument.he played with twilight and house of low culture bands .
+aaron turner is a performer of the musical genre post metal , which uses cello as a musical instrument . he played with twilight and house of low culture bands .
 black metal electric guitarist aaron turner was a member of twilight . black metal is the basis for death metal fusion .
 african americans are an ethnic group in the united states , where albennie jones was born . albennie jones performs in the rhythm and blues genre which originated from blues music .
 american civil war soldier and purple heart recipient aaron s. daggett , was born in maine and died in west roxbury .
@@ -1778,9 +1778,9 @@ aleksandr prudnikov 's club is fc dynamo moscow although he previously played fo
 born in the soviet union and representing his country at international football , aleksandr chumakov played for fc torpedo moscow , who competed in the 2014 - 15 russian premier league and whose manager is valery petrakov .
 akeem adams is a member of the united petrotrin f.c . club who have their ground at palo seco . he plays for ferencvarosi tc which is managed by thomas doll and chaired by gabor kubatov .
 akeem adams was part of the team ferencvarosi tc , which is managed by thomas doll and where the chairman is gabor kubatov . adams ' former clubs also include united petrotrin fc , whose home ground is the palo seco velodrome .
-19255 1994 vk8 has a mass of 5.6kg , an orbital period of 8788850000.0 and its epoch date was on 31 december 2006.it has a periapsis of 6155910000000.0 and its apoapsis is 6603633000.0 km .
+19255 1994 vk8 has a mass of 5.6 kg , an orbital period of 8788850000.0 and its epoch date was on 31 december 2006.it has a periapsis of 6155910000000.0 and its apoapsis is 6603633000.0 km .
 canadian james craig watson discovered 101 helena on august 15th , 1868 . he attended the university of michigan and died in madison , wisconsin .
-james criag watson originates from canada and died from peritonitis in madison , wisconsin.his alma mater was the university of michigan and he discovered 101 helena .
+james criag watson originates from canada and died from peritonitis in madison , wisconsin . his alma mater was the university of michigan and he discovered 101 helena .
 allan sandage was a doctoral student of walter baade , the discoverer of 1036 ganymed . baade was born in the german empire and studied at the university of gottingen , the city where he died .
 allan sandage and halton arp were doctoral students of walter baade , the discoverer of 1036 ganymed . baade was born in the german empire and his alma mater was the university of gottingen .
 
@@ -1789,7 +1789,7 @@ canadian james craig watson discovered 103 hera which has a periapsis of 371,240
 107 camilla has the epoch date of 31 december 2006 and was discovered by b zellner . with an orbital period of 2368.05 days , it has an apoapsis of 560937000.0 kms and a periapsis of 479343000.0 kms .
 31 december 2006 is the epoch date of 107 camilla which was discovered by c woods and has an orbital period of 2368.05 days . 107 camilla has an apoapsis of 560937000.0 kms and a periapsis of 479343000.0 kms .
 107 camilla , which was discovered by f vilas and has the epoch date of 31 december 2006 , has an orbital period of 2368.05 days . it has a periapsis iof 479343000.0 kms and an apoapsis of 560937000.0 kms .
-the british , n.r . pogson was born in nottingham and died in chennai.he discovered 107 camilla which has an absolute magnitude of 7.08 .
+the british , n.r . pogson was born in nottingham and died in chennai . he discovered 107 camilla which has an absolute magnitude of 7.08 .
 1089 tama was formerly known as a919 ha ; 1927 wb and has the epoch date of 2005/11/26 . it has an escape velocity of 0.0068 km per sec , an apoapsis of 373513000.0 kms and an orbital period lasting 1202.846 days .
 1101 clematis has a mass of 5.7 kgs , an orbital period of 183309000.0 and its epoch date was on 31st july 2016.its apoapsis is 520906000.0 kilometers and it has an escape velocity of 0.02 k.p.s .
 11264 claudiomaccone has an epoch date of november 26th 2005 , an orbital period of 1513.722 days , a periapsis at 296521000.0 km , an apoapsis of 475426000.0 km , and a temperature of 173.0 kelvins .
