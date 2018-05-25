@@ -9,12 +9,17 @@ FILEPATH_TEMPLATE = '../data/webnlg2017/challenge_data_train_dev/train/{0}triple
 
 class WebNLGDataset(object):
     
-    def __init__(self, ntriples, category):
+    def __init__(self, filepath=None, ntriples=None, category=None):
         
-        self.ntriples = ntriples
-        self.category = category
-        self.edf, self.odf, self.mdf, self.ldf = WebNLGDataset._read_files(ntriples, category)
-        
+        if not filepath:
+            self.ntriples = ntriples
+            self.category = category
+            self.edf, self.odf, self.mdf, self.ldf = WebNLGDataset._read_file_from_triples_category(ntriples, category)
+            
+        else:
+            self.edf, self.odf, self.mdf, self.ldf = WebNLGDataset._read_file_from_path(filepath)
+ 
+
     def sample(self, random_state=None):
         
         e = self.edf.sample(random_state=random_state)
@@ -23,30 +28,32 @@ class WebNLGDataset(object):
         l = self.ldf[self.ldf.eid == e.eid.values[0]]
         
         return e, o, m, l
-        
+
+    
     @staticmethod
-    def _read_files(ntriples, category):
+    def _read_file_from_path(filepath):
         
-        tree = ET.parse(FILEPATH_TEMPLATE.format(ntriples, category))
+        tree = ET.parse(filepath)
         root = tree.getroot()
 
         entries, otriples, mtriples, lexes = [], [], [], []
         
         for entry in root.iter('entry'):
             
+            ntriples = len(entry.find('modifiedtripleset').findall('mtriple'))
+            
             entry_dict = {
                 "category": entry.attrib['category'],
                 "eid": entry.attrib['eid'],
                 "size": entry.attrib['size'],
-                "ntriples": ntriples,
-                "category": category
+                "ntriples": ntriples
             }
             entries.append(entry_dict)
             
             otriple_dict = [
                 {'eid': entry.attrib['eid'],
                  'otext': e.text,
-                 'category': category,
+                 'category': entry.attrib['category'],
                  'ntriples': ntriples} for e in entry.find('originaltripleset').findall('otriple')
             ]
             otriples.extend(otriple_dict)
@@ -54,7 +61,7 @@ class WebNLGDataset(object):
             mtriple_dict = [
                 {'eid': entry.attrib['eid'],
                  'mtext': e.text,
-                 'category': category,
+                 'category': entry.attrib['category'],
                  'ntriples': ntriples} for e in entry.find('modifiedtripleset').findall('mtriple')
             ]
             mtriples.extend(mtriple_dict)
@@ -64,7 +71,7 @@ class WebNLGDataset(object):
                  'ltext': e.text,
                  'comment': e.attrib['comment'],
                  'lid': e.attrib['lid'],
-                 'category': category,
+                 'category': entry.attrib['category'],
                  'ntriples': ntriples} for e in entry.findall('lex')
             ]
             lexes.extend(lex_dict)
@@ -87,6 +94,15 @@ class WebNLGDataset(object):
         lexes_df = pd.DataFrame(lexes)
 
         return entries_df, otriples_df, mtriples_df, lexes_df
+   
+
+    @staticmethod
+    def _read_file_from_triples_category(ntriples, category):
+        
+        filepath = FILEPATH_TEMPLATE.format(ntriples, category)
+        
+        return WebNLGDataset._read_file(filepath)
+        
     
 from IPython.core.display import display, HTML
 
