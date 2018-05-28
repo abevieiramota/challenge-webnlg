@@ -1,0 +1,3 @@
+[submodule "evaluation/webnlg2017/webnlg-automatic-evaluation"]
+	path = evaluation/webnlg2017/webnlg-automatic-evaluation
+	url = git@github.com:abevieiramota/webnlg-automatic-evaluation.git
