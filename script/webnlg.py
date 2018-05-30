@@ -1,9 +1,8 @@
-CATEGORIES = ['Airport', 'Astronaut', 'Building', 'City', 'ComicsCharacter', 
-              'Food', 'Monument', 'SportsTeam', 'University', 'WrittenWork']
-
-import os
 import xml.etree.ElementTree as ET
 import pandas as pd
+
+CATEGORIES = ['Airport', 'Astronaut', 'Building', 'City', 'ComicsCharacter', 
+              'Food', 'Monument', 'SportsTeam', 'University', 'WrittenWork']
 
 FILEPATH_TEMPLATE = '../data/webnlg2017/challenge_data_train_dev/train/{0}triples/{0}triples_{1}_train_challenge.xml'
 
@@ -14,7 +13,8 @@ class WebNLGDataset(object):
         if not filepath:
             self.ntriples = ntriples
             self.category = category
-            self.edf, self.odf, self.mdf, self.ldf = WebNLGDataset._read_file_from_triples_category(ntriples, category)
+            self.edf, self.odf, self.mdf, self.ldf = WebNLGDataset._read_file_from_triples_category(ntriples=ntriples, 
+                                                                                                    category=category)
             
         else:
             self.edf, self.odf, self.mdf, self.ldf = WebNLGDataset._read_file_from_path(filepath)
@@ -101,7 +101,7 @@ class WebNLGDataset(object):
         
         filepath = FILEPATH_TEMPLATE.format(ntriples, category)
         
-        return WebNLGDataset._read_file(filepath)
+        return WebNLGDataset._read_file_from_path(filepath)
         
     
 from IPython.core.display import display, HTML
@@ -128,10 +128,10 @@ class WebNLGCorpus(object):
         self.datasets = []
         for category in CATEGORIES:
             
-            for ntriplas in range(1, 8):
+            for ntriples in range(1, 8):
                 
                 try:
-                    self.datasets.append(WebNLGDataset(ntriplas, category))
+                    self.datasets.append(WebNLGDataset(ntriples=ntriples, category=category))
                 except FileNotFoundError:
                     pass
                 
