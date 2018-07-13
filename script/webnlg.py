@@ -1,175 +1,157 @@
 import xml.etree.ElementTree as ET
 import pandas as pd
+from config import DATASETS_FILEPATHS
+import networkx as nx
+from matplotlib import pyplot as plt
 
-CATEGORIES = ['Airport', 'Astronaut', 'Building', 'City', 'ComicsCharacter', 
-              'Food', 'Monument', 'SportsTeam', 'University', 'WrittenWork']
-
-FILEPATH_TEMPLATE = '../data/webnlg2017/challenge_data_train_dev/train/{0}triples/{0}triples_{1}_train_challenge.xml'
-
-class WebNLGDataset(object):
+class WebNLGEntry(object):
     
-    def __init__(self, filepath=None, ntriples=None, category=None):
+    def __init__(self, edf, odf, mdf, ldf):
         
-        if not filepath:
-            self.ntriples = ntriples
-            self.category = category
-            self.edf, self.odf, self.mdf, self.ldf = WebNLGDataset._read_file_from_triples_category(ntriples=ntriples, 
-                                                                                                    category=category)
+        self.edf = edf
+        self.odf = odf
+        self.mdf = mdf
+        self.ldf = ldf
+        
+        self.graph = nx.from_pandas_edgelist(self.mdf, 'm_subject', 'm_object', 'm_predicate', create_using=nx.DiGraph())
+        
+    def draw_graph(self):
+        
+        fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+        pos = nx.spring_layout(self.graph)
+        nx.draw_networkx_edges(self.graph, pos)
+        nx.draw_networkx_nodes(self.graph, pos, cmap=plt.get_cmap('jet'), node_size = 500)
+        nx.draw_networkx_labels(self.graph, pos)
+
+
+class WebNLGCorpus(object):
+    
+    def __init__(self, dataset=None):
+        
+        if dataset not in DATASETS_FILEPATHS:
             
-        else:
-            self.edf, self.odf, self.mdf, self.ldf = WebNLGDataset._read_file_from_path(filepath)
+            raise ValueError('It must be train or dev')
+            
+        self.name = dataset
+            
+        filepaths = DATASETS_FILEPATHS[dataset]
+        self.edf, self.odf, self.mdf, self.ldf = self._read_file_from_paths(filepaths)
  
 
-    def sample(self, random_state=None):
+    def sample(self, category=None, ntriples=None, idx=None, random_state=None):
         
-        e = self.edf.sample(random_state=random_state)
-        o = self.odf[self.odf.eid == e.eid.values[0]]
-        m = self.mdf[self.mdf.eid == e.eid.values[0]]
-        l = self.ldf[self.ldf.eid == e.eid.values[0]]
+        if not idx:
+            ds = self.edf
+            if category:
+                ds = ds[ds.category == category]
+            if ntriples:
+                ds = ds[ds.ntriples == ntriples]
+            
+            if not len(ds):
+                raise ValueError('No entries for category {} and ntriples {}'.format(
+                        category, ntriples))
+            
+            idx = ds.sample(random_state=random_state).idx.values[0]
         
-        return e, o, m, l
+        edf = self.edf[self.edf.idx == idx]
+        odf = self.odf[self.odf.idx == idx]
+        mdf = self.mdf[self.mdf.idx == idx]
+        ldf = self.ldf[self.ldf.idx == idx] if len(self.ldf) else None
+            
+        return WebNLGEntry(edf, odf, mdf, ldf)
+        
+    def __len__(self):
+        
+        return len(self.edf)
+    
+    def __str__(self):
+        
+        return self.name
 
+    @staticmethod
+    def _make_entries(entries_dicts):
+        
+        return pd.DataFrame(entries_dicts)
     
     @staticmethod
-    def _read_file_from_path(filepath):
+    def _make_lexes(lexes_dicts):
         
-        tree = ET.parse(filepath)
-        root = tree.getroot()
-
-        entries, otriples, mtriples, lexes = [], [], [], []
+        return pd.DataFrame(lexes_dicts)
+    
+    @staticmethod
+    def _make_otriples(otriples_dicts):
         
-        for entry in root.iter('entry'):
-            
-            ntriples = len(entry.find('modifiedtripleset').findall('mtriple'))
-            
-            entry_dict = {
-                "category": entry.attrib['category'],
-                "eid": entry.attrib['eid'],
-                "size": entry.attrib['size'],
-                "ntriples": ntriples
-            }
-            entries.append(entry_dict)
-            
-            otriple_dict = [
-                {'eid': entry.attrib['eid'],
-                 'otext': e.text,
-                 'category': entry.attrib['category'],
-                 'ntriples': ntriples} for e in entry.find('originaltripleset').findall('otriple')
-            ]
-            otriples.extend(otriple_dict)
-            
-            mtriple_dict = [
-                {'eid': entry.attrib['eid'],
-                 'mtext': e.text,
-                 'category': entry.attrib['category'],
-                 'ntriples': ntriples} for e in entry.find('modifiedtripleset').findall('mtriple')
-            ]
-            mtriples.extend(mtriple_dict)
-            
-            lex_dict = [
-                {'eid': entry.attrib['eid'],
-                 'ltext': e.text,
-                 'comment': e.attrib['comment'],
-                 'lid': e.attrib['lid'],
-                 'category': entry.attrib['category'],
-                 'ntriples': ntriples} for e in entry.findall('lex')
-            ]
-            lexes.extend(lex_dict)
-
-        
-        otriples_df = pd.DataFrame(otriples)
+        otriples_df = pd.DataFrame(otriples_dicts)
         otriples_df[['o_subject', 'o_predicate', 'o_object']] = otriples_df.otext.str.split("|", expand=True) 
         otriples_df['o_subject'] = otriples_df.o_subject.str.strip()
         otriples_df['o_predicate'] = otriples_df.o_predicate.str.strip()
         otriples_df['o_object'] = otriples_df.o_object.str.strip()
         
-        mtriples_df = pd.DataFrame(mtriples)
+        return otriples_df
+    
+    @staticmethod
+    def _make_mtriples(mtriples_dicts):
+        
+        mtriples_df = pd.DataFrame(mtriples_dicts)
         mtriples_df[['m_subject', 'm_predicate', 'm_object']] = mtriples_df.mtext.str.split("|", expand=True) 
         mtriples_df['m_subject'] = mtriples_df.m_subject.str.strip()
         mtriples_df['m_predicate'] = mtriples_df.m_predicate.str.strip()
         mtriples_df['m_object'] = mtriples_df.m_object.str.strip()
         
-        entries_df = pd.DataFrame(entries)
+        return mtriples_df
+    
+    @staticmethod
+    def _read_file_from_paths(filepaths):
         
-        lexes_df = pd.DataFrame(lexes)
+        entries_dicts, otriples_dicts, mtriples_dicts, lexes_dicts = [], [], [], []
+        
+        for id_filepath, filepath in enumerate(filepaths):
+            
+            tree = ET.parse(filepath)
+            root = tree.getroot()
+            
+            
+            for id_entry, entry in enumerate(root.iter('entry')):
+                
+                idx = "{}_{}".format(id_filepath, id_entry)
+                
+                ntriples = len(entry.find('modifiedtripleset').findall('mtriple'))
+                
+                entry_dict = {
+                    "idx": idx,
+                    "category": entry.attrib['category'],
+                    "eid": entry.attrib['eid'],
+                    "size": entry.attrib['size'],
+                    "ntriples": ntriples,
+                    "content": ET.tostring(entry)
+                }
+                entries_dicts.append(entry_dict)
+                
+                otriple_dict = [
+                    {'idx': idx,
+                     'otext': e.text
+                     } for e in entry.find('originaltripleset').findall('otriple')
+                ]
+                otriples_dicts.extend(otriple_dict)
+                
+                mtriple_dict = [
+                    {'idx': idx,
+                     'mtext': e.text} for e in entry.find('modifiedtripleset').findall('mtriple')
+                ]
+                mtriples_dicts.extend(mtriple_dict)
+                
+                lex_dict = [
+                    {'idx': idx,
+                     'ltext': e.text,
+                     'comment': e.attrib['comment'],
+                     'lid': e.attrib['lid']} for e in entry.findall('lex')
+                ]
+                lexes_dicts.extend(lex_dict)
+                
+        
+        entries_df = WebNLGCorpus._make_entries(entries_dicts)
+        otriples_df = WebNLGCorpus._make_otriples(otriples_dicts)
+        mtriples_df = WebNLGCorpus._make_mtriples(mtriples_dicts)
+        lexes_df = WebNLGCorpus._make_lexes(lexes_dicts)
 
         return entries_df, otriples_df, mtriples_df, lexes_df
-   
-
-    @staticmethod
-    def _read_file_from_triples_category(ntriples, category):
-        
-        filepath = FILEPATH_TEMPLATE.format(ntriples, category)
-        
-        return WebNLGDataset._read_file_from_path(filepath)
-        
-    
-from IPython.core.display import display, HTML
-
-class WebNLGEntry(object):
-    
-    def __init__(self, entry, otriples, mtriples, lexes):
-        
-        self.entry = entry
-        self.otriples = otriples
-        self.mtriples = mtriples
-        self.lexes = lexes
-        
-    def display(self):
-        
-        display(HTML(self.mtriples[['m_subject', 'm_predicate', 'm_object']].to_html()))
-        display(HTML(self.lexes[['ltext']].to_html()))
-
-class WebNLGCorpus(object):
-    
-    def __init__(self, random_state=None):
-        
-        self.random_state = random_state
-        self.datasets = []
-        for category in CATEGORIES:
-            
-            for ntriples in range(1, 8):
-                
-                try:
-                    self.datasets.append(WebNLGDataset(ntriples=ntriples, category=category))
-                except FileNotFoundError:
-                    pass
-                
-        self.edf = pd.concat([ds.edf for ds in self.datasets])
-        self.odf = pd.concat([ds.odf for ds in self.datasets])
-        self.mdf = pd.concat([ds.mdf for ds in self.datasets])
-        self.ldf = pd.concat([ds.ldf for ds in self.datasets])
-        
-        
-    def datasets_size(self, **kwds):
-        
-        return pd.crosstab(self.edf.category, self.edf.ntriples, margins=True, **kwds)
-    
-    
-    def sample(self, category, ntriples):
-        
-        e = self.edf[(self.edf.category == category) & (self.edf.ntriples == ntriples)].sample(random_state=self.random_state)
-        
-        return self._create_entry(e)
-    
-    def get(self, category, ntriples, eid):
-        
-        e = self.edf[(self.edf.category == category) & (self.edf.ntriples == ntriples) & (self.edf.eid == eid)]
-        
-        return self._create_entry(e)
-    
-    
-    def sample_w_mtext(self, mtext):
-        
-        m = self.mdf[self.mdf.mtext == mtext].sample()
-        e = self.edf[(self.edf.eid == m.eid.values[0]) & (self.edf.category == m.category.values[0]) & (self.edf.ntriples == m.ntriples.values[0])]
-       
-        return self._create_entry(e)
-    
-    def _create_entry(self, e):
-        
-        o = pd.merge(e, self.odf)
-        m = pd.merge(e, self.mdf)
-        l = pd.merge(e, self.ldf)
-        
-        return WebNLGEntry(e, o, m, l)
