@@ -23,6 +23,20 @@ class WebNLGEntry(object):
         nx.draw_networkx_nodes(self.graph, pos, cmap=plt.get_cmap('jet'), node_size = 500)
         nx.draw_networkx_labels(self.graph, pos)
 
+    def lexes(self):
+
+        return self.ldf.ltext.tolist()
+
+    def triples(self, kind='dict'):
+
+        if kind == 'text':
+
+            return self.mdf.mtext.tolist()
+
+        if kind == 'dict':
+
+            return self.mdf[['m_object', 'm_predicate', 'm_subject']].to_dict(orient='record')
+
 
 class WebNLGCorpus(object):
     
