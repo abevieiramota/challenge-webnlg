@@ -40,16 +40,24 @@ class WebNLGEntry(object):
 
 class WebNLGCorpus(object):
     
-    def __init__(self, dataset=None):
+    def __init__(self, dataset, edf, odf, mdf, ldf):
         
-        if dataset not in DATASETS_FILEPATHS:
-            
-            raise ValueError('It must be train or dev')
-            
-        self.name = dataset
-            
-        filepaths = DATASETS_FILEPATHS[dataset]
-        self.edf, self.odf, self.mdf, self.ldf = self._read_file_from_paths(filepaths)
+        self.dataset = dataset
+        self.edf = edf
+        self.odf = odf
+        self.mdf = mdf
+        self.ldf = ldf
+        
+        
+    def subset(self, ntriples):
+        
+        edf = self.edf[self.edf.ntriples == ntriples]
+        odf = self.odf[self.odf.idx.isin(edf.idx)]
+        mdf = self.mdf[self.mdf.idx.isin(edf.idx)]
+        ldf = self.ldf[self.ldf.idx.isin(edf.idx)]
+        
+        return WebNLGCorpus(self.dataset,
+                            edf, odf, mdf, ldf)
  
 
     def sample(self, category=None, ntriples=None, idx=None, random_state=None):
@@ -82,6 +90,18 @@ class WebNLGCorpus(object):
         
         return self.name
 
+    @staticmethod
+    def load(dataset):
+        
+        if dataset not in DATASETS_FILEPATHS:
+            raise ValueError('It must be in {}'.format(DATASETS_FILEPATHS.keys()))
+            
+        filepaths = DATASETS_FILEPATHS[dataset]
+        edf, odf, mdf, ldf = WebNLGCorpus._read_file_from_paths(filepaths)
+        
+        return WebNLGCorpus(dataset,
+                            edf, odf, mdf, ldf)
+        
     @staticmethod
     def _make_entries(entries_dicts):
         
