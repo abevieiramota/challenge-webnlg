@@ -38,6 +38,30 @@ class WebNLGEntry(object):
             return self.mdf[['m_object', 'm_predicate', 'm_subject']].to_dict(orient='record')
 
 
+class WebNLGCorpusIterator(object):
+    
+    def __init__(self, corpus):
+        
+        self.corpus = corpus
+        self.idx_iter = corpus.edf.idx.values.__iter__()
+        
+    def __iter__(self):
+        
+        return self
+        
+    def __next__(self):
+        
+        idx = next(self.idx_iter)
+        
+        edf = self.corpus.edf[self.corpus.edf.idx == idx]
+        odf = self.corpus.odf[self.corpus.odf.idx == idx]
+        mdf = self.corpus.mdf[self.corpus.mdf.idx == idx]
+        ldf = self.corpus.ldf[self.corpus.ldf.idx == idx]\
+                if len(self.corpus.ldf) else None
+            
+        return WebNLGEntry(edf, odf, mdf, ldf)
+        
+
 class WebNLGCorpus(object):
     
     def __init__(self, dataset, edf, odf, mdf, ldf):
@@ -89,6 +113,10 @@ class WebNLGCorpus(object):
     def __str__(self):
         
         return self.name
+    
+    def __iter__(self):
+        
+        return WebNLGCorpusIterator(self)
 
     @staticmethod
     def load(dataset):
