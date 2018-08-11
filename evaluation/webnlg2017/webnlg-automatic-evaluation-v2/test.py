@@ -49,7 +49,7 @@ def compare_files(filepath1, filepath2):
 if __name__ == '__main__':
     
     logger.setLevel(logging.WARN)  
-    
+    # folder paths to compare
     dir1 = sys.argv[1]
     dir2 = sys.argv[2]
     
