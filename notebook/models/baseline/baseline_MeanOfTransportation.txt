@@ -1,0 +1,198 @@
+1955 dodge alternativename dodge coronet
+1955 dodge engine 230 ( cubic inches )
+a - rosa luna christeningdate 2005 - 04 - 07
+aida cruises location rostock
+aidaluna operator aida cruises
+aidastella christeningdate 2013 - 03 - 16
+aidastella completiondate 2013 - 03 - 11
+aidastella maidenvoyage 2013 - 03 - 17
+aidastella operator aida cruises
+alv x - 1 launchsite mid - atlantic regional spaceport
+amc matador alternativename american motors matador
+ara veinticinco de mayo ( v - 2 ) status sold to the netherlands 1 april 1948
+abarth 1000 gt coupe engine straight - four engine
+acura tlx engine honda k engine
+acura tlx layout awd ( vehicle )
+acura tlx relatedmeanoftransportation honda accord
+acura tlx transmission 9 - speed zf 9hp automatic ( v6 )
+alfa romeo 164 assembly arese
+alfa romeo 164 relatedmeanoftransportation lancia thema
+alfa romeo 164 transmission 4 - speed automatic ( zf 4hp18qe )
+alhambra builder samuda brothers
+alhambra shipbeam 8 . 3 m
+alhambra status wrecked
+alhambra topspeed 18 . 52
+alvis speed 25 engine straight - six engine
+alvis speed 25 modelstartyear 1937
+american submarine nr - 1 shipdraft 4 . 6 m
+antares ( rocket ) finalflight 2014 - 10 - 28
+antares ( rocket ) launchsite mid - atlantic regional spaceport launch pad 0
+argentina leadername gabriela michetti
+ariane 5 launchsite guiana space centre
+ariane 5 maidenflight 2005 - 08 - 11
+aston martin v8 bodystyle convertible
+aston martin v8 manufacturer aston martin
+aston martin virage manufacturer aston martin
+atlas ii finalflight 1998 - 03 - 16
+atlas ii launchsite vandenberg air force base
+audi foundedby august horch
+audi a1 assembly audi brussels
+audi a1 relatedmeanoftransportation seat ibiza
+caterpillar inc . location peoria , illinois
+costa crociere location genoa
+desoto custom relatedmeanoftransportation chrysler newport
+fiat croma relatedmeanoftransportation alfa romeo 164
+germany demonym germans
+germany leadername norbert lammert
+germany leadername stanislaw tillich
+gruppo bertone foundedby giovanni bertone
+guiana space centre headquarter kourou , french guiana
+honda k engine manufacturer honda
+united states anthem the star - spangled banner
+united states ethnicgroup native americans in the united states
+a - rosa luna shipclass cruise ship a - rosa luna length 125800 . 0 ( millimetres )
+a - rosa luna shipordered 2004 - 01 - 22 a - rosa luna length 125800 . 0 ( millimetres )
+aida cruises location germany aidastella operator aida cruises
+aida cruises location rostock aidaluna operator aida cruises
+aidaluna topspeed 40 . 744 aidaluna length 252000 . 0 ( millimetres )
+aidastella christeningdate 2013 - 03 - 16 aidastella length 253260 . 0 ( millimetres )
+alco rs - 3 builder montreal locomotive works alco rs - 3 powertype diesel - electric transmission
+alv x - 1 diameter 1 . 524 ( metres ) alv x - 1 rocketstages 2
+amc matador assembly kenosha , wisconsin amc matador modelyears 1974
+amc matador designer richard a . teague richard a . teague employer chrysler
+ara veinticinco de mayo ( v - 2 ) length 192000 . 0 ( millimetres ) ara veinticinco de mayo ( v - 2 ) country argentina
+alfa romeo 164 assembly milan alfa romeo 164 relatedmeanoftransportation saab 9000
+alfa romeo 164 relatedmeanoftransportation fiat croma alfa romeo 164 assembly italy
+alfa romeo 164 relatedmeanoftransportation lancia thema alfa romeo 164 assembly italy
+alvis speed 25 manufacturer alvis car and engineering company alvis car and engineering company locationcity coventry
+alvis speed 25 transmission single plate clutch , separate 4 - speed gearbox all - silent and all - syncromesh , centre change lever , open tubular propellor shaft with metal joints , spiral bevel fully floating back axle alvis speed 25 engine 4387 . 0 ( cubiccentimetres )
+alvis speed 25 transmission single plate clutch , separate 4 - speed gearbox all - silent and all - syncromesh , centre change lever , open tubular propellor shaft with metal joints , spiral bevel fully floating back axle alvis speed 25 engine straight - six engine
+american motors successor eagle ( automobile ) amc matador manufacturer american motors
+antares ( rocket ) maidenflight 2014 - 01 - 09 antares ( rocket ) launchsite mid - atlantic regional spaceport
+argentina leadername gabriela michetti ara veinticinco de mayo ( v - 2 ) country argentina
+ariane 5 launchsite ela - 3 ariane 5 manufacturer airbus defence and space
+ariane 5 manufacturer airbus defence and space airbus defence and space parentcompany airbus group
+aston martin v8 assembly united kingdom aston martin v8 relatedmeanoftransportation aston martin rham / 1
+aston martin v8 manufacturer aston martin aston martin v8 successor aston martin virage
+aston martin v8 relatedmeanoftransportation aston martin dbs aston martin v8 successor aston martin virage
+aston martin v8 successor aston martin virage aston martin virage manufacturer aston martin
+atlas ii finalflight 1998 - 03 - 16 atlas ii diameter 3 . 04 m
+atlas ii launchsite cape canaveral air force station atlas ii manufacturer lockheed martin
+audi a1 manufacturer audi audi division audi e - tron
+audi a1 manufacturer audi audi subsidiary ducati
+audi a1 manufacturer audi audi subsidiary quattro gmbh
+caterpillar inc . keyperson douglas r . oberhelman aidaluna powertype caterpillar inc .
+delta ii launchsite vandenberg air force base antares ( rocket ) comparable delta ii
+finland leadername juha sipila aleksey chirikov ( icebreaker ) builder finland
+general dynamics electric boat parentcompany general dynamics american submarine nr - 1 builder general dynamics electric boat
+mtu friedrichshafen owner rolls - royce holdings a - rosa luna powertype mtu friedrichshafen
+united kingdom leadername elizabeth ii aston martin v8 assembly united kingdom
+1955 dodge engine v8 engine 1955 dodge transmission 3 - speed automatic 1955 dodge alternativename dodge coronet
+a - rosa luna shipclass cruise ship a - rosa luna length 125800 . 0 ( millimetres ) a - rosa luna shipordered 2004 - 01 - 22
+a - rosa luna shipdisplacement 1850 . 0 ( tonnes ) a - rosa luna topspeed 24 . 0 a - rosa luna length 125800 . 0 ( millimetres )
+aida cruises location germany aidastella operator aida cruises aidastella owner costa crociere
+aidastella christeningdate 2013 - 03 - 16 aidastella shipinservice 2013 - 03 - 17 aidastella length 253260 . 0 ( millimetres )
+alco rs - 3 builder american locomotive company alco rs - 3 engine four - stroke engine alco rs - 3 length 17068 . 8 ( millimetres )
+alco rs - 3 builder american locomotive company alco rs - 3 engine v12 engine alco rs - 3 length 17068 . 8 ( millimetres )
+alco rs - 3 builder american locomotive company alco rs - 3 length 17068 . 8 ( millimetres ) american locomotive company foundationplace schenectady , new york
+alv x - 1 countryorigin united states united states ethnicgroup african americans united states demonym americans
+alv x - 1 countryorigin united states united states ethnicgroup native americans in the united states united states capital washington , d . c .
+alv x - 1 diameter 1 . 524 ( metres ) alv x - 1 rocketstages 2 alv x - 1 totallaunches 1
+abarth 1000 gt coupe productionendyear 1958 abarth 1000 gt coupe bodystyle coupe abarth 1000 gt coupe engine straight - four engine
+abarth 1000 gt coupe wheelbase 2160 . 0 ( millimetres ) abarth 1000 gt coupe width 1 . 55 abarth 1000 gt coupe bodystyle two door coupe
+aleksey chirikov ( icebreaker ) shipbeam 21 . 2 aleksey chirikov ( icebreaker ) builder helsinki aleksey chirikov ( icebreaker ) builder arctech helsinki shipyard
+alfa romeo 164 assembly italy italy capital rome alfa romeo 164 relatedmeanoftransportation fiat croma
+alfa romeo 164 assembly italy italy capital rome alfa romeo 164 relatedmeanoftransportation lancia thema
+alfa romeo 164 relatedmeanoftransportation fiat croma alfa romeo 164 assembly arese alfa romeo 164 relatedmeanoftransportation lancia thema
+alfa romeo 164 relatedmeanoftransportation fiat croma alfa romeo 164 assembly milan alfa romeo 164 relatedmeanoftransportation saab 9000
+alhambra shipbeam 8 . 3 m alhambra length 63800 . 0 ( millimetres ) alhambra shiplaunch 1855 - 05 - 31
+alhambra shipbeam 8 . 3 m alhambra shiplaunch 1855 - 05 - 31 alhambra status wrecked
+alvis speed 25 manufacturer alvis car and engineering company alvis car and engineering company foundationplace coventry alvis speed 25 engine petrol
+american motors fate eagle ( automobile ) amc matador manufacturer american motors american motors keyperson roy d . chapin , jr .
+antares ( rocket ) manufacturer yuzhnoye design office antares ( rocket ) comparable delta ii delta ii countryorigin united states
+antares ( rocket ) manufacturer yuzhnoye design office antares ( rocket ) launchsite mid - atlantic regional spaceport launch pad 0 antares ( rocket ) function medium expendable launch system
+ariane 5 manufacturer arianespace ela - 3 site guiana space centre ariane 5 launchsite ela - 3
+aston martin v8 relatedmeanoftransportation aston martin dbs aston martin v8 assembly newport pagnell , buckinghamshire , england , united kingdom aston martin v8 engine 5 . 3 ( litres )
+aston martin v8 relatedmeanoftransportation aston martin dbs aston martin v8 engine 5 . 3 ( litres ) aston martin v8 assembly united kingdom
+atlas ii countryorigin united states atlas ii launchsite vandenberg air force base atlas ii launchsite cape canaveral air force station
+atlas ii countryorigin united states united states ethnicgroup native americans in the united states united states leadertitle president of the united states
+atlas ii launchsite cape canaveral air force station atlas ii countryorigin united states atlas ii launchsite spaceport florida launch complex 36
+audi a1 engine 1 . 2 ( litres ) audi a1 assembly audi brussels audi a1 bodystyle hatchback
+audi a1 manufacturer audi audi a1 relatedmeanoftransportation seat ibiza audi a1 relatedmeanoftransportation volkswagen polo
+caterpillar inc . foundationplace california caterpillar inc . location peoria , illinois aidaluna powertype caterpillar inc .
+caterpillar inc . location illinois aidaluna owner aida cruises aidaluna powertype caterpillar inc .
+costa crociere location genoa aidastella operator aida cruises aidastella owner costa crociere
+delta ii launchsite vandenberg afb space launch complex 2 antares ( rocket ) comparable delta ii delta ii countryorigin united states
+guiana space centre headquarter french guiana ela - 3 site guiana space centre ariane 5 launchsite ela - 3
+guiana space centre location kourou , french guiana ela - 3 site guiana space centre ariane 5 launchsite ela - 3
+neptun werft locationcity rostock a - rosa luna builder neptun werft neptun werft locationcountry germany
+united states demonym americans atlas ii countryorigin united states united states ethnicgroup african americans
+1955 dodge engine v8 engine 1955 dodge manufacturer dodge 1955 dodge transmission 3 - speed automatic 1955 dodge wheelbase 120 . 0 ( inches )
+1955 dodge relatedmeanoftransportation desoto custom desoto custom relatedmeanoftransportation chrysler newport desoto custom successor desoto firedome desoto custom manufacturer desoto ( automobile )
+aida cruises location rostock aidastella operator aida cruises aidastella builder meyer werft aidastella owner costa crociere
+aidastella operator aida cruises aidastella length 253260 . 0 ( millimetres ) aidastella builder meyer werft aidastella owner costa crociere
+alco rs - 3 builder american locomotive company alco rs - 3 builddate may 1950 - august 1956 alco rs - 3 engine v12 engine alco rs - 3 powertype diesel - electric transmission
+alco rs - 3 builder american locomotive company alco rs - 3 length 17068 . 8 ( millimetres ) alco rs - 3 engine v12 engine alco rs - 3 builddate may 1950 - august 1956
+alco rs - 3 builder american locomotive company alco rs - 3 length 17068 . 8 ( millimetres ) american locomotive company locationcountry united states american locomotive company foundationplace schenectady , new york
+alco rs - 3 builder montreal locomotive works alco rs - 3 builddate may 1950 - august 1956 alco rs - 3 engine v12 engine alco rs - 3 powertype diesel - electric transmission
+alco rs - 3 builder montreal locomotive works alco rs - 3 cylindercount 12 alco rs - 3 builddate may 1950 - august 1956 alco rs - 3 engine four - stroke engine
+amc matador alternativename american motors matador amc matador assembly mexico city amc matador bodystyle station wagon amc matador engine amc v8 engine
+amc matador alternativename vam classic amc matador assembly kenosha , wisconsin amc matador class mid - size car amc matador engine amc straight - 6 engine
+acura tlx assembly marysville , ohio acura tlx class mid - size car acura tlx layout front - wheel drive / all - wheel drive acura tlx engine honda k engine
+acura tlx assembly marysville auto plant acura tlx engine v6 engine acura tlx layout front - engine design acura tlx class luxury vehicle
+aleksey chirikov ( icebreaker ) builder finland aleksey chirikov ( icebreaker ) shipbeam 21 . 2 aleksey chirikov ( icebreaker ) status in service aleksey chirikov ( icebreaker ) builder arctech helsinki shipyard
+aleksey chirikov ( icebreaker ) builder finland finland demonym finns finland leadername juha sipila aleksey chirikov ( icebreaker ) builder helsinki
+aleksey chirikov ( icebreaker ) shipbeam 21 . 2 aleksey chirikov ( icebreaker ) status in service aleksey chirikov ( icebreaker ) builder helsinki aleksey chirikov ( icebreaker ) builder arctech helsinki shipyard
+alfa romeo 164 assembly italy alfa romeo 164 relatedmeanoftransportation saab 9000 alfa romeo 164 engine straight - four engine alfa romeo 164 relatedmeanoftransportation lancia thema
+alfa romeo 164 relatedmeanoftransportation fiat croma alfa romeo 164 assembly italy alfa romeo 164 relatedmeanoftransportation saab 9000 alfa romeo 164 engine v6 engine
+alhambra shipbeam 8 . 3 m alhambra length 63800 . 0 ( millimetres ) alhambra shiplaunch 1855 - 05 - 31 alhambra status wrecked
+alvis speed 25 manufacturer alvis car and engineering company alvis car and engineering company foundationplace coventry alvis speed 25 engine petrol alvis car and engineering company successor rover company
+alvis speed 25 manufacturer alvis car and engineering company alvis car and engineering company foundationplace coventry alvis speed 25 engine straight - six engine alvis car and engineering company successor rover company
+american motors successor eagle ( automobile ) amc matador manufacturer american motors american motors fate chrysler american motors keyperson roy d . chapin , jr .
+american submarine nr - 1 shipbeam 3 . 8 m american submarine nr - 1 shiplaunch 1969 - 01 - 25 american submarine nr - 1 topspeed 8 . 334 american submarine nr - 1 builder general dynamics electric boat
+american submarine nr - 1 shiplaunch 1969 - 01 - 25 american submarine nr - 1 topspeed 8 . 334 american submarine nr - 1 length 45000 . 0 ( millimetres ) american submarine nr - 1 shipbeam 3 . 8 m
+antares ( rocket ) manufacturer yuzhnoye design office antares ( rocket ) finalflight 2014 - 10 - 28 antares ( rocket ) maidenflight 2013 - 04 - 21 antares ( rocket ) launchsite mid - atlantic regional spaceport launch pad 0
+antares ( rocket ) manufacturer yuzhnoye design office antares ( rocket ) maidenflight 2013 - 04 - 21 antares ( rocket ) launchsite mid - atlantic regional spaceport launch pad 0 antares ( rocket ) finalflight 2013 - 09 - 18
+aston martin v8 assembly united kingdom united kingdom capital london aston martin v8 successor aston martin virage aston martin virage manufacturer aston martin
+aston martin v8 relatedmeanoftransportation aston martin dbs aston martin v8 engine 5 . 3 ( litres ) aston martin v8 assembly united kingdom aston martin v8 relatedmeanoftransportation aston martin rham / 1
+aston martin v8 relatedmeanoftransportation aston martin dbs aston martin v8 engine 5 . 3 ( litres ) aston martin v8 successor aston martin virage aston martin virage manufacturer aston martin
+atlas ii diameter 3 . 04 m atlas ii finalflight 2002 - 12 - 05 atlas ii launchsite vandenberg air force base atlas ii launchsite cape canaveral air force station
+audi a1 class supermini audi a1 engine 1 . 2 ( litres ) audi a1 layout front - engine , front - wheel - drive layout audi a1 assembly audi brussels
+audi a1 manufacturer audi audi foundedby august horch audi division audi e - tron audi subsidiary ducati
+caterpillar inc . location illinois caterpillar inc . foundationplace california aidaluna owner aida cruises aidaluna powertype caterpillar inc .
+costa crociere location genoa aidastella operator aida cruises aidastella builder meyer werft aidastella owner costa crociere
+delta ii launchsite cape canaveral air force station antares ( rocket ) comparable delta ii delta ii countryorigin united states antares ( rocket ) launchsite mid - atlantic regional spaceport launch pad 0
+delta ii launchsite vandenberg afb space launch complex 2 delta ii launchsite cape canaveral air force station antares ( rocket ) comparable delta ii delta ii countryorigin united states
+fiat croma relatedmeanoftransportation opel vectra alfa romeo 164 assembly italy alfa romeo 164 relatedmeanoftransportation fiat croma alfa romeo 164 bodystyle sedan ( automobile )
+fiat croma relatedmeanoftransportation opel vectra alfa romeo 164 relatedmeanoftransportation fiat croma alfa romeo 164 assembly milan alfa romeo 164 bodystyle sedan ( automobile )
+general dynamics electric boat parentcompany general dynamics american submarine nr - 1 shipbeam 3 . 8 m american submarine nr - 1 builder general dynamics electric boat general dynamics electric boat locationcity groton , connecticut
+germany leadername stanislaw tillich neptun werft locationcity rostock rostock country germany a - rosa luna builder neptun werft
+united states capital washington , d . c . united states language english language atlas ii countryorigin united states united states ethnicgroup african americans
+united states demonym americans united states capital washington , d . c . atlas ii countryorigin united states united states ethnicgroup african americans
+aida cruises location germany costa crociere parentcompany carnival corporation & plc aidastella operator aida cruises aidastella builder meyer werft aidastella owner costa crociere
+aidastella operator aida cruises aidastella shipbeam 32 . 2 aidastella topspeed 38 . 892 aidastella builder meyer werft aidastella length 253260 . 0 ( millimetres )
+alco rs - 3 builder american locomotive company alco rs - 3 length 17068 . 8 ( millimetres ) alco rs - 3 cylindercount 12 alco rs - 3 builddate may 1950 - august 1956 alco rs - 3 engine four - stroke engine
+alco rs - 3 builder american locomotive company alco rs - 3 length 17068 . 8 ( millimetres ) alco rs - 3 cylindercount 12 alco rs - 3 engine v12 engine alco rs - 3 builddate may 1950 - august 1956
+alv x - 1 countryorigin united states united states ethnicgroup native americans in the united states united states demonym americans united states capital washington , d . c . united states anthem the star - spangled banner
+amc matador alternativename american motors matador amc matador assembly thames , new zealand amc matador bodystyle station wagon amc matador class mid - size car amc matador engine amc v8 engine
+alhambra owner p & o ( company ) p & o ( company ) location london alhambra shipbeam 8 . 3 m alhambra powertype humphrys , tennant and dykes alhambra builder samuda brothers
+american motors successor eagle ( automobile ) american motors subsidiary wheel horse amc matador manufacturer american motors american motors fate chrysler american motors keyperson roy d . chapin , jr .
+american submarine nr - 1 shiplaunch 1969 - 01 - 25 american submarine nr - 1 topspeed 8 . 334 american submarine nr - 1 shipdraft 4 . 6 m american submarine nr - 1 length 45000 . 0 ( millimetres ) american submarine nr - 1 shipbeam 3 . 8 m
+antares ( rocket ) launchsite mid - atlantic regional spaceport antares ( rocket ) comparable delta ii delta ii countryorigin united states antares ( rocket ) launchsite mid - atlantic regional spaceport launch pad 0 mid - atlantic regional spaceport launch pad 0 associatedrocket minotaur iv
+antares ( rocket ) manufacturer yuzhnoye design office antares ( rocket ) finalflight 2014 - 07 - 13 antares ( rocket ) maidenflight 2014 - 10 - 28 antares ( rocket ) launchsite mid - atlantic regional spaceport launch pad 0 antares ( rocket ) diameter 3 . 9 ( metres )
+antares ( rocket ) manufacturer yuzhnoye design office antares ( rocket ) maidenflight 2014 - 10 - 28 antares ( rocket ) launchsite mid - atlantic regional spaceport launch pad 0 antares ( rocket ) diameter 3 . 9 ( metres ) antares ( rocket ) finalflight 2013 - 09 - 18
+ariane 5 finalflight 2009 - 12 - 18 ariane 5 maidenflight 2005 - 08 - 11 ariane 5 manufacturer airbus defence and space ariane 5 launchsite guiana space centre ariane 5 diameter 5 . 4 ( metres )
+arianespace locationcity courcouronnes guiana space centre headquarter french guiana ela - 3 site guiana space centre ariane 5 launchsite ela - 3 ela - 3 operator arianespace
+aston martin v8 relatedmeanoftransportation aston martin dbs aston martin dbs successor aston martin vantage aston martin v8 assembly newport pagnell aston martin v8 engine 5 . 3 ( litres ) aston martin v8 manufacturer aston martin
+aston martin v8 relatedmeanoftransportation aston martin dbs aston martin v8 bodystyle coupe aston martin v8 engine 5 . 3 ( litres ) aston martin v8 relatedmeanoftransportation aston martin rham / 1 aston martin v8 assembly newport pagnell
+aston martin v8 relatedmeanoftransportation aston martin dbs united kingdom leadername elizabeth ii aston martin v8 assembly united kingdom aston martin v8 successor aston martin virage aston martin virage manufacturer aston martin
+audi a1 engine 1 . 2 ( litres ) audi a1 layout front - engine , front - wheel - drive layout audi a1 assembly brussels , belgium audi a1 class supermini audi a1 bodystyle hatchback
+audi a1 manufacturer audi audi foundedby august horch audi subsidiary ducati audi division audi e - tron audi subsidiary lamborghini
+caterpillar inc . foundationplace california caterpillar inc . foundationplace united states caterpillar inc . location peoria , illinois aidaluna owner aida cruises aidaluna powertype caterpillar inc .
+caterpillar inc . keyperson douglas r . oberhelman caterpillar inc . foundationplace united states aida cruises location rostock aidaluna owner aida cruises aidaluna powertype caterpillar inc .
+caterpillar inc . keyperson douglas r . oberhelman caterpillar inc . foundationplace united states caterpillar inc . location peoria , illinois aidaluna owner aida cruises aidaluna powertype caterpillar inc .
+costa crociere location genoa costa crociere parentcompany carnival corporation & plc aidastella operator aida cruises aidastella builder meyer werft aidastella owner costa crociere
+finland demonym finns finland language sami languages finland leadername juha sipila aleksey chirikov ( icebreaker ) builder finland aleksey chirikov ( icebreaker ) builder arctech helsinki shipyard
+germany capital berlin neptun werft locationcity rostock germany leadername joachim gauck rostock country germany a - rosa luna builder neptun werft
+germany leadername andreas vosskuhle germany capital berlin neptun werft locationcity rostock rostock country germany a - rosa luna builder neptun werft
+united states demonym americans united states capital washington , d . c . united states language english language atlas ii countryorigin united states united states ethnicgroup native americans in the united states

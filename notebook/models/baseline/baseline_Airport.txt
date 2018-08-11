@@ -1,0 +1,136 @@
+abilene regional airport cityserved abilene , texas
+adolfo suarez madrid - barajas airport location madrid , paracuellos de jarama , san sebastian de los reyes and alcobendas
+adolfo suarez madrid - barajas airport runwayname 18l / 36r
+afonso pena international airport icao location identifier sbct
+afonso pena international airport cityserved curitiba
+al - taqaddum air base cityserved fallujah
+al - taqaddum air base runwaylength 3684 . 0
+alderney airport runwayname 14 / 32
+allama iqbal international airport runwaylength 3360 . 12
+amsterdam airport schiphol 1st runway number 18
+amsterdam airport schiphol 5th runway surfacetype asphalt
+amsterdam airport schiphol runwayname 06 / 24 ' kaagbaan '
+andrews county airport elevationabovethesealevel ( in metres ) 973 . 0
+andrews county airport owner andrews county , texas
+andrews county airport runwaylength 896 . 0
+angola international airport 1st runway surfacetype asphalt
+antwerp international airport elevationabovethesealevel ( in metres ) 12 . 0
+antwerp international airport operatingorganisation flemish government
+appleton international airport runwaylength 2439 . 0
+ardmore airport ( new zealand ) runwaylength 518 . 0
+ashgabat international airport icao location identifier utaa
+ashgabat international airport runwayname 11 / 29
+atlantic city international airport owner south jersey transportation authority
+atlantic city international airport runwayname 13 / 31
+belgium language dutch language
+curitiba ispartof south region , brazil
+denmark demonym danes
+fallujah country iraq
+greenville , wisconsin country united states
+greenville , wisconsin ispartof grand chute , wisconsin
+iraq language arabic
+madrid country spain
+maple ridge township , alpena county , michigan ispartof united states
+pakistan leadername sardar ayaz sadiq
+port authority of new york and new jersey regionserved new jersey
+texas largestcity houston
+united states air force battles 1986 united states bombing of libya
+united states air force transportaircraft boeing c - 17 globemaster iii
+aarhus airport runwaylength 2777 . 0 aarhus airport operatingorganisation aarhus lufthavn a / s
+adolfo suarez madrid - barajas airport elevationabovethesealevel ( in metres ) 610 . 0 adolfo suarez madrid - barajas airport location madrid , paracuellos de jarama , san sebastian de los reyes and alcobendas
+adolfo suarez madrid - barajas airport runwaylength 3500 . 0 adolfo suarez madrid - barajas airport location madrid , paracuellos de jarama , san sebastian de los reyes and alcobendas
+agra airport location uttar pradesh uttar pradesh ispartof awadh
+al asad airbase location al anbar province , iraq al asad airbase runwaylength 3090 . 0
+al asad airbase location iraq iraq language arabic
+al asad airbase operatingorganisation united states air force united states air force battles invasion of grenada
+alderney airport 1st runway surfacetype poaceae poaceae class monocotyledon
+alderney airport runwaylength 877 . 0 alderney airport 1st runway surfacetype asphalt
+allama iqbal international airport location pakistan pakistan leadername anwar zaheer jamali
+allama iqbal international airport location punjab , pakistan allama iqbal international airport runwaylength 2900 . 0
+amsterdam airport schiphol 1st runway lengthmetre 3800 amsterdam airport schiphol elevationabovethesealevel ( in metres ) - 3 . 3528
+amsterdam airport schiphol 1st runway surfacetype asphalt amsterdam airport schiphol elevationabovethesealevel ( in metres ) - 3 . 3528
+amsterdam airport schiphol cityserved amsterdam amsterdam airport schiphol runwaylength 2014 . 0
+amsterdam airport schiphol cityserved amsterdam amsterdam airport schiphol runwaylength 3300 . 0
+andrews county airport location texas texas largestcity houston
+angola international airport runwaylength 3800 . 0 angola international airport cityserved luanda
+ardmore airport ( new zealand ) runwaylength 597 . 0 ardmore airport ( new zealand ) 3rd runway surfacetype poaceae
+ashgabat international airport 1st runway lengthfeet 12467 ashgabat international airport elevationabovethesealevel ( in metres ) 211
+ashgabat international airport operatingorganisation turkmenistan airlines turkmenistan airlines headquarter turkmenistan
+atlantic city international airport location egg harbor township , new jersey egg harbor township , new jersey country united states
+atlantic city international airport operatingorganisation port authority of new york and new jersey atlantic city international airport runwayname 4 / 22
+atlantic city international airport runwaylength 3048 . 0 atlantic city international airport operatingorganisation port authority of new york and new jersey
+infraero location brasilia afonso pena international airport operatingorganisation infraero
+aarhus airport runwaylength 2776 . 0 aarhus airport operatingorganisation aarhus lufthavn a / s aarhus airport runwayname 10r / 28l
+adirondack regional airport cityserved lake placid , new york adirondack regional airport runwaylength 2003 . 0 adirondack regional airport cityserved saranac lake , new york
+adolfo suarez madrid - barajas airport location paracuellos de jarama paracuellos de jarama country spain paracuellos de jarama ispartof community of madrid
+agra airport location uttar pradesh agra airport operatingorganisation indian air force agra airport icao location identifier viag
+al asad airbase operatingorganisation united states air force al asad airbase location iraq al asad airbase runwaylength 3992 . 88
+al asad airbase operatingorganisation united states air force united states air force aircraftfighter mcdonnell douglas f - 15 eagle united states air force battles 1986 united states bombing of libya
+al asad airbase operatingorganisation united states air force united states air force battles invasion of grenada united states air force aircraftfighter mcdonnell douglas f - 15 eagle
+alderney airport 1st runway surfacetype poaceae alderney airport runwaylength 877 . 0 alderney airport cityserved alderney
+allama iqbal international airport location pakistan allama iqbal international airport operatingorganisation pakistan civil aviation authority pakistan civil aviation authority headquarter jinnah international airport
+allama iqbal international airport location punjab , pakistan allama iqbal international airport runwayname 18l / 36r allama iqbal international airport runwaylength 2900 . 0
+alpena county regional airport elevationabovethesealevel ( in metres ) 210 alpena county regional airport location maple ridge township , alpena county , michigan maple ridge township , alpena county , michigan country united states
+andrews county airport location texas andrews county airport runwaylength 1773 . 0 andrews county airport elevationabovethesealevel ( in metres ) 973 . 0
+andrews county airport location texas andrews county airport runwaylength 896 . 0 andrews county airport elevationabovethesealevel ( in metres ) 973 . 0
+andrews county airport location texas texas capital austin , texas texas language english language
+andrews county airport location texas texas demonym tejano texas country united states
+antwerp international airport cityserved antwerp belgium language german language antwerp country belgium
+atlantic city international airport location egg harbor township , new jersey egg harbor township , new jersey country united states egg harbor township , new jersey ispartof atlantic county , new jersey
+atlantic city international airport operatingorganisation port authority of new york and new jersey port authority of new york and new jersey regionserved new jersey port authority of new york and new jersey headquarter four world trade center
+atlantic city international airport runwaylength 3048 . 0 atlantic city international airport location egg harbor township , new jersey egg harbor township , new jersey country united states
+lahore country pakistan allama iqbal international airport cityserved lahore pakistan leadername anwar zaheer jamali
+madrid ispartof community of madrid madrid leaderparty ahora madrid adolfo suarez madrid - barajas airport location madrid
+madrid leaderparty ahora madrid adolfo suarez madrid - barajas airport location madrid madrid country spain
+san sebastian de los reyes leaderparty people ' s party ( spain ) adolfo suarez madrid - barajas airport location san sebastian de los reyes san sebastian de los reyes country spain
+abilene regional airport cityserved abilene , texas abilene regional airport runwaylength 2194 . 0 abilene regional airport elevationabovethesealevel ( in metres ) 546 abilene regional airport runwayname 17l / 35r
+adirondack regional airport cityserved lake placid , new york adirondack regional airport runwaylength 2003 . 0 adirondack regional airport elevationabovethesealevel ( in metres ) 507 adirondack regional airport cityserved saranac lake , new york
+adolfo suarez madrid - barajas airport runwayname 18l / 36r adolfo suarez madrid - barajas airport runwaylength 3500 . 0 adolfo suarez madrid - barajas airport location madrid , paracuellos de jarama , san sebastian de los reyes and alcobendas adolfo suarez madrid - barajas airport operatingorganisation enaire
+agra airport location india agra airport operatingorganisation indian air force agra airport iata location identifier agr agra airport icao location identifier viag
+al asad airbase operatingorganisation united states air force al asad airbase location iraq al asad airbase runwaylength 3990 . 0 al asad airbase runwayname 08 / 26
+al asad airbase operatingorganisation united states air force al asad airbase runwaylength 3990 . 0 al asad airbase location al anbar province , iraq al asad airbase runwayname 09r / 27l
+al asad airbase operatingorganisation united states air force united states air force battles invasion of grenada united states air force attackaircraft lockheed ac - 130 united states air force aircraftfighter mcdonnell douglas f - 15 eagle
+allama iqbal international airport location pakistan allama iqbal international airport runwaylength 2900 . 0 allama iqbal international airport operatingorganisation pakistan civil aviation authority allama iqbal international airport cityserved lahore
+amsterdam airport schiphol cityserved amsterdam amsterdam airport schiphol runwayname 09 / 27 ' buitenveldertbaan ' amsterdam airport schiphol runwaylength 2014 . 0 amsterdam airport schiphol elevationabovethesealevel ( in metres ) - 3 . 3528
+amsterdam airport schiphol cityserved amsterdam amsterdam airport schiphol runwayname 18l / 36r ' aalsmeerbaan ' amsterdam airport schiphol runwaylength 2014 . 0 amsterdam airport schiphol elevationabovethesealevel ( in metres ) - 3 . 3528
+andrews county airport location texas andrews county airport runwaylength 929 . 0 andrews county airport cityserved andrews , texas andrews county airport elevationabovethesealevel ( in metres ) 973 . 0
+andrews county airport location texas texas capital austin , texas texas demonym tejano texas country united states
+andrews county airport location texas texas capital austin , texas texas language english language texas country united states
+angola international airport location icolo e bengo icolo e bengo country angola angola international airport cityserved luanda icolo e bengo ispartof luanda province
+antwerp international airport operatingorganisation flemish government antwerp international airport owner flemish region antwerp international airport elevationabovethesealevel ( in metres ) 12 . 0 antwerp international airport runwaylength 600 . 0
+ashgabat international airport operatingorganisation turkmenistan airlines turkmenistan airlines headquarter turkmenistan turkmenistan airlines hubairport turkmenbashi international airport turkmenistan airlines headquarter ashgabat
+athens international airport cityserved athens athens international airport location spata athens international airport elevationabovethesealevel ( in metres ) 94 athens international airport runwaylength 3800 . 0
+atlantic city international airport cityserved atlantic city , new jersey atlantic city international airport location egg harbor township , new jersey egg harbor township , new jersey country united states atlantic city , new jersey leadername don guardian
+atlantic city international airport owner south jersey transportation authority south jersey transportation authority leadername stephen dilts atlantic city international airport location egg harbor township , new jersey egg harbor township , new jersey country united states
+belgium leadername charles michel antwerp international airport cityserved antwerp belgium language german language antwerp country belgium
+belgium leadername philippe of belgium antwerp international airport cityserved antwerp belgium language french language antwerp country belgium
+harrietstown , new york country united states saranac lake , new york ispartof harrietstown , new york saranac lake , new york ispartof essex county , new york adirondack regional airport cityserved saranac lake , new york
+iraq language kurdish languages iraq leadername fuad masum al - taqaddum air base cityserved fallujah fallujah country iraq
+iraq leadername haider al - abadi iraq language kurdish languages al - taqaddum air base cityserved fallujah fallujah country iraq
+lahore country pakistan allama iqbal international airport location punjab , pakistan allama iqbal international airport cityserved lahore punjab , pakistan leadername malik muhammad rafique rajwana
+poaceae division flowering plant alderney airport 1st runway surfacetype poaceae poaceae order commelinids poaceae class monocotyledon
+aarhus airport location tirstrup tirstrup country denmark tirstrup ispartof central denmark region denmark leadername margrethe ii of denmark denmark language faroese language
+adolfo suarez madrid - barajas airport runwaylength 4100 . 0 adolfo suarez madrid - barajas airport location madrid , paracuellos de jarama , san sebastian de los reyes and alcobendas adolfo suarez madrid - barajas airport elevationabovethesealevel ( in metres ) 610 . 0 adolfo suarez madrid - barajas airport operatingorganisation enaire adolfo suarez madrid - barajas airport runwayname 14l / 32r
+agra airport location india agra airport runwaylength 1818 . 0 agra airport operatingorganisation indian air force agra airport elevationabovethesealevel ( in metres ) 167 . 94 agra airport icao location identifier viag
+al asad airbase operatingorganisation united states air force al asad airbase location iraq al asad airbase runwaylength 3990 . 0 al asad airbase icao location identifier oraa al asad airbase runwayname 08 / 26
+al asad airbase operatingorganisation united states air force al asad airbase runwaylength 3992 . 88 al asad airbase location al anbar province , iraq al asad airbase icao location identifier oraa al asad airbase runwayname 08 / 26
+al asad airbase operatingorganisation united states air force united states air force attackaircraft lockheed ac - 130 united states air force transportaircraft boeing c - 17 globemaster iii united states air force aircraftfighter general dynamics f - 16 fighting falcon united states air force battles 1986 united states bombing of libya
+al asad airbase operatingorganisation united states air force united states air force battles invasion of grenada united states air force attackaircraft lockheed ac - 130 united states air force transportaircraft lockheed c - 130 hercules united states air force battles operation enduring freedom
+alderney airport 1st runway surfacetype poaceae alderney airport runwaylength 733 . 0 alderney airport cityserved alderney alderney airport elevationabovethesealevel ( in metres ) 88 . 0 alderney airport runwayname 08 / 26
+allama iqbal international airport location pakistan allama iqbal international airport runwaylength 3310 . 0 allama iqbal international airport operatingorganisation pakistan civil aviation authority allama iqbal international airport cityserved lahore allama iqbal international airport runwayname 18l / 36r
+allama iqbal international airport location punjab , pakistan allama iqbal international airport runwaylength 2900 . 0 allama iqbal international airport operatingorganisation pakistan civil aviation authority allama iqbal international airport cityserved lahore allama iqbal international airport runwayname 18r / 36l
+alpena county regional airport elevationabovethesealevel ( in metres ) 210 alpena county regional airport runwaylength 1533 . 0 alpena county regional airport location maple ridge township , alpena county , michigan maple ridge township , alpena county , michigan country united states alpena county regional airport cityserved alpena , michigan
+alpena county regional airport location maple ridge township , alpena county , michigan alpena county regional airport runwaylength 1533 . 0 alpena county regional airport cityserved alpena , michigan alpena county regional airport elevationabovethesealevel ( in metres ) 210 alpena county regional airport runwayname 7 / 25
+alpena county regional airport location wilson township , alpena county , michigan alpena county regional airport runwaylength 2744 . 0 alpena county regional airport cityserved alpena , michigan alpena county regional airport elevationabovethesealevel ( in metres ) 210 alpena county regional airport runwayname 1 / 19
+alpena county regional airport location wilson township , alpena county , michigan wilson township , alpena county , michigan country united states alpena county regional airport elevationabovethesealevel ( in metres ) 210 alpena county regional airport runwaylength 1533 . 0 alpena county regional airport cityserved alpena , michigan
+angola international airport location icolo e bengo angola international airport cityserved luanda angola international airport elevationabovethesealevel ( in metres ) 159 angola international airport runwayname 05l / 23r angola international airport runwaylength 3800 . 0
+athens international airport cityserved athens athens country greece greece leadername alexis tsipras greece language greek language greece leadername nikos voutsis
+athens international airport cityserved athens athens country greece greece leadername alexis tsipras greece language greek language greece leadername prokopis pavlopoulos
+atlantic city international airport cityserved atlantic city , new jersey egg harbor township , new jersey ispartof new jersey atlantic city international airport location egg harbor township , new jersey egg harbor township , new jersey country united states atlantic city , new jersey leadername don guardian
+belgium leadername philippe of belgium antwerp international airport cityserved antwerp belgium leadername charles michel antwerp country belgium belgium capital city of brussels
+egg harbor township , new jersey ispartof new jersey atlantic city international airport icao location identifier kacy atlantic city international airport location egg harbor township , new jersey egg harbor township , new jersey country united states egg harbor township , new jersey ispartof atlantic county , new jersey
+harrietstown , new york country united states saranac lake , new york ispartof harrietstown , new york lake placid , new york ispartof new york adirondack regional airport cityserved lake placid , new york adirondack regional airport cityserved saranac lake , new york
+harrietstown , new york country united states saranac lake , new york ispartof harrietstown , new york saranac lake , new york ispartof essex county , new york adirondack regional airport cityserved lake placid , new york adirondack regional airport cityserved saranac lake , new york
+indian air force aircrafthelicopter hal light combat helicopter agra airport location uttar pradesh uttar pradesh ispartof awadh agra airport operatingorganisation indian air force uttar pradesh ispartof bundelkhand
+indian air force aircrafthelicopter hal light combat helicopter agra airport location uttar pradesh uttar pradesh leadername ram naik agra airport operatingorganisation indian air force uttar pradesh ispartof bundelkhand
+iraq leadername haider al - abadi iraq leadername fuad masum al - taqaddum air base cityserved fallujah fallujah country iraq iraq language arabic
