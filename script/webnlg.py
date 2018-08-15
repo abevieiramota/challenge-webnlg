@@ -40,6 +40,10 @@ class WebNLGEntry(object):
 
             return self.mdf[['m_object', 'm_predicate', 'm_subject']].to_dict(orient='record')
 
+    def idx(self):
+
+        return self.edf.idx.values[0]
+
     def __str__(self):
 
         if not self._str:
