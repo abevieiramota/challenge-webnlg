@@ -27,6 +27,7 @@ def as_span(doc, node):
     return doc[node.i: node.i + 1]
 
 
+# TODO: aligning only sentence with triple > align whole text with tripleset
 class RootDataAlignmentModel:
     
     def __init__(self, similarity_metric):
