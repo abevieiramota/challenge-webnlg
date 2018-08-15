@@ -4,6 +4,7 @@ from config import DATASETS_FILEPATHS
 import networkx as nx
 from matplotlib import pyplot as plt
 
+
 class WebNLGEntry(object):
     
     def __init__(self, edf, odf, mdf, ldf):
@@ -14,10 +15,12 @@ class WebNLGEntry(object):
         self.ldf = ldf
         
         self.graph = nx.from_pandas_edgelist(self.mdf, 'm_subject', 'm_object', 'm_predicate', create_using=nx.DiGraph())
+
+        self._str = None
         
     def draw_graph(self):
         
-        fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+        _, _ = plt.subplots(1, 1, figsize=(10, 6))
         pos = nx.spring_layout(self.graph)
         nx.draw_networkx_edges(self.graph, pos)
         nx.draw_networkx_nodes(self.graph, pos, cmap=plt.get_cmap('jet'), node_size = 500)
@@ -36,6 +39,29 @@ class WebNLGEntry(object):
         if kind == 'dict':
 
             return self.mdf[['m_object', 'm_predicate', 'm_subject']].to_dict(orient='record')
+
+    def __str__(self):
+
+        if not self._str:
+
+            lines = []
+
+            lines.append("Triple info: {}\n".format(self.edf[['category', 'eid', 'idx', 'ntriples']].to_dict(orient='records')[0]))
+
+            lines.append("\tModified triples:\n")
+            lines.extend(self.mdf.mtext.tolist())
+            lines.append("\n")
+
+            lines.append("\tLexicalizations:\n")
+            lines.extend(self.ldf.ltext.tolist())
+
+            self._str = "\n".join(lines)
+
+        return self._str
+
+    def __repr__(self):
+
+        return self.__str__()
 
 
 class WebNLGCorpusIterator(object):
