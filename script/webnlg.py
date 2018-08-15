@@ -3,6 +3,21 @@ import pandas as pd
 from config import DATASETS_FILEPATHS
 import networkx as nx
 from matplotlib import pyplot as plt
+import re
+
+
+# BIAS: lexicalization of subject/object
+# removes separators | _
+unwanted_separators = re.compile(r'(\||_)')
+# removes unwanted empty chars
+unwanted_multiple_empty = re.compile(r'\s+')
+def preprocess_triple_text(s):
+    
+    sep_changed = unwanted_separators.sub(' ', s)
+    mult_empty_removed = unwanted_multiple_empty.sub(' ', sep_changed)
+    
+    # remove "
+    return mult_empty_removed.replace('"', '')
 
 
 class WebNLGEntry(object):
@@ -17,6 +32,17 @@ class WebNLGEntry(object):
         self.graph = nx.from_pandas_edgelist(self.mdf, 'm_subject', 'm_object', 'm_predicate', create_using=nx.DiGraph())
 
         self._str = None
+
+    def preprocessed_so(self, m_predicate=True):
+
+        # TODO: always return predicate?
+        if m_predicate:
+
+            df = self.mdf[['m_subject', 'm_predicate', 'm_object']]
+        else:
+            df = self.mdf[['m_subject', 'm_object']]
+
+        return df.applymap(preprocess_triple_text).to_dict(orient='records')
         
     def draw_graph(self):
         

@@ -1,3 +1,15 @@
+SUBMISSIONS_FILEPATHS = [
+        '../data/webnlg2017/submissions/adaptCenter/ADAPTcentreWebNLGsubmission.txt',
+        '../data/webnlg2017/submissions/melbourne/final_result.txt',
+        '../data/webnlg2017/submissions/pkuwriter/PKUWriter_results.txt',
+        '../data/webnlg2017/submissions/tilburg/nmt_test.out.ordered',
+        '../data/webnlg2017/submissions/tilburg/smt_test.out.ordered',
+        '../data/webnlg2017/submissions/tilburg/template_test.out.ordered',
+        '../data/webnlg2017/submissions/uit-danglt-clnlp/Submission-UIT-DANGNT-CLNLP.txt',
+        '../data/webnlg2017/submissions/upf/UPF_All_sent_final.txt',
+        '../data/webnlg2017/submissions/baseline_sorted.txt'
+]
+
 CATEGORIES = ['Airport', 'Astronaut', 'Building', 'City', 'ComicsCharacter', 
               'Food', 'Monument', 'SportsTeam', 'University', 'WrittenWork']
 

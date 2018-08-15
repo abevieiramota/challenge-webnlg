@@ -61,19 +61,24 @@ class RootDataAlignmentModel:
     def render_aligned(self, doc, data):
         
         m_subject_span, m_object_span = self.align_data(doc, data)
+
+        spans = [('m_subject: {}'.format(data['m_subject']), m_subject_span), 
+                                  ('m_object: : {}'.format(data['m_object']), m_object_span)]
+
+        # BUG: bug in displacy.render? if the ents aren't ordered by start_char, it renders duplicated texts
+        spans = sorted(spans, key=lambda s: s[1].start_char)
         
-        data =  {
+        render_data =  {
             'text': doc.text,
             'ents': [{
                 'start': span.start_char,
                 'end': span.end_char,
                 'label': label
-            } for label, span in [('m_subject: {}'.format(data['m_subject']), m_subject_span), 
-                                  ('m_object: : {}'.format(data['m_object']), m_object_span)]],
+            } for label, span in spans],
             'title': None
         }
     
-        displacy.render(data, style='ent', manual=True, jupyter=True)
+        displacy.render(render_data, style='ent', manual=True, jupyter=True)
         
 
     def get_distances(self, doc, data):
