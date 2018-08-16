@@ -130,7 +130,7 @@ The tenant of Sportpark De Toekomst is Jong Ajax.
 St. Vincent–St. Mary High School is located in United States.
 1 Decembrie 1918 University is in Alba.
 The president of Acharya Institute of Technology is B.M. Reddy.
-Kerala has to its northeast Mahé, India.
+Kerala has to its northwest Mahé, India
 Mendrisio neighboring Municipality Meride
 Bucharest is the capital of Romania.
 The dean of School of Business and Social Sciences at the Aarhus University is Thomas Pallesen.
@@ -578,7 +578,7 @@ Tony Tan is the leader of Singapore. English language is spoken in ,. , is locat
 Tomato is part of the Solanaceae family. Tomato is an ingredient in ,. , is of the order Solanales.
 AWH Engineering College is located in India. , has an academic staff of 250. , is in Kerala.
 Acharya Institute of Technology is in the city of Bangalore. The number of post graduate students at , is about 700. , is affiliated with Visvesvaraya Technological University.
-Kochi is the leader of Kerala. , is in Kerala. , has to its northeast Mahé, India.
+Kochi is the leader of Kerala. , is in Kerala. Kerala has to its northwest Mahé, India
 Germans of Romania are an ethnic group in Romania. , is located in Romania. The anthem of , is called Deșteaptă-te, române!.
 Germans of Romania are an ethnic group in Romania. Klaus Iohannis is the leader of ,. , is located in Romania.
 School of Business and Social Sciences at the Aarhus University is affiliated with European University Association. The headquarters of , is in Brussels. , was established in 1928.
@@ -825,7 +825,7 @@ Adams County, Pennsylvania has to its northeast Carroll County, Maryland. , has 
 Baku is the capital of Azerbaijan. Prime Minister of Azerbaijan leads ,. , is dedicated to Ottoman Army soldiers killed in the Battle of Baku. , is located in Azerbaijan. Artur Rasizade is the leader of ,.
 Baku is the capital of Azerbaijan. , is dedicated to Ottoman Army soldiers killed in the Battle of Baku. , is located in Azerbaijan. Artur Rasizade is the leader of ,. National Assembly (Azerbaijan) dictates the legislature of ,.
 President of Turkey leads Turkey. The leader of , is Ahmet Davutoğlu. Ankara is the capital of ,. Istanbul is the largest city in ,. , is located in Turkey.
-AWH Engineering College was established in 2001. , has an academic staff of 250. , is in Kerala. , has to its northeast Mahé, India. , is in the city of Kuttikkattoor.
+AWH Engineering College was established in 2001. , has an academic staff of 250. , is in Kerala. Kerala has to its northwest Mahé, India , is in the city of Kuttikkattoor.
 Acharya Institute of Technology is in the city of Bangalore. Dr. G. P. Prabhukumar is the director of ,. The number of post graduate students at , is about 700. The campus address for , In Soldevanahalli, Acharya Dr. Sarvapalli Radhakrishnan Road, Hessarghatta Main Road, Bangalore – 560090. , is affiliated with Visvesvaraya Technological University.
 The president of Acharya Institute of Technology is B.M. Reddy. , is in the city of Bangalore. , is located in India. The number of post graduate students at , is about 700. , is affiliated with Visvesvaraya Technological University.
 The headquarters of European University Association is in Brussels. , is located in Denmark. Monarchy of Denmark leads ,. Lars Løkke Rasmussen is the leader of ,. , is affiliated with European University Association.
@@ -1399,7 +1399,7 @@ The nationality of Agnes Kant is Netherlands. Mark Rutte is the leader of ,. Agn
 Agnes Kant office (worked At, worked As) Member of the House of Representatives , was born in West Germany. Radboud University Nijmegen is ,'s almaMater.
 World War II was a battle involving Airey Neave. Airey Neave active Years Start Date 1953-06-30 Airey Neave active Years End Date 1979-03-30
 World War II was a battle involving Airey Neave. Airey Neave active Years Start Date 1974-03-04 Airey Neave active Years End Date 1979-03-30
-Albert B. White death Year 1941 , was born on 1856-09-22. , died on 1941-07-03.
+Albert B. White death Year 1941 , was born on 1856-09-22. Albert B. White date Of Death 1941-07-03
 Albert B. White spouse Agnes Ward White , was born in Marietta, Ohio. Albert B. White successor William M. O. Dawson
 Albert Jennings Fountain was born in Staten Island. , died in United States. African Americans are an ethnic group in ,.
 Albert Jennings Fountain died in New Mexico Territory. , was born in New York City. , was born in Staten Island.
@@ -1806,7 +1806,7 @@ Adonis Georgiadis in Office While Prime Minister Antonis Samaras Antonis Samaras
 The nationality of Agnes Kant is Netherlands. Mark Rutte is the leader of ,. Agnes Kant office (worked At, worked As) House of Representatives (Netherlands) Emile Roemer party Socialist Party (Netherlands) Emile Roemer is the leader of ,.
 The nationality of Agnes Kant is Netherlands. Mark Rutte is the leader of ,. Agnes Kant office (worked At, worked As) House of Representatives (Netherlands) Khadija Arib is the leader of ,. , resides in Doesburg.
 The nationality of Agnes Kant is Netherlands. Mark Rutte is the leader of ,. , resides in Doesburg. Emile Roemer party Socialist Party (Netherlands) Emile Roemer is the leader of ,.
-Albert B. White birth Year 1856 Albert B. White death Year 1941 , was born on 1856-09-22. , died in Parkersburg, West Virginia. , died on 1941-07-03.
+Albert B. White birth Year 1856 Albert B. White death Year 1941 , was born on 1856-09-22. , died in Parkersburg, West Virginia. Albert B. White date Of Death 1941-07-03
 Albert B. White spouse Agnes Ward White , was born in Cleveland. , died in Parkersburg, West Virginia. Albert B. White successor William M. O. Dawson , was born in Bloomington, Maryland.
 Albert B. White spouse Agnes Ward White Albert B. White successor William M. O. Dawson Albert B. White office (worked At, worked As) Governor of West Virginia , was born in Cleveland. Albert B. White active Years End Date 1905-03-04
 Albert B. White successor William M. O. Dawson Albert B. White party Republican Party (United States) , was born in Cleveland. Albert B. White active Years End Date 1905-03-04 Albert B. White active Years Start Date 1901-03-04
