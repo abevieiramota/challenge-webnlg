@@ -11,13 +11,16 @@ import re
 unwanted_separators = re.compile(r'(\||_)')
 # removes unwanted empty chars
 unwanted_multiple_empty = re.compile(r'\s+')
+# splits on camelcade
+first_letter_in_camelcase = re.compile('(?<=[a-z])([A-Z])')
 def preprocess_triple_text(s):
     
     sep_changed = unwanted_separators.sub(' ', s)
     mult_empty_removed = unwanted_multiple_empty.sub(' ', sep_changed)
     
     # remove "
-    return mult_empty_removed.replace('"', '')
+    x = mult_empty_removed.replace('"', '')
+    return ' '.join(first_letter_in_camelcase.sub(r' \1', x).split())
 
 
 class WebNLGEntry(object):
