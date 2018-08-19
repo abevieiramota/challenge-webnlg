@@ -36,16 +36,12 @@ class WebNLGEntry(object):
 
         self._str = None
 
-    def preprocessed_so(self, m_predicate=True):
+    def get_data(self, preprocessor=None):
 
-        # TODO: always return predicate?
-        if m_predicate:
-
-            df = self.mdf[['m_subject', 'm_predicate', 'm_object']]
+        if preprocessor:
+            return self.mdf[['m_subject', 'm_predicate', 'm_object']].applymap(preprocessor).to_dict(orient='records')
         else:
-            df = self.mdf[['m_subject', 'm_object']]
-
-        return df.applymap(preprocess_triple_text).to_dict(orient='records')
+            return self.mdf[['m_subject', 'm_predicate', 'm_object']].to_dict(orient='records')
         
     def draw_graph(self):
         
@@ -85,8 +81,9 @@ class WebNLGEntry(object):
             lines.extend(self.mdf.mtext.tolist())
             lines.append("\n")
 
-            lines.append("\tLexicalizations:\n")
-            lines.extend(self.ldf.ltext.tolist())
+            if self.ldf is not None:
+                lines.append("\tLexicalizations:\n")
+                lines.extend(self.ldf.ltext.tolist())
 
             self._str = "\n".join(lines)
 

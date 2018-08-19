@@ -107,3 +107,17 @@ def displacy_noun_chunks(doc):
     }
     
     displacy.render(data, style='ent', manual=True, jupyter=True)
+
+# tests if two spans overlaps
+def overlaps(span1, span2):
+
+    return max(0, min(span1.end_char, span2.end_char) - max(span1.start_char, span2.start_char)) > 0
+
+# gets span of token
+def get_span(doc, node):
+
+    return doc[node.left_edge.i: node.right_edge.i + 1]
+
+def as_span(doc, node):
+
+    return doc[node.i: node.i + 1]
