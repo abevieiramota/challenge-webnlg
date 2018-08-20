@@ -1,30 +1,34 @@
 class PipelineTextGenerator:
 
-    def __init__(self, sentence_generator, sentence_aggregator):
+    def __init__(self, sentence_generator, sentence_aggregator, discourse_structurer):
 
         self.sentence_generator = sentence_generator
         self.sentence_aggregator = sentence_aggregator
+        self.discourse_structurer = discourse_structurer
 
     def generate(self, data):
 
         generated_texts = []
 
         for entry in data:
-            sentences = [self.sentence_generator.generate(d) for d in entry]
+            sorted_data = self.discourse_structurer.sort(entry)
+            sentences = [self.sentence_generator.generate(d) for d in sorted_data]
             text = self.sentence_aggregator.aggregate(sentences)
 
             generated_texts.append(text)
 
         return generated_texts
 
+
 class IfAfterNthProcessPipelineTextGenerator:
 
-    def __init__(self, sentence_generator, sentence_aggregator, processor=lambda x: x, nth=-1):
+    def __init__(self, sentence_generator, sentence_aggregator, discourse_structurer, processor=lambda x: x, nth=-1):
 
         self.sentence_generator = sentence_generator
         self.sentence_aggregator = sentence_aggregator
         self.processor = processor
         self.nth = nth
+        self.discourse_structurer = discourse_structurer
 
     def generate(self, data):
 
@@ -32,8 +36,10 @@ class IfAfterNthProcessPipelineTextGenerator:
 
         for entry in data:
 
+            sorted_data = self.discourse_structurer.sort(entry)
+
             sentences = []
-            for i, d in enumerate(entry):
+            for i, d in enumerate(sorted_data):
 
                 if i > self.nth:
 

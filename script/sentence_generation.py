@@ -54,13 +54,17 @@ class MostFrequentTemplateSentenceGenerator:
 
     def generate(self, data):
 
+        m_predicate = data['m_predicate']
+
         preprocessed_data = {k: self.preprocessor(v) for k, v in data.items()}
 
-        if preprocessed_data['m_predicate'] not in self.template_db:
+        if m_predicate not in self.template_db:
+
+            mft_logger.debug("Not found predicate [%s]", m_predicate)
 
             return None 
 
-        template = self.template_db[preprocessed_data['m_predicate']]
+        template = self.template_db[m_predicate]
 
         return template.fill(preprocessed_data)
 
@@ -74,7 +78,6 @@ class NearestPredicateTemplateSentenceGenerator:
 
     def __init__(self, template_sentence_generator, similarity_metric=None, 
                        predicates=None, preprocessor=lambda x: x, 
-                       predicate_preprocessor=lambda x: x,
                        threshold=None):
 
         if not similarity_metric:
@@ -86,9 +89,8 @@ class NearestPredicateTemplateSentenceGenerator:
 
         self.template_sentence_generator = template_sentence_generator
         self.preprocessor = preprocessor
-        self.predicate_preprocessor = predicate_preprocessor
         self.similarity_metric = similarity_metric
-        self.known_predicates = [self.predicate_preprocessor(p) for p in self.template_sentence_generator.predicates()]
+        self.known_predicates = self.template_sentence_generator.predicates()
         self.threshold = threshold
 
         self.nearest_predicate = {}
@@ -96,6 +98,9 @@ class NearestPredicateTemplateSentenceGenerator:
         for predicate in predicates:
 
             nearest, sim = self.get_nearest_predicate(predicate)
+
+            npt_logger.debug("Found nearest predicate [%s] from [%s] with similarity [%f]",
+                             nearest, predicate, sim)
 
             self.nearest_predicate[predicate] = (nearest, sim)
 
@@ -105,27 +110,26 @@ class NearestPredicateTemplateSentenceGenerator:
 
     def get_nearest_predicate(self, predicate):
     
-        predicate = self.predicate_preprocessor(self.preprocessor(predicate))
-
         similarities = []
     
         for known_predicate in self.known_predicates:
             
             sim = self.similarity_metric(known_predicate, predicate)
             
-            similarities.append((predicate, sim))
+            similarities.append((known_predicate, sim))
         
         return max(similarities, key=lambda v: v[1])        
 
 
     def generate(self, data):
 
+        predicate = data['m_predicate']
         preprocessed_data = {k: self.preprocessor(v) for k, v in data.items()}
 
-        nearest_predicate, sim = self.get_nearest_predicate(preprocessed_data['m_predicate'])
+        nearest_predicate, sim = self.nearest_predicate[predicate]
 
         npt_logger.debug("Found nearest predicate [%s], with similarity [%f], for predicate [%s]",
-                         nearest_predicate, sim, preprocessed_data['m_predicate'])
+                         nearest_predicate, sim, predicate)
 
         if sim > self.threshold:
 
@@ -134,6 +138,7 @@ class NearestPredicateTemplateSentenceGenerator:
             return self.template_sentence_generator.generate(preprocessed_data)
         
         else:
+            npt_logger.debug("Not found nearest predicate.")
             return None
 
 
