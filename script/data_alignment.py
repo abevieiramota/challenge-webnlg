@@ -1,13 +1,13 @@
 from spacy import displacy
 from spacy_util import overlaps, get_span, as_span
 import logging
+from textacy import extract
 
 rda_logger = logging.getLogger('RootDataAlignmentModel')
-
 # TODO: aligning only sentence with triple > align whole text with tripleset
 class RootDataAlignmentModel:
     
-    def __init__(self, similarity_metric, nlp):
+    def __init__(self, similarity_metric=None, nlp=None):
 
         if similarity_metric is None:
             raise ValueError("similarity_metric mustn't be not None")
@@ -40,8 +40,8 @@ class RootDataAlignmentModel:
         # BIAS: subject wins priority over distances tie
         m_subject_span, sim_subject = max(similarities['m_subject'], key=lambda x: x[1])
 
-        rda_logger.debug("Selected m_subject_span [%s] with similarity [%f]", 
-                         m_subject_span, sim_subject)
+        rda_logger.debug("Selected m_subject_span [%s] with similarity [%f] for [%s]", 
+                         m_subject_span, sim_subject, data['m_subject'])
 
         m_object_span = None
         
@@ -58,8 +58,8 @@ class RootDataAlignmentModel:
                 
             m_object_span = span
 
-            rda_logger.debug("Selected m_object_span [%s] with similarity [%f]", 
-                             m_object_span.text, sim)
+            rda_logger.debug("Selected m_object_span [%s] with similarity [%f] for [%s]", 
+                             m_object_span.text, sim, data['m_object'])
             break
 
         if m_object_span is None:
@@ -132,3 +132,69 @@ class RootDataAlignmentModel:
             roots.extend(root.rights)
 
         return similarities
+
+
+ngram_logger = logging.getLogger("NGramDataAlignmentModel")
+class NGramDataAlignmentModel:
+
+    def __init__(self, max_n=4, similarity_metric=None, nlp=None):
+
+        if similarity_metric is None:
+            raise ValueError("similarity_metric mustn't be not None")
+
+        if nlp is None:
+            raise ValueError("nlp mustn't be not None")
+
+        self.max_n = max_n 
+        self.nlp = nlp
+        self.similarity_metric = similarity_metric
+        self.m_subject_align = {}
+        self.m_object_align = {}
+
+    def align_data(self, text, data):
+
+        doc = self.nlp(text)
+
+        ngrams = []
+        n_punct = len([token for token in doc if token.is_punct])
+        for n in range(1, min(self.max_n+1, len(doc) - n_punct)):
+            
+            ngrams.extend(extract.ngrams(doc, n))
+
+        subject_sims = [(ngram, self.similarity_metric(ngram.text, data['m_subject'])) for ngram in ngrams]
+       
+        ngram_logger.debug("Similarities from m_subject %s", list(zip(ngrams, subject_sims)))
+
+        subject_span, subject_sim = max(subject_sims, key=lambda x: x[1])
+
+        ngram_logger.debug("Selected m_subject_span [%s] with similarity [%f] for [%s]", 
+                         subject_span, subject_sim, data['m_subject'])
+
+        object_sims = [(ngram, self.similarity_metric(ngram.text, data['m_object'])) for ngram in ngrams]
+
+        ngram_logger.debug("Similarities from m_object %s", list(zip(ngrams, object_sims)))
+
+        for span, sim in sorted(object_sims, key=lambda x: x[1], reverse=True):
+
+            # tests if the current span doesn't overlaps the subject one
+            if overlaps(span, subject_span):
+
+                ngram_logger.debug("Span [%s] overlaps m_subject_span [%s]",
+                                span.text, subject_span.text)
+                continue
+
+            object_span = span
+
+            ngram_logger.debug("Selected m_object_span [%s] with similarity [%f] for [%s]", 
+                             object_span.text, sim, data['m_object'])
+            break
+        
+        if object_span is None:
+
+            ngram_logger.warning("I can't extract m_object_span.")
+
+        # TODO: add this schema to other aligner
+        self.m_subject_align[data['m_subject']] = subject_span
+        self.m_object_align[data['m_object']] = object_span
+
+        return subject_span, object_span
