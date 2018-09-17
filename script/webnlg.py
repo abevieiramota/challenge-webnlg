@@ -168,7 +168,7 @@ class WebNLGCorpus(object):
     
     def __str__(self):
         
-        return self.name
+        return self.dataset
     
     def __iter__(self):
         
@@ -176,15 +176,35 @@ class WebNLGCorpus(object):
 
     @staticmethod
     def load(dataset):
-        
-        if dataset not in DATASETS_FILEPATHS:
-            raise ValueError('It must be in {}'.format(DATASETS_FILEPATHS.keys()))
-            
-        filepaths = DATASETS_FILEPATHS[dataset]
+
+        if isinstance(dataset, list):
+
+            for d in dataset:
+
+                if d not in DATASETS_FILEPATHS:
+                    raise ValueError('It must be in {}'.format(DATASETS_FILEPATHS.keys()))
+
+            filepaths = []
+    
+            for d in dataset:
+                
+                filepaths = filepaths + DATASETS_FILEPATHS[d]
+
+            dataset_name = '_'.join(dataset)
+        else:
+            if dataset not in DATASETS_FILEPATHS:
+                raise ValueError('It must be in {}'.format(DATASETS_FILEPATHS.keys()))
+
+            filepaths = DATASETS_FILEPATHS[dataset]
+            dataset_name = dataset
+
         edf, odf, mdf, ldf = WebNLGCorpus._read_file_from_paths(filepaths)
-        
-        return WebNLGCorpus(dataset,
+
+        return WebNLGCorpus(dataset_name,
                             edf, odf, mdf, ldf)
+
+
+
         
     @staticmethod
     def _make_entries(entries_dicts):

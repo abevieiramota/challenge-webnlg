@@ -66,6 +66,8 @@ class MostFrequentTemplateSentenceGenerator:
 
         template = self.template_db[m_predicate]
 
+        mft_logger.debug("Template found for m_predicate [%s]\nTemplate: %s", m_predicate, template)
+
         return template.fill(preprocessed_data)
 
     def predicates(self):

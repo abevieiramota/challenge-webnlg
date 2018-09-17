@@ -3,20 +3,137 @@ from spacy_util import overlaps, get_span, as_span
 import logging
 from textacy import extract
 
+# TODO: lexicalization must be serialized
+class DataAlignmentModel:
+
+    def render_aligned(self, text, data):
+
+        m_subject_span, m_object_span = self.align_data(text, data)
+
+        spans = [('m_subject', m_subject_span), ('m_object', m_object_span)]
+
+        # BUG: bug in displacy.render? if the ents aren't ordered by start_char, it renders duplicated texts
+        spans = sorted(spans, key=lambda s: s[1].start_char)
+        
+        render_data =  {
+            'text': text,
+            'ents': [{
+                'start': span.start_char,
+                'end': span.end_char,
+                'label': label
+            } for label, span in spans],
+            'title': None
+        }
+    
+        displacy.render(render_data, style='ent', manual=True, jupyter=True)
+
+    
+    def get_subject_lexicalization(self, m_subject):
+
+        return self.m_subject_align.get(m_subject, None)
+
+    def get_object_lexicalization(self, m_object):
+
+        return self.m_object_align.get(m_object, None)
+
+
+class FallBackDataAlignmentModel(DataAlignmentModel):
+
+    def __init__(self, models):
+
+        self.models = models
+
+    def align_data(self, text, data):
+
+        for model in self.models:
+
+            result = model.align_data(text, data)
+
+            if result:
+
+                return result
+
+        return None
+
+    
+    def get_subject_lexicalization(self, m_subject):
+
+        for model in self.models:
+
+            result = model.get_subject_lexicalization(m_subject)
+
+            if result:
+
+                return result
+        
+        return None
+
+    def get_object_lexicalization(self, m_object):
+
+        for model in self.models:
+
+            result = model.get_object_lexicalization(m_object)
+
+            if result:
+
+                return result
+        
+        return None
+
+
+class SPODataAlignmentModel(DataAlignmentModel):
+
+    def __init__(self, nlp=None):
+
+        if nlp is None:
+            raise ValueError("nlp mustn't be None")
+
+        self.nlp = nlp
+        self.m_subject_align = {}
+        self.m_object_align = {}
+
+    
+    def align_data(self, text, data):
+
+        if type(text) == str:
+            doc = self.nlp(text)
+        else:
+            doc = text
+
+        from textacy import extract
+
+        spo = list(extract.subject_verb_object_triples(doc))
+
+        if not spo:
+
+            return None
+
+        s, p, o = spo[0]
+
+        self.m_subject_align[data['m_subject']] = s 
+        self.m_object_align[data['m_object']] = o 
+
+        return s, o
+
+
 rda_logger = logging.getLogger('RootDataAlignmentModel')
 # TODO: aligning only sentence with triple > align whole text with tripleset
-class RootDataAlignmentModel:
+class RootDataAlignmentModel(DataAlignmentModel):
     
     def __init__(self, similarity_metric=None, nlp=None):
 
+        DataAlignmentModel.__init__(self)
+
         if similarity_metric is None:
-            raise ValueError("similarity_metric mustn't be not None")
+            raise ValueError("similarity_metric mustn't be None")
 
         if nlp is None:
-            raise ValueError("nlp mustn't be not None")
+            raise ValueError("nlp mustn't be None")
         
         self.similarity_metric = similarity_metric
         self.nlp = nlp
+        self.m_subject_align = {}
+        self.m_object_align = {}
 
         rda_logger.debug("Initialized with similarity_metric [%s], nlp = [%s]", 
                     similarity_metric, nlp)
@@ -65,37 +182,12 @@ class RootDataAlignmentModel:
         if m_object_span is None:
 
             rda_logger.warning("I can't extract m_object_span.")
+
+        self.m_subject_align[data['m_subject']] = m_subject_span
+        self.m_object_align[data['m_object']] = m_object_span
             
         return m_subject_span, m_object_span
     
-    def render_aligned(self, text, data):
-
-        if type(text) == str:
-            doc = self.nlp(text)
-        else:
-            doc = text
-        
-        m_subject_span, m_object_span = self.align_data(doc, data)
-
-        spans = [('m_subject: {}'.format(data['m_subject']), m_subject_span), 
-                                  ('m_object: : {}'.format(data['m_object']), m_object_span)]
-
-        # BUG: bug in displacy.render? if the ents aren't ordered by start_char, it renders duplicated texts
-        spans = sorted(spans, key=lambda s: s[1].start_char)
-        
-        render_data =  {
-            'text': doc.text,
-            'ents': [{
-                'start': span.start_char,
-                'end': span.end_char,
-                'label': label
-            } for label, span in spans],
-            'title': None
-        }
-    
-        displacy.render(render_data, style='ent', manual=True, jupyter=True)
-        
-
     def get_similarities(self, doc, data):
 
         spans, roots = [], []
@@ -135,15 +227,17 @@ class RootDataAlignmentModel:
 
 
 ngram_logger = logging.getLogger("NGramDataAlignmentModel")
-class NGramDataAlignmentModel:
+class NGramDataAlignmentModel(DataAlignmentModel):
 
     def __init__(self, max_n=4, similarity_metric=None, nlp=None):
 
+        DataAlignmentModel.__init__(self)
+
         if similarity_metric is None:
-            raise ValueError("similarity_metric mustn't be not None")
+            raise ValueError("similarity_metric mustn't be None")
 
         if nlp is None:
-            raise ValueError("nlp mustn't be not None")
+            raise ValueError("nlp mustn't be None")
 
         self.max_n = max_n 
         self.nlp = nlp
@@ -153,7 +247,10 @@ class NGramDataAlignmentModel:
 
     def align_data(self, text, data):
 
-        doc = self.nlp(text)
+        if type(text) == str:
+            doc = self.nlp(text)
+        else:
+            doc = text
 
         ngrams = []
         n_punct = len([token for token in doc if token.is_punct])
