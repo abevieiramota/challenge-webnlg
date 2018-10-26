@@ -129,9 +129,15 @@ class WebNLGCorpus(object):
         self.ldf = ldf
         
         
-    def subset(self, ntriples):
+    def subset(self, ntriples, categories=None):
+
+        filter_ = True
+        if ntriples:
+            filter_ = filter_ & (self.edf.ntriples.isin(ntriples))
+        if categories:
+            filter_ = filter_ & (self.edf.category.isin(categories))
         
-        edf = self.edf[self.edf.ntriples == ntriples]
+        edf = self.edf[filter_]
         odf = self.odf[self.odf.idx.isin(edf.idx)]
         mdf = self.mdf[self.mdf.idx.isin(edf.idx)]
         ldf = self.ldf[self.ldf.idx.isin(edf.idx)]
