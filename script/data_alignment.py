@@ -94,6 +94,7 @@ class SPODataAlignmentModel(DataAlignmentModel):
         self.nlp = nlp
         self.m_subject_align = {}
         self.m_object_align = {}
+        self.logger = logging.getLogger(self.__class__.__name__)
 
     
     def align_data(self, text, data):
@@ -109,9 +110,13 @@ class SPODataAlignmentModel(DataAlignmentModel):
 
         if not spo:
 
+            self.logger.warning('No (subject, predicate, object) identified.')
+
             return None
 
         s, p, o = spo[0]
+
+        self.logger.debug(f'Identified subject = [{s}], predicate = [{p}], object = [{o}]')
 
         self.m_subject_align[data['m_subject']] = s 
         self.m_object_align[data['m_object']] = o 
