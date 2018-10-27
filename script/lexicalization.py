@@ -48,7 +48,7 @@ def preprocess_so(so):
     underline_removed = parenthesis_preprocessed.replace('_', ' ')
     camelcase_preprocessed = CAMELCASE_RE.sub('\g<1> \g<2>', underline_removed)
 
-    return camelcase_preprocessed.strip()
+    return camelcase_preprocessed.strip().replace('"', '')
 
 
 class LexicalizePreprocessed:
