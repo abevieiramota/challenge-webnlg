@@ -1,14 +1,13 @@
 import logging
 
-jjs_logger = logging.getLogger("JustJoinSentencesSentenceAggregator")
 class JustJoinSentencesSentenceAggregator:
 
     def __init__(self, sep=' '):
 
         self.sep = sep
+        self.logger = logging.getLogger(self.__class__.__name__)
 
-        jjs_logger.debug("Initialized with sep [%s]",
-                         self.sep)
+        self.logger.debug(f"Initialized with sep [{self.sep}]")
         
 
     def aggregate(self, sentences):

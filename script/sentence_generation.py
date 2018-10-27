@@ -1,12 +1,12 @@
 import logging
 
 
-fbp_logger = logging.getLogger("FallBackPipelineSentenceGenerator")
 class FallBackPipelineSentenceGenerator:
 
     def __init__(self, models):
 
         self.models = models 
+        self.logger = logging.getLogger(self.__class__.__name__)
 
     def generate(self, data):
 
@@ -17,7 +17,7 @@ class FallBackPipelineSentenceGenerator:
             if generated_sentence:
                 return generated_sentence
         
-            fbp_logger.debug("Fallback from [%s] for data [%s]", model, data)
+            self.logger.debug(f"Fallback from [{model}] for data [{data}]")
 
         return None
 
@@ -36,20 +36,19 @@ class JustJoinTripleSentenceGenerator:
         return self.sentence_template.format(**preprocessed_data)
 
 
-mft_logger = logging.getLogger("MostFrequentTemplateSentenceGenerator")
 class MostFrequentTemplateSentenceGenerator:
 
     def __init__(self, template_model, preprocessor=lambda x: x):
 
         self.template_db = {}
         self.preprocessor = preprocessor
+        self.logger = logging.getLogger(self.__class__.__name__)
 
         for k, templates in template_model.template_db.items():
 
             self.template_db[k] = max(templates.items(), key=lambda x: len(x[1]))[0]
 
-        mft_logger.debug("Initialized with template_model [%s] preprocessor [%s]",
-                         template_model, self.preprocessor)
+        self.logger.debug(f"Initialized with template_model [{template_model}] preprocessor [{self.preprocessor}]")
 
 
     def generate(self, data):
@@ -60,13 +59,13 @@ class MostFrequentTemplateSentenceGenerator:
 
         if m_predicate not in self.template_db:
 
-            mft_logger.debug("Not found predicate [%s]", m_predicate)
+            self.logger.debug(f"Not found predicate [{m_predicate}]")
 
             return None 
 
         template = self.template_db[m_predicate]
 
-        mft_logger.debug("Template found for m_predicate [%s]\nTemplate: %s", m_predicate, template)
+        self.logger.debug(f"Template found for m_predicate [{m_predicate}]\nTemplate: {template}")
 
         return template.fill(preprocessed_data)
 
@@ -75,7 +74,6 @@ class MostFrequentTemplateSentenceGenerator:
         return self.template_db.keys()
 
 
-npt_logger = logging.getLogger("NearestPredicateTemplateSentenceGenerator")
 class NearestPredicateTemplateSentenceGenerator:
 
     def __init__(self, template_sentence_generator, similarity_metric=None, 
@@ -96,18 +94,17 @@ class NearestPredicateTemplateSentenceGenerator:
         self.threshold = threshold
 
         self.nearest_predicate = {}
+        self.logger = logging.getLogger(self.__class__.__name__)
 
         for predicate in predicates:
 
             nearest, sim = self.get_nearest_predicate(predicate)
 
-            npt_logger.debug("Found nearest predicate [%s] from [%s] with similarity [%f]",
-                             nearest, predicate, sim)
+            self.logger.debug(f"Found nearest predicate [{nearest}] from [{predicate}] with similarity [{sim}]")
 
             self.nearest_predicate[predicate] = (nearest, sim)
 
-        npt_logger.debug("Initialized with similarity metric [%s] and threshold [%f]", 
-                         self.similarity_metric, self.threshold)
+        self.logger.debug(f"Initialized with similarity metric [{self.similarity_metric}] and threshold [{self.threshold}]")
 
 
     def get_nearest_predicate(self, predicate):
@@ -130,8 +127,7 @@ class NearestPredicateTemplateSentenceGenerator:
 
         nearest_predicate, sim = self.nearest_predicate[predicate]
 
-        npt_logger.debug("Found nearest predicate [%s], with similarity [%f], for predicate [%s]",
-                         nearest_predicate, sim, predicate)
+        self.logger.debug(f"Found nearest predicate [{nearest_predicate}], with similarity [{sim}], for predicate [{predicate}]")
 
         if sim > self.threshold:
 
@@ -140,7 +136,7 @@ class NearestPredicateTemplateSentenceGenerator:
             return self.template_sentence_generator.generate(preprocessed_data)
         
         else:
-            npt_logger.debug("Not found nearest predicate.")
+            self.logger.debug("Not found nearest predicate.")
             return None
 
 

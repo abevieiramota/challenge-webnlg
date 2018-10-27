@@ -3,8 +3,6 @@ import logging
 from collections import defaultdict
 import pickle
 
-te_logger = logging.getLogger("TemplateExtractor")
-
 class Template:
 
     def __init__(self, str_template):
@@ -38,13 +36,14 @@ class TemplateExtractor:
     
         self.data_alignment_model = data_alignment_model
         self.template_db = None
+        self.logger = logging.getLogger(self.__class__.__name__)
 
-        te_logger.debug("Initialized with data_alignment_model [%s]", data_alignment_model)
+        self.logger.debug(f"Initialized with data_alignment_model [{data_alignment_model}]")
 
 
     def fit(self, texts, datas):
 
-        te_logger.debug("Started fitting data.")
+        self.logger.debug("Started fitting data.")
 
         self.template_db = defaultdict(lambda: defaultdict(list))
 
@@ -62,7 +61,7 @@ class TemplateExtractor:
 
             n_processed += 1
 
-        te_logger.debug("Finished fitting data. %d processed texts.", n_processed)
+        self.logger.debug(f"Finished fitting data. {n_processed} processed texts.")
         
 
     def extract_template(self, text, data):
