@@ -146,7 +146,7 @@ class WebNLGCorpus(object):
                             edf, odf, mdf, ldf)
  
 
-    def sample(self, category=None, ntriples=None, idx=None, random_state=None):
+    def sample(self, eid=None, category=None, ntriples=None, idx=None, random_state=None):
         
         if not idx:
             ds = self.edf
@@ -160,6 +160,10 @@ class WebNLGCorpus(object):
                         category, ntriples))
             
             idx = ds.sample(random_state=random_state).idx.values[0]
+
+        if eid:
+
+            idx = ds[ds.eid == eid].idx.values[0]
         
         edf = self.edf[self.edf.idx == idx]
         odf = self.odf[self.odf.idx == idx]
