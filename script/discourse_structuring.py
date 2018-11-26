@@ -1,14 +1,15 @@
 from collections import defaultdict
 import networkx as nx
+from sklearn.base import BaseEstimator
 
-class MostFrequentFirstDiscourseStructuring:
+class MostFrequentFirstDiscourseStructuring(BaseEstimator):
 
     def __init__(self, template_model=None):
 
-        if template_model is None:
-            raise ValueError("template_model mustn't be not None")
-
         self.predicate_frequency = defaultdict(int)
+
+
+    def fit(self, template_model=None):
 
         for predicate, templates_dicts in template_model.template_db.items():
 
@@ -26,7 +27,7 @@ class MostFrequentFirstDiscourseStructuring:
         return sorted_sentences
 
 
-class ChainDiscourseStructuring:
+class ChainDiscourseStructuring(BaseEstimator):
 
     def sort(self, data):
 

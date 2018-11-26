@@ -2,9 +2,10 @@ from spacy import displacy
 from spacy_util import overlaps, get_span, as_span
 import logging
 from textacy import extract
+from sklearn.base import BaseEstimator
 
 # TODO: lexicalization must be serialized
-class DataAlignmentModel:
+class DataAlignmentModel(BaseEstimator):
 
     def render_aligned(self, text, data):
 
@@ -40,7 +41,7 @@ class DataAlignmentModel:
         pass 
 
 
-class FallBackDataAlignmentModel(DataAlignmentModel):
+class FallBackDataAlignmentModel(DataAlignmentModel, BaseEstimator):
 
     def __init__(self, models):
 
@@ -84,7 +85,7 @@ class FallBackDataAlignmentModel(DataAlignmentModel):
         return None
 
 
-class SPODataAlignmentModel(DataAlignmentModel):
+class SPODataAlignmentModel(DataAlignmentModel, BaseEstimator):
 
     def __init__(self, nlp=None):
 
@@ -125,7 +126,7 @@ class SPODataAlignmentModel(DataAlignmentModel):
 
 
 # TODO: aligning only sentence with triple > align whole text with tripleset
-class RootDataAlignmentModel(DataAlignmentModel):
+class RootDataAlignmentModel(DataAlignmentModel, BaseEstimator):
     
     def __init__(self, similarity_metric=None, nlp=None):
 
@@ -231,7 +232,7 @@ class RootDataAlignmentModel(DataAlignmentModel):
         return similarities
 
 
-class NGramDataAlignmentModel(DataAlignmentModel):
+class NGramDataAlignmentModel(DataAlignmentModel, BaseEstimator):
 
     def __init__(self, max_n=4, similarity_metric=None, nlp=None):
 

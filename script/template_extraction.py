@@ -2,6 +2,7 @@ import spacy
 import logging
 from collections import defaultdict
 import pickle
+from sklearn.base import BaseEstimator
 
 class Template:
 
@@ -30,7 +31,7 @@ class Template:
         return self.str_template.__hash__()
 
 
-class TemplateExtractor:
+class TemplateExtractor(BaseEstimator):
     
     def __init__(self, data_alignment_model=None):
     

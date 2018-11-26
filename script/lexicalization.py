@@ -1,12 +1,17 @@
 import logging
+from sklearn.base import BaseEstimator
 
 
-class LexicalizeAsAligned:
+class LexicalizeAsAligned(BaseEstimator):
 
     def __init__(self, data_alignment=None):
 
         self.data_alignment = data_alignment
         self.logger = logging.getLogger(self.__class__.__name__)
+
+    def fit(self, data_alignment=None):
+
+        self.data_alignment = data_alignment
 
 
     def lexicalize(self, data):
@@ -51,11 +56,17 @@ def preprocess_so(so):
     return camelcase_preprocessed.strip().replace('"', '')
 
 
-class LexicalizePreprocessed:
+class LexicalizePreprocessed(BaseEstimator):
 
     def __init__(self):
 
         self.logger = logging.getLogger(self.__class__.__name__)
+
+
+    def fit(self, data_alignment=None):
+
+        self.data_alignment = data_alignment
+
 
     def lexicalize(self, data):
 

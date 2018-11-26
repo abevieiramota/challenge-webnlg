@@ -8,6 +8,14 @@ class FallBackPipelineSentenceGenerator:
         self.models = models 
         self.logger = logging.getLogger(self.__class__.__name__)
 
+    
+    def fit(self, template_model):
+
+        for model in self.models:
+
+            model.fit(template_model)
+
+
     def generate(self, data):
 
         for model in self.models:
@@ -29,6 +37,12 @@ class JustJoinTripleSentenceGenerator:
         self.sentence_template = sentence_template
         self.preprocessor = preprocessor
 
+
+    def fit(self, *args, **kwargs):
+
+        pass
+
+
     def generate(self, data):
 
         preprocessed_data = {k: self.preprocessor(v) for k, v in data.items()}
@@ -38,11 +52,14 @@ class JustJoinTripleSentenceGenerator:
 
 class MostFrequentTemplateSentenceGenerator:
 
-    def __init__(self, template_model, preprocessor=lambda x: x):
+    def __init__(self, preprocessor=lambda x: x):
 
         self.template_db = {}
         self.preprocessor = preprocessor
         self.logger = logging.getLogger(self.__class__.__name__)
+
+
+    def fit(self, template_model):
 
         for k, templates in template_model.template_db.items():
 
