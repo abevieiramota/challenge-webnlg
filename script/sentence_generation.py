@@ -1,7 +1,8 @@
 import logging
+from sklearn.base import BaseEstimator
 
 
-class FallBackPipelineSentenceGenerator:
+class FallBackPipelineSentenceGenerator(BaseEstimator):
 
     def __init__(self, models):
 
@@ -30,12 +31,11 @@ class FallBackPipelineSentenceGenerator:
         return None
 
 
-class JustJoinTripleSentenceGenerator:
+class JustJoinTripleSentenceGenerator(BaseEstimator):
 
-    def __init__(self, sentence_template="{subject} {predicate} {object}", preprocessor=lambda x: x):
+    def __init__(self, sentence_template="{subject} {predicate} {object}"):
 
         self.sentence_template = sentence_template
-        self.preprocessor = preprocessor
 
 
     def fit(self, *args, **kwargs):
@@ -45,17 +45,14 @@ class JustJoinTripleSentenceGenerator:
 
     def generate(self, data):
 
-        preprocessed_data = {k: self.preprocessor(v) for k, v in data.items()}
-
-        return self.sentence_template.format(**preprocessed_data)
+        return self.sentence_template.format(**data)
 
 
-class MostFrequentTemplateSentenceGenerator:
+class MostFrequentTemplateSentenceGenerator(BaseEstimator):
 
-    def __init__(self, preprocessor=lambda x: x):
+    def __init__(self):
 
         self.template_db = {}
-        self.preprocessor = preprocessor
         self.logger = logging.getLogger(self.__class__.__name__)
 
 
@@ -65,14 +62,12 @@ class MostFrequentTemplateSentenceGenerator:
 
             self.template_db[k] = max(templates.items(), key=lambda x: len(x[1]))[0]
 
-        self.logger.debug(f"Initialized with template_model [{template_model}] preprocessor [{self.preprocessor}]")
+        self.logger.debug(f"Initialized with template_model [{template_model}]")
 
 
     def generate(self, data):
 
         predicate = data['predicate']
-
-        preprocessed_data = {k: self.preprocessor(v) for k, v in data.items()}
 
         if predicate not in self.template_db:
 
@@ -84,51 +79,41 @@ class MostFrequentTemplateSentenceGenerator:
 
         self.logger.debug(f"Template found for predicate [{predicate}]\nTemplate: {template}")
 
-        return template.fill(preprocessed_data)
+        return template.fill(data)
 
     def predicates(self):
 
         return self.template_db.keys()
 
 
-class NearestPredicateTemplateSentenceGenerator:
+class NearestPredicateTemplateSentenceGenerator(BaseEstimator):
 
-    def __init__(self, template_sentence_generator, similarity_metric=None, 
-                       predicates=None, preprocessor=lambda x: x, 
+    def __init__(self, sentence_generator, similarity_metric=None, 
                        threshold=None):
 
         if not similarity_metric:
             raise ValueError("similarity_metric mustn't be None")
-        if not predicates:
-            raise ValueError("predicates mustn't be None")
         if not threshold:
             raise ValueError("threshold mustn't be None")
 
-        self.template_sentence_generator = template_sentence_generator
-        self.preprocessor = preprocessor
+        self.sentence_generator = sentence_generator
         self.similarity_metric = similarity_metric
-        self.known_predicates = self.template_sentence_generator.predicates()
         self.threshold = threshold
 
-        self.nearest_predicate = {}
         self.logger = logging.getLogger(self.__class__.__name__)
-
-        for predicate in predicates:
-
-            nearest, sim = self.get_nearest_predicate(predicate)
-
-            self.logger.debug(f"Found nearest predicate [{nearest}] from [{predicate}] with similarity [{sim}]")
-
-            self.nearest_predicate[predicate] = (nearest, sim)
-
         self.logger.debug(f"Initialized with similarity metric [{self.similarity_metric}] and threshold [{self.threshold}]")
+
+
+    def fit(self, template_model):
+
+        self.template_model = template_model
 
 
     def get_nearest_predicate(self, predicate):
     
         similarities = []
     
-        for known_predicate in self.known_predicates:
+        for known_predicate in self.template_model.template_db.keys():
             
             sim = self.similarity_metric(known_predicate, predicate)
             
@@ -140,20 +125,20 @@ class NearestPredicateTemplateSentenceGenerator:
     def generate(self, data):
 
         predicate = data['predicate']
-        preprocessed_data = {k: self.preprocessor(v) for k, v in data.items()}
 
-        nearest_predicate, sim = self.nearest_predicate[predicate]
+        nearest_predicate, sim = self.get_nearest_predicate(predicate)
 
         self.logger.debug(f"Found nearest predicate [{nearest_predicate}], with similarity [{sim}], for predicate [{predicate}]")
 
         if sim > self.threshold:
 
-            preprocessed_data['predicate'] = nearest_predicate
+            data['predicate'] = nearest_predicate
 
-            return self.template_sentence_generator.generate(preprocessed_data)
+            return self.sentence_generator.generate(data)
         
         else:
             self.logger.debug("Not found nearest predicate.")
+
             return None
 
 

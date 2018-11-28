@@ -2,6 +2,32 @@ import logging
 from sklearn.base import BaseEstimator
 
 
+class FallBackLexicalize(BaseEstimator):
+
+    def __init__(self, models):
+
+        self.models = models 
+
+    def fit(self, data_alignment=None):
+
+        for model in self.models:
+
+            model.fit(data_alignment)
+
+    def lexicalize(self, data):
+
+        for model in self.models:
+
+            lexicalization = model.lexicalize(data)
+
+            if lexicalization:
+
+                return lexicalization
+
+        return None
+
+
+
 class LexicalizeAsAligned(BaseEstimator):
 
     def __init__(self, data_alignment=None):
@@ -27,6 +53,8 @@ class LexicalizeAsAligned(BaseEstimator):
 
             self.logger.debug(f'Failed to lexicalize subject: [{data["subject"]}]')
 
+            return None
+
         object_lexicalization = self.data_alignment.get_object_lexicalization(data['object'])
 
         if object_lexicalization:
@@ -38,6 +66,8 @@ class LexicalizeAsAligned(BaseEstimator):
 
             self.logger.debug(f'Failed to lexicalize object: [{data["object"]}]')
 
+            return None
+
         return data
 
 
@@ -45,7 +75,6 @@ import re
 
 PARENTHESIS_RE = re.compile(r'(.*?)\((.*?)\)')
 CAMELCASE_RE = re.compile(r'([a-z])([A-Z])')
-
 
 def preprocess_so(so):
 
@@ -58,18 +87,20 @@ def preprocess_so(so):
 
 class LexicalizePreprocessed(BaseEstimator):
 
-    def __init__(self):
+    def __init__(self, preprocessor=lambda x: x):
+
+        self.preprocessor = preprocessor
 
         self.logger = logging.getLogger(self.__class__.__name__)
 
 
     def fit(self, data_alignment=None):
 
-        self.data_alignment = data_alignment
+        pass
 
 
     def lexicalize(self, data):
 
         return {'predicate': data['predicate'],
-                'object': preprocess_so(data['object']),
-                'subject': preprocess_so(data['subject'])}
+                'object': self.preprocessor(data['object']),
+                'subject': self.preprocessor(data['subject'])}

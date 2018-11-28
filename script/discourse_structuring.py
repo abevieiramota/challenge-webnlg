@@ -29,6 +29,11 @@ class MostFrequentFirstDiscourseStructuring(BaseEstimator):
 
 class ChainDiscourseStructuring(BaseEstimator):
 
+    def fit(self, template_model):
+
+        pass
+
+
     def sort(self, data):
 
         G = nx.DiGraph()
@@ -38,7 +43,15 @@ class ChainDiscourseStructuring(BaseEstimator):
             G.add_edge(tripleset['subject'], tripleset['object'], predicate=tripleset['predicate'])
 
         # node without in edges
-        source = list(set(G.nodes()).difference(set([n[1] for n in G.in_edges()])))[0]
+        nodes_wo_in_edges = list(set(G.nodes()).difference(set([n[1] for n in G.in_edges()])))
+
+        # TODO: not found
+        if not nodes_wo_in_edges:
+
+            return data
+
+        # chooses the first -> random
+        source = nodes_wo_in_edges[0]
 
         sorted_edges = nx.bfs_edges(G, source)
 

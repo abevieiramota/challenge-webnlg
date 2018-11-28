@@ -33,19 +33,22 @@ class DataAlignmentModel(BaseEstimator):
 
         return self.subject_align.get(subject, None)
 
+
     def get_object_lexicalization(self, object):
 
         return self.object_align.get(object, None)
+
 
     def align_data(self, text, data):
         pass 
 
 
-class FallBackDataAlignmentModel(DataAlignmentModel, BaseEstimator):
+class FallBackDataAlignmentModel(DataAlignmentModel):
 
     def __init__(self, models):
 
         self.models = models
+
 
     def align_data(self, text, data):
 
@@ -72,6 +75,7 @@ class FallBackDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         
         return None
 
+
     def get_object_lexicalization(self, object):
 
         for model in self.models:
@@ -85,7 +89,7 @@ class FallBackDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         return None
 
 
-class SPODataAlignmentModel(DataAlignmentModel, BaseEstimator):
+class SPODataAlignmentModel(DataAlignmentModel):
 
     def __init__(self, nlp=None):
 
@@ -126,11 +130,9 @@ class SPODataAlignmentModel(DataAlignmentModel, BaseEstimator):
 
 
 # TODO: aligning only sentence with triple > align whole text with tripleset
-class RootDataAlignmentModel(DataAlignmentModel, BaseEstimator):
+class RootDataAlignmentModel(DataAlignmentModel):
     
     def __init__(self, similarity_metric=None, nlp=None):
-
-        DataAlignmentModel.__init__(self)
 
         if similarity_metric is None:
             raise ValueError("similarity_metric mustn't be None")
@@ -232,7 +234,7 @@ class RootDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         return similarities
 
 
-class NGramDataAlignmentModel(DataAlignmentModel, BaseEstimator):
+class NGramDataAlignmentModel(DataAlignmentModel):
 
     def __init__(self, max_n=4, similarity_metric=None, nlp=None):
 
@@ -251,6 +253,10 @@ class NGramDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         self.object_align = {}
         self.logger = logging.getLogger(self.__class__.__name__)
 
+        self.logger.debug("Initialized with similarity_metric [%s], max_n = [%s]", 
+                    similarity_metric, max_n)
+
+
     def align_data(self, text, data):
 
         if type(text) == str:
@@ -259,8 +265,9 @@ class NGramDataAlignmentModel(DataAlignmentModel, BaseEstimator):
             doc = text
 
         ngrams = []
-        n_punct = len([token for token in doc if token.is_punct])
-        for n in range(1, min(self.max_n+1, len(doc) - n_punct)):
+        # n_punct = len([token for token in doc if token.is_punct])
+        
+        for n in range(1, min(self.max_n+1, len(doc))):
             
             ngrams.extend(extract.ngrams(doc, n))
 
@@ -293,7 +300,6 @@ class NGramDataAlignmentModel(DataAlignmentModel, BaseEstimator):
 
             self.logger.warning("I can't extract object_span.")
 
-        # TODO: add this schema to other aligner
         self.subject_align[data['subject']] = subject_span
         self.object_align[data['object']] = object_span
 
