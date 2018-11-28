@@ -21,7 +21,7 @@ class MostFrequentFirstDiscourseStructuring(BaseEstimator):
     def sort(self, data):
 
         sorted_sentences = sorted(data, 
-                                  key=lambda d: self.predicate_frequency[d['m_predicate']],
+                                  key=lambda d: self.predicate_frequency[d['predicate']],
                                   reverse=True)
         
         return sorted_sentences
@@ -35,7 +35,7 @@ class ChainDiscourseStructuring(BaseEstimator):
 
         for tripleset in data:
             
-            G.add_edge(tripleset['m_subject'], tripleset['m_object'], m_predicate=tripleset['m_predicate'])
+            G.add_edge(tripleset['subject'], tripleset['object'], predicate=tripleset['predicate'])
 
         # node without in edges
         source = list(set(G.nodes()).difference(set([n[1] for n in G.in_edges()])))[0]
@@ -46,11 +46,11 @@ class ChainDiscourseStructuring(BaseEstimator):
 
         for edge in sorted_edges:
 
-            m_predicate = G.get_edge_data(*edge)['m_predicate']
+            predicate = G.get_edge_data(*edge)['predicate']
 
-            d = {'m_subject': edge[0],
-                 'm_predicate': m_predicate,
-                 'm_object': edge[1]}
+            d = {'subject': edge[0],
+                 'predicate': predicate,
+                 'object': edge[1]}
             sorted_data.append(d)
 
         return sorted_data

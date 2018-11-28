@@ -9,9 +9,9 @@ class DataAlignmentModel(BaseEstimator):
 
     def render_aligned(self, text, data):
 
-        m_subject_span, m_object_span = self.align_data(text, data)
+        subject_span, object_span = self.align_data(text, data)
 
-        spans = [('m_subject', m_subject_span), ('m_object', m_object_span)]
+        spans = [('subject', subject_span), ('object', object_span)]
 
         # BUG: bug in displacy.render? if the ents aren't ordered by start_char, it renders duplicated texts
         spans = sorted(spans, key=lambda s: s[1].start_char)
@@ -29,13 +29,13 @@ class DataAlignmentModel(BaseEstimator):
         displacy.render(render_data, style='ent', manual=True, jupyter=True)
 
     
-    def get_subject_lexicalization(self, m_subject):
+    def get_subject_lexicalization(self, subject):
 
-        return self.m_subject_align.get(m_subject, None)
+        return self.subject_align.get(subject, None)
 
-    def get_object_lexicalization(self, m_object):
+    def get_object_lexicalization(self, object):
 
-        return self.m_object_align.get(m_object, None)
+        return self.object_align.get(object, None)
 
     def align_data(self, text, data):
         pass 
@@ -60,11 +60,11 @@ class FallBackDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         return None
 
     
-    def get_subject_lexicalization(self, m_subject):
+    def get_subject_lexicalization(self, subject):
 
         for model in self.models:
 
-            result = model.get_subject_lexicalization(m_subject)
+            result = model.get_subject_lexicalization(subject)
 
             if result:
 
@@ -72,11 +72,11 @@ class FallBackDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         
         return None
 
-    def get_object_lexicalization(self, m_object):
+    def get_object_lexicalization(self, object):
 
         for model in self.models:
 
-            result = model.get_object_lexicalization(m_object)
+            result = model.get_object_lexicalization(object)
 
             if result:
 
@@ -93,8 +93,8 @@ class SPODataAlignmentModel(DataAlignmentModel, BaseEstimator):
             raise ValueError("nlp mustn't be None")
 
         self.nlp = nlp
-        self.m_subject_align = {}
-        self.m_object_align = {}
+        self.subject_align = {}
+        self.object_align = {}
         self.logger = logging.getLogger(self.__class__.__name__)
 
     
@@ -119,8 +119,8 @@ class SPODataAlignmentModel(DataAlignmentModel, BaseEstimator):
 
         self.logger.debug(f'Identified subject = [{s}], predicate = [{p}], object = [{o}]')
 
-        self.m_subject_align[data['m_subject']] = s 
-        self.m_object_align[data['m_object']] = o 
+        self.subject_align[data['subject']] = s 
+        self.object_align[data['object']] = o 
 
         return s, o
 
@@ -140,8 +140,8 @@ class RootDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         
         self.similarity_metric = similarity_metric
         self.nlp = nlp
-        self.m_subject_align = {}
-        self.m_object_align = {}
+        self.subject_align = {}
+        self.object_align = {}
         self.logger = logging.getLogger(self.__class__.__name__)
 
         self.logger.debug("Initialized with similarity_metric [%s], nlp = [%s]", 
@@ -164,35 +164,35 @@ class RootDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         
         # subject extraction
         # BIAS: subject wins priority over distances tie
-        m_subject_span, sim_subject = max(similarities['m_subject'], key=lambda x: x[1])
+        subject_span, sim_subject = max(similarities['subject'], key=lambda x: x[1])
 
-        self.logger.debug(f"Selected m_subject_span [{m_subject_span}] with similarity [{sim_subject}] for [{data['m_subject']}]")
+        self.logger.debug(f"Selected subject_span [{subject_span}] with similarity [{sim_subject}] for [{data['subject']}]")
 
-        m_object_span = None
+        object_span = None
         
         # object extraction
         # search for the best span for object, different from the subject one
-        for span, sim in sorted(similarities['m_object'], key=lambda x: x[1], reverse=True):
+        for span, sim in sorted(similarities['object'], key=lambda x: x[1], reverse=True):
 
             # tests if the current span doesn't overlaps the subject one
-            if overlaps(span, m_subject_span):
+            if overlaps(span, subject_span):
 
-                self.logger.debug(f"Span [{span.text}] overlaps m_subject_span [{m_subject_span.text}]")
+                self.logger.debug(f"Span [{span.text}] overlaps subject_span [{subject_span.text}]")
                 continue
                 
-            m_object_span = span
+            object_span = span
 
-            self.logger.debug(f"Selected m_object_span [{m_object_span.text}] with similarity [{sim}] for [{data['m_object']}]")
+            self.logger.debug(f"Selected object_span [{object_span.text}] with similarity [{sim}] for [{data['object']}]")
             break
 
-        if m_object_span is None:
+        if object_span is None:
 
-            self.logger.warning("I can't extract m_object_span.")
+            self.logger.warning("I can't extract object_span.")
 
-        self.m_subject_align[data['m_subject']] = m_subject_span
-        self.m_object_align[data['m_object']] = m_object_span
+        self.subject_align[data['subject']] = subject_span
+        self.object_align[data['object']] = object_span
             
-        return m_subject_span, m_object_span
+        return subject_span, object_span
     
     def get_similarities(self, doc, data):
 
@@ -201,7 +201,7 @@ class RootDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         similarities = {k:[] for k in data.keys()}
 
         # dependency trees' roots > discards first level, the whole sentence
-        # you can't match m_subject or m_object with the whole sentence
+        # you can't match subject or object with the whole sentence
         for upper_root in [token for token in doc if token.head == token]:
 
             roots.extend(upper_root.lefts)
@@ -247,8 +247,8 @@ class NGramDataAlignmentModel(DataAlignmentModel, BaseEstimator):
         self.max_n = max_n 
         self.nlp = nlp
         self.similarity_metric = similarity_metric
-        self.m_subject_align = {}
-        self.m_object_align = {}
+        self.subject_align = {}
+        self.object_align = {}
         self.logger = logging.getLogger(self.__class__.__name__)
 
     def align_data(self, text, data):
@@ -264,37 +264,37 @@ class NGramDataAlignmentModel(DataAlignmentModel, BaseEstimator):
             
             ngrams.extend(extract.ngrams(doc, n))
 
-        subject_sims = [(ngram, self.similarity_metric(ngram.text, data['m_subject'])) for ngram in ngrams]
+        subject_sims = [(ngram, self.similarity_metric(ngram.text, data['subject'])) for ngram in ngrams]
        
-        self.logger.debug("Similarities from m_subject %s", list(zip(ngrams, subject_sims)))
+        self.logger.debug("Similarities from subject %s", list(zip(ngrams, subject_sims)))
 
         subject_span, subject_sim = max(subject_sims, key=lambda x: x[1])
 
-        self.logger.debug(f"Selected m_subject_span [{subject_span}] with similarity [{subject_sim}] for [{data['m_subject']}]")
+        self.logger.debug(f"Selected subject_span [{subject_span}] with similarity [{subject_sim}] for [{data['subject']}]")
 
-        object_sims = [(ngram, self.similarity_metric(ngram.text, data['m_object'])) for ngram in ngrams]
+        object_sims = [(ngram, self.similarity_metric(ngram.text, data['object'])) for ngram in ngrams]
 
-        self.logger.debug("Similarities from m_object %s", list(zip(ngrams, object_sims)))
+        self.logger.debug("Similarities from object %s", list(zip(ngrams, object_sims)))
 
         for span, sim in sorted(object_sims, key=lambda x: x[1], reverse=True):
 
             # tests if the current span doesn't overlaps the subject one
             if overlaps(span, subject_span):
 
-                self.logger.debug(f"Span [{span.text}] overlaps m_subject_span [{subject_span.text}]")
+                self.logger.debug(f"Span [{span.text}] overlaps subject_span [{subject_span.text}]")
                 continue
 
             object_span = span
 
-            self.logger.debug(f"Selected m_object_span [{object_span.text}] with similarity [{sim}] for [{data['m_object']}]")
+            self.logger.debug(f"Selected object_span [{object_span.text}] with similarity [{sim}] for [{data['object']}]")
             break
         
         if object_span is None:
 
-            self.logger.warning("I can't extract m_object_span.")
+            self.logger.warning("I can't extract object_span.")
 
         # TODO: add this schema to other aligner
-        self.m_subject_align[data['m_subject']] = subject_span
-        self.m_object_align[data['m_object']] = object_span
+        self.subject_align[data['subject']] = subject_span
+        self.object_align[data['object']] = object_span
 
         return subject_span, object_span

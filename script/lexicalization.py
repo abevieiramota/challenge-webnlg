@@ -16,27 +16,27 @@ class LexicalizeAsAligned(BaseEstimator):
 
     def lexicalize(self, data):
 
-        subject_lexicalization = self.data_alignment.get_subject_lexicalization(data['m_subject'])
+        subject_lexicalization = self.data_alignment.get_subject_lexicalization(data['subject'])
 
         if subject_lexicalization:
 
-            self.logger.debug(f'm_subject: [{data["m_subject"]}] lexicalized as: [{subject_lexicalization}]')
+            self.logger.debug(f'subject: [{data["subject"]}] lexicalized as: [{subject_lexicalization}]')
 
-            data['m_subject'] = subject_lexicalization.text
+            data['subject'] = subject_lexicalization.text
         else:
 
-            self.logger.debug(f'Failed to lexicalize m_subject: [{data["m_subject"]}]')
+            self.logger.debug(f'Failed to lexicalize subject: [{data["subject"]}]')
 
-        object_lexicalization = self.data_alignment.get_object_lexicalization(data['m_object'])
+        object_lexicalization = self.data_alignment.get_object_lexicalization(data['object'])
 
         if object_lexicalization:
 
-            self.logger.debug(f'm_object: [{data["m_object"]}] lexicalized as: [{object_lexicalization}]')
+            self.logger.debug(f'object: [{data["object"]}] lexicalized as: [{object_lexicalization}]')
 
-            data['m_object'] = object_lexicalization.text
+            data['object'] = object_lexicalization.text
         else:
 
-            self.logger.debug(f'Failed to lexicalize m_object: [{data["m_object"]}]')
+            self.logger.debug(f'Failed to lexicalize object: [{data["object"]}]')
 
         return data
 
@@ -70,6 +70,6 @@ class LexicalizePreprocessed(BaseEstimator):
 
     def lexicalize(self, data):
 
-        return {'m_predicate': data['m_predicate'],
-                'm_object': preprocess_so(data['m_object']),
-                'm_subject': preprocess_so(data['m_subject'])}
+        return {'predicate': data['predicate'],
+                'object': preprocess_so(data['object']),
+                'subject': preprocess_so(data['subject'])}

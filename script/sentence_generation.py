@@ -32,7 +32,7 @@ class FallBackPipelineSentenceGenerator:
 
 class JustJoinTripleSentenceGenerator:
 
-    def __init__(self, sentence_template="{m_subject} {m_predicate} {m_object}", preprocessor=lambda x: x):
+    def __init__(self, sentence_template="{subject} {predicate} {object}", preprocessor=lambda x: x):
 
         self.sentence_template = sentence_template
         self.preprocessor = preprocessor
@@ -70,19 +70,19 @@ class MostFrequentTemplateSentenceGenerator:
 
     def generate(self, data):
 
-        m_predicate = data['m_predicate']
+        predicate = data['predicate']
 
         preprocessed_data = {k: self.preprocessor(v) for k, v in data.items()}
 
-        if m_predicate not in self.template_db:
+        if predicate not in self.template_db:
 
-            self.logger.debug(f"Not found predicate [{m_predicate}]")
+            self.logger.debug(f"Not found predicate [{predicate}]")
 
             return None 
 
-        template = self.template_db[m_predicate]
+        template = self.template_db[predicate]
 
-        self.logger.debug(f"Template found for m_predicate [{m_predicate}]\nTemplate: {template}")
+        self.logger.debug(f"Template found for predicate [{predicate}]\nTemplate: {template}")
 
         return template.fill(preprocessed_data)
 
@@ -139,7 +139,7 @@ class NearestPredicateTemplateSentenceGenerator:
 
     def generate(self, data):
 
-        predicate = data['m_predicate']
+        predicate = data['predicate']
         preprocessed_data = {k: self.preprocessor(v) for k, v in data.items()}
 
         nearest_predicate, sim = self.nearest_predicate[predicate]
@@ -148,7 +148,7 @@ class NearestPredicateTemplateSentenceGenerator:
 
         if sim > self.threshold:
 
-            preprocessed_data['m_predicate'] = nearest_predicate
+            preprocessed_data['predicate'] = nearest_predicate
 
             return self.template_sentence_generator.generate(preprocessed_data)
         

@@ -53,7 +53,7 @@ class TemplateExtractor(BaseEstimator):
         for text, data in zip(texts, datas):
 
             # TODO: generalize over how the templates are indexed
-            predicate = data['m_predicate']
+            predicate = data['predicate']
 
             template = self.extract_template(text, data)
 
@@ -68,28 +68,28 @@ class TemplateExtractor(BaseEstimator):
     def extract_template(self, text, data):
         
         # TODO: monitor success of subj/obje alignment
-        m_subject_span, m_object_span = self.data_alignment_model.align_data(text, data)
+        subject_span, object_span = self.data_alignment_model.align_data(text, data)
 
         # breaks text into char array
         text_char = list(text)
 
-        # replaces subject text with m_subject placeholder
-        text_char[m_subject_span.start_char: m_subject_span.end_char] = '{m_subject}'
+        # replaces subject text with subject placeholder
+        text_char[subject_span.start_char: subject_span.end_char] = '{subject}'
 
         # tests if the object occurs after the subject >
         #    if it is the case, you have to adjust the indexes accordingly
-        if m_subject_span.start_char > m_object_span.end_char:
+        if subject_span.start_char > object_span.end_char:
 
             base = 0
         else:
             # adjustes the indexes
             # length of the extracted subject text
-            len_subject_text = m_subject_span.end_char - m_subject_span.start_char
+            len_subject_text = subject_span.end_char - subject_span.start_char
             # length of the placeholder minus len_subject_text
-            base = len('{m_subject}') - len_subject_text
+            base = len('{subject}') - len_subject_text
 
-        # replaces object text with m_object placeholder
-        text_char[base + m_object_span.start_char: base + m_object_span.end_char] = '{m_object}'
+        # replaces object text with object placeholder
+        text_char[base + object_span.start_char: base + object_span.end_char] = '{object}'
 
         # build template using the char array
         return Template(''.join(text_char))
