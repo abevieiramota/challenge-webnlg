@@ -283,6 +283,8 @@ class NGramDataAlignmentModel(DataAlignmentModel):
 
         self.logger.debug("Similarities from object %s", list(zip(ngrams, object_sims)))
 
+        object_span = None
+
         for span, sim in sorted(object_sims, key=lambda x: x[1], reverse=True):
 
             # tests if the current span doesn't overlaps the subject one
