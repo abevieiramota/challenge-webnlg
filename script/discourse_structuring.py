@@ -2,6 +2,18 @@ from collections import defaultdict
 import networkx as nx
 from sklearn.base import BaseEstimator
 
+
+class DoesntSortDiscourseStructuring(BaseEstimator):
+
+    def fit(self, template_model=None):
+        pass 
+
+
+    def sort(self, data):
+
+        return data
+
+
 class MostFrequentFirstDiscourseStructuring(BaseEstimator):
 
     def __init__(self, template_model=None):
