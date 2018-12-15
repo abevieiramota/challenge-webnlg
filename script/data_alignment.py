@@ -265,7 +265,6 @@ class NGramDataAlignmentModel(DataAlignmentModel):
             doc = text
 
         ngrams = []
-        # n_punct = len([token for token in doc if token.is_punct])
         
         for n in range(1, min(self.max_n+1, len(doc))):
             

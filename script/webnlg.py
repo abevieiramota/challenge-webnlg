@@ -52,6 +52,7 @@ class WebNLGEntry(object):
         nx.draw_networkx_nodes(graph, pos, cmap=plt.get_cmap('jet'), node_size = 500)
         nx.draw_networkx_labels(graph, pos)
 
+
     def lexes(self):
 
         return [l['ltext'] for l in self.entry['lexes']]
@@ -77,7 +78,7 @@ class WebNLGEntry(object):
 
         lines = []
 
-        lines.append(f"Triple info: category={self.entry['category']}\n")
+        lines.append(f"Triple info: category={self.entry['category']} eid={self.entry['eid']}\n")
 
         lines.append("\tModified triples:\n")
         lines.extend([m['mtext'] for m in self.entry['mtriple']])
