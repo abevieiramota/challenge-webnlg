@@ -206,14 +206,14 @@ class WebNLGCorpus(object):
                     "otriple": [
                         dict({'idx': idx,
                              'otext': e.text},
-                             **{key: value for key, value in zip(TRIPLE_KEYS, e.text.split('|'))}
+                             **{key: value.strip() for key, value in zip(TRIPLE_KEYS, e.text.split('|'))}
                              )
                         for e in entry.find('originaltripleset').findall('otriple')
                     ],
                     "mtriple": [
                         dict({'idx': idx,
                             'mtext': e.text},
-                             **{key: value for key, value in zip(TRIPLE_KEYS, e.text.split('|'))}
+                             **{key: value.strip() for key, value in zip(TRIPLE_KEYS, e.text.split('|'))}
                              ) for e in mtriples
                     ],
                     "lexes": [
