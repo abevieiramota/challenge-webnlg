@@ -82,7 +82,7 @@ class TemplateExtractor(BaseEstimator):
 
             base = 0
         else:
-            # adjustes the indexes
+            # adjusts the indexes
             # length of the extracted subject text
             len_subject_text = subject_span.end_char - subject_span.start_char
             # length of the placeholder minus len_subject_text
