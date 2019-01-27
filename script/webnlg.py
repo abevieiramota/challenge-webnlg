@@ -118,7 +118,7 @@ class WebNLGCorpus(object):
         return WebNLGCorpus(self.dataset_name, subset_db)
  
 
-    def sample(self, eid=None, category=None, ntriples=None, idx=None, random_state=None):
+    def sample(self, eid=None, category=None, ntriples=None, idx=None):
 
         query = Query()
 
