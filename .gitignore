@@ -106,6 +106,7 @@ venv.bak/
 .triple
 
 /tmp
+/data/models
 .log
 evaluation/webnlg2017/meteor-1.5
 evaluation/webnlg2017/meteor-1.5.tar.gz
