@@ -6,6 +6,8 @@ import re
 from tinydb import TinyDB, Query
 from tinydb.storages import MemoryStorage
 from itertools import chain
+from random import Random
+
 
 TRIPLE_KEYS = ['subject', 'predicate', 'object']
 
@@ -113,12 +115,12 @@ class WebNLGCorpus(object):
             query = query & (query.category.any(categories))
         
         subset_db = TinyDB(storage=MemoryStorage)
-        subset_db.insert_multiple(db.search(query))
+        subset_db.insert_multiple(self.db.search(query))
 
         return WebNLGCorpus(self.dataset_name, subset_db)
  
 
-    def sample(self, eid=None, category=None, ntriples=None, idx=None):
+    def sample(self, eid=None, category=None, ntriples=None, idx=None, seed=None):
 
         query = Query()
 
@@ -127,11 +129,14 @@ class WebNLGCorpus(object):
         if eid:
             query = query.eid == eid 
         if category:
-            query = query.category == category 
+            query = query & (query.category == category)
         if ntriples:
             query = query & (query.ntriples == ntriples)
+
+        rg = Random()
+        rg.seed(seed)
         
-        sample_entry = self.db.get(query)
+        sample_entry = rg.choice(self.db.search(query))
 
         return WebNLGEntry(sample_entry)
 
