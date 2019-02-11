@@ -110,3 +110,5 @@ venv.bak/
 .log
 evaluation/webnlg2017/meteor-1.5
 evaluation/webnlg2017/meteor-1.5.tar.gz
+evaluation/webnlg2017/tercom-0.7.25
+evaluation/webnlg2017/tercom-0.7.25.tgz

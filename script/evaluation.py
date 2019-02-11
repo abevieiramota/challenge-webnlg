@@ -27,6 +27,9 @@ def preprocess_to_evaluate(texts_filepath, team_name, out_dirpath):
 
 BLEU_RE = re.compile(r'BLEU\ =\ ([\d\.]*),')
 METEOR_RE = re.compile(r'Final score:\s+([\d\.]+)\n')
+TER_RE = re.compile(r'Total\ TER:\ ([\d\.]+)\ \(')
+
+ALL_CAT_TO_TER_FILE_RE = re.compile(r'(.*)(\.txt)')
 
 
 def evaluate_texts(all_cat_filepath):
@@ -55,6 +58,18 @@ def evaluate_texts(all_cat_filepath):
                                     stdout=subprocess.PIPE)
 
     result['meteor'] = float(METEOR_RE.findall(meteor_result.stdout.decode('utf-8'))[0])
+
+    # ter
+    ter_filepath = ALL_CAT_TO_TER_FILE_RE.sub(r'\1_ter\2', all_cat_filepath)
+
+    ter_result = subprocess.run(['java', '-jar', '../evaluation/webnlg2017/tercom-0.7.25/tercom.7.25.jar',
+                                 '-r',
+                                 '../evaluation/webnlg2017/webnlg-automatic-evaluation/references/gold-all-cat-reference-3ref.ter',
+                                 '-h',
+                                 ter_filepath],
+                                 stdout=subprocess.PIPE)
+
+    result['ter'] = float(TER_RE.findall(ter_result.stdout.decode('utf-8'))[0])
                   
     return result
 
