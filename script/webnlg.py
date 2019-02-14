@@ -220,14 +220,27 @@ class WebNLGCorpus(object):
                             'mtext': e.text},
                              **{key: value.strip() for key, value in zip(TRIPLE_KEYS, e.text.split('|'))}
                              ) for e in mtriples
-                    ],
-                    "lexes": [
+                    ]
+                }
+
+                if 'v1.2' in filepath:
+
+                    entry_dict["lexes"] = [
+                        {'idx': idx,
+                        'ltext': e.findtext('text'),
+                        'template': e.findtext('template', 'NOT-FOUND'),
+                        'comment': e.attrib['comment'],
+                        'lid': e.attrib['lid']} for e in entry.findall('lex')
+                    ]
+                else:
+                    
+                    entry_dict["lexes"] = [
                         {'idx': idx,
                         'ltext': e.text,
                         'comment': e.attrib['comment'],
                         'lid': e.attrib['lid']} for e in entry.findall('lex')
                     ]
-                }
+                
                 entries_dicts.append(entry_dict)
 
         db.insert_multiple(entries_dicts)

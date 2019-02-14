@@ -56,13 +56,16 @@ class MostFrequentTemplateSentenceGenerator(BaseEstimator):
         self.logger = logging.getLogger(self.__class__.__name__)
 
 
-    def fit(self, template_model):
+    def fit(self, template_model=None, template_db=None):
 
-        for k, templates in template_model.template_db.items():
+        if template_model:
+
+            template_db = template_model.template_db
+            self.logger.debug(f"Initialized with template_model [{template_model}]")
+        
+        for k, templates in template_db.items():
 
             self.template_db[k] = max(templates.items(), key=lambda x: len(x[1]))[0]
-
-        self.logger.debug(f"Initialized with template_model [{template_model}]")
 
 
     def generate(self, data):
