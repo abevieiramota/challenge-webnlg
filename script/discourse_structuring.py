@@ -9,7 +9,7 @@ class DoesntSortDiscourseStructuring(BaseEstimator):
         pass 
 
 
-    def sort(self, data):
+    def structure(self, data):
 
         return data
 
@@ -30,7 +30,7 @@ class MostFrequentFirstDiscourseStructuring(BaseEstimator):
             self.predicate_frequency[predicate] = freq
 
 
-    def sort(self, data):
+    def structure(self, data):
 
         sorted_sentences = sorted(data, 
                                   key=lambda d: self.predicate_frequency[d['predicate']],
@@ -46,7 +46,7 @@ class ChainDiscourseStructuring(BaseEstimator):
         pass
 
 
-    def sort(self, data):
+    def structure(self, data):
 
         G = nx.DiGraph()
 

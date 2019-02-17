@@ -1,6 +1,13 @@
 import logging
 from sklearn.base import BaseEstimator
 
+class OneSentenceAggregator(BaseEstimator):
+    
+    def aggregate(self, data):
+        
+        return data
+    
+
 class JustJoinSentencesSentenceAggregator(BaseEstimator):
 
     def __init__(self, sep=' '):

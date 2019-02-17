@@ -1,29 +1,37 @@
-class PipelineTextGenerator:
+from sklearn.base import BaseEstimator, RegressorMixin
 
-    def __init__(self, content_selection, sentence_generator, sentence_aggregator, discourse_structurer, lexicalizer):
+class TemplateBasedTextGenerator(BaseEstimator, RegressorMixin):
 
-        self.content_selection = content_selection
-        self.sentence_generator = sentence_generator
-        self.sentence_aggregator = sentence_aggregator
-        self.discourse_structurer = discourse_structurer
-        self.lexicalizer = lexicalizer
+    def __init__(self, 
+                 content_selection_model, 
+                 sentence_generation_model, 
+                 lexicalization_model,
+                 discourse_structuring_model,
+                 sentence_aggregation_model):
+
+        self.content_selection_model = content_selection_model
+        self.sentence_generation_model = sentence_generation_model
+        self.lexicalization_model = lexicalization_model
+        self.discourse_structuring_model = discourse_structuring_model
+        self.sentence_aggregation_model = sentence_aggregation_model
 
 
-    def generate(self, data):
+    def predict(self, X):
 
-        generated_texts = []
+        return [self.predict_entry(x) for x in X]
 
-        # rename entry/data -> confusion between entry data and the whole dataset
-        for entry in data:
+    def predict_entry(self, x):
 
-            selected_entry = self.content_selection.select(entry)
-            sorted_data = self.discourse_structurer.sort(selected_entry)
-            sentences = [self.sentence_generator.generate(self.lexicalizer.lexicalize(d)) for d in sorted_data]
-            text = self.sentence_aggregator.aggregate(sentences)
+        selected_content = self.content_selection_model.select(x)
+        structured = self.discourse_structuring_model.structure(selected_content)
+        aggregated = self.sentence_aggregation_model.aggregate(structured)
+        
+        lexicalized = [self.lexicalization_model.lexicalize(t) for t in aggregated]
+        sentences = [self.sentence_generation_model.generate(t) for t in lexicalized]
+        
 
-            generated_texts.append(text)
+        return ' '.join(sentences)
 
-        return generated_texts
 
 
 class IfAfterNthProcessPipelineTextGenerator:

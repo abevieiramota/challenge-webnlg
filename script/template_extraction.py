@@ -1,8 +1,10 @@
 import spacy
 import logging
-from collections import defaultdict
+from collections import defaultdict, Counter
 import pickle
 from sklearn.base import BaseEstimator
+import re
+from webnlg import WebNLGCorpus
 
 class Template:
 
@@ -29,6 +31,34 @@ class Template:
     def __hash__(self):
 
         return self.str_template.__hash__()
+    
+
+REPLACE_TAG_BY_SO_RE = re.compile(r'((?P<subject>AGENT-1)|(?P<object>PATIENT-1))')
+def replace_sop(m):
+    
+    return "{{{}}}".format(next((k for k, v in m.groupdict().items() if v)))
+    
+
+class ManualTemplateExtract:
+    
+    def extract(self, entries):
+        
+        template_db = defaultdict(Counter)
+        
+        for e in entries:
+            
+            for lexe in e.entry['lexes']:
+                
+                template_text = REPLACE_TAG_BY_SO_RE.sub(replace_sop, lexe['template'])
+                
+                template = Template(template_text)
+                
+                predicate = e.get_data()[0]['predicate']
+                
+                template_db[predicate][template] += 1
+                
+        return template_db
+        
 
 
 class TemplateExtractor(BaseEstimator):

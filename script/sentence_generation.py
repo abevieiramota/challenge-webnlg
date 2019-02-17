@@ -46,26 +46,24 @@ class JustJoinTripleSentenceGenerator(BaseEstimator):
     def generate(self, data):
 
         return self.sentence_template.format(**data)
+    
+
 
 
 class MostFrequentTemplateSentenceGenerator(BaseEstimator):
 
     def __init__(self):
 
-        self.template_db = {}
+        self.template_db = None
         self.logger = logging.getLogger(self.__class__.__name__)
 
 
-    def fit(self, template_model=None, template_db=None):
+    def fit(self, template_db):
 
-        if template_model:
+        self.template_db = {}
+        for predicate, templates_counter in template_db.items():
 
-            template_db = template_model.template_db
-            self.logger.debug(f"Initialized with template_model [{template_model}]")
-        
-        for k, templates in template_db.items():
-
-            self.template_db[k] = max(templates.items(), key=lambda x: len(x[1]))[0]
+            self.template_db[predicate] = templates_counter.most_common(1)[0][0]
 
 
     def generate(self, data):

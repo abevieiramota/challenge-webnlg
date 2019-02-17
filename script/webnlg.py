@@ -88,7 +88,11 @@ class WebNLGEntry(object):
 
         if 'lexes' in self.entry:
             lines.append("\tLexicalizations:\n")
-            lines.extend([l['ltext'] for l in self.entry['lexes']])
+            lines.extend(['{} || {}'.format(l['ltext'], l.get('template', '')) for l in self.entry['lexes']])
+
+        if 'entity_map' in self.entry:
+            lines.append('\tEntity map:\n')
+            lines.extend([f'{k} : {v}' for k, v in self.entry['entity_map'].items()])
 
         return "\n".join(lines)
 
@@ -122,21 +126,26 @@ class WebNLGCorpus(object):
 
     def sample(self, eid=None, category=None, ntriples=None, idx=None, seed=None):
 
-        query = Query()
-
-        if idx:
-            query = query.idx == idx
-        if eid:
-            query = query.eid == eid 
-        if category:
-            query = query & (query.category == category)
-        if ntriples:
-            query = query & (query.ntriples == ntriples)
-
         rg = Random()
         rg.seed(seed)
-        
-        sample_entry = rg.choice(self.db.search(query))
+
+        if eid or category or ntriples or idx:
+
+            query = Query()
+
+            if idx:
+                query = query.idx == idx
+            if eid:
+                query = query.eid == eid 
+            if category:
+                query = query & (query.category == category)
+            if ntriples:
+                query = query & (query.ntriples == ntriples)
+
+            sample_entry = rg.choice(self.db.search(query))
+
+        else:
+            sample_entry = rg.choice(list(self.db))
 
         return WebNLGEntry(sample_entry)
 
@@ -232,6 +241,10 @@ class WebNLGCorpus(object):
                         'comment': e.attrib['comment'],
                         'lid': e.attrib['lid']} for e in entry.findall('lex')
                     ]
+
+                    entry_dict["entity_map"] = {
+                        entity.text.split('|')[0].strip(): entity.text.split('|')[1].strip() for entity in entry.find('entitymap').findall('entity')
+                    }
                 else:
                     
                     entry_dict["lexes"] = [
