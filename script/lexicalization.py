@@ -15,7 +15,7 @@ def preprocess_so(so):
     return camelcase_preprocessed.strip().replace('"', '')
 
 
-REMOVE_SPACE_BEFORE_DOT_RE = re.compile(r"(.*?)(\s*)([\.,'])")
+REMOVE_SPACE_BEFORE_DOT_RE = re.compile(r"(.*?)(\s*)([\.,'!])")
 def remove_space_before_dot(s):
     
     return REMOVE_SPACE_BEFORE_DOT_RE.sub(r'\1\3', s)
@@ -29,7 +29,7 @@ def replace_sop(m):
 transtab = str.maketrans("’", "'")
 def normalize_text(s):
     
-    return s.translate(transtab).lower()
+    return s.translate(transtab).lower().replace('`` ', '').replace(" '' ", '')
 
 
 class LexicalizeAsAligned(BaseEstimator):
@@ -84,23 +84,43 @@ class LexicalizeAsAligned(BaseEstimator):
                     else:
                         self.cant_find_object.append(lex)
                 else:
-                    self.not_matched_templates.append(lex)
+                    self.not_matched_templates.append((e, lex))
                     
-    def lexicalize(self, triple):
+                    
+    def lexicalize(self, triples):
         
-        if triple['subject'] in self.subject_lexicalization:
-            subject_lexi = self.subject_lexicalization[triple['subject']].most_common(1)[0][0]
-        else:
-            subject_lexi = self.fallback_preprocessing(triple['subject'])
+        already_seen = set()
+        
+        lexicalizations = []
+        
+        for triple in triples:
+        
+            if triple['subject'] in already_seen:
+                subject_lexi = ','
+            else:
+                if triple['subject'] in self.subject_lexicalization:
+                    subject_lexi = self.subject_lexicalization[triple['subject']].most_common(1)[0][0]
+                else:
+                    subject_lexi = self.fallback_preprocessing(triple['subject'])
+                    
+                already_seen.add(triple['subject'])
+                
+            if triple['object'] in already_seen:
+                object_lexi = ','
+            else:
+                if triple['object'] in self.object_lexicalization:
+                    object_lexi = self.object_lexicalization[triple['object']].most_common(1)[0][0]
+                else:
+                    object_lexi = self.fallback_preprocessing(triple['object'])
+                already_seen.add(triple['object'])
             
-        if triple['object'] in self.object_lexicalization:
-            object_lexi = self.object_lexicalization[triple['object']].most_common(1)[0][0]
-        else:
-            object_lexi = self.fallback_preprocessing(triple['object'])
-        
-        return dict(subject=subject_lexi,
-                    object=object_lexi,
-                    predicate=triple['predicate'])
+            lexicalized_triple = dict(subject=subject_lexi,
+                                     object=object_lexi,
+                                     predicate=triple['predicate'])
+            
+            lexicalizations.append(lexicalized_triple)
+            
+        return lexicalizations
 
 
 class FallBackLexicalize(BaseEstimator):

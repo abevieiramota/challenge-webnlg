@@ -1,5 +1,6 @@
 import logging
 from sklearn.base import BaseEstimator
+from template_extraction import JUST_JOIN_TEMPLATE
 
 
 class FallBackPipelineSentenceGenerator(BaseEstimator):
@@ -17,23 +18,23 @@ class FallBackPipelineSentenceGenerator(BaseEstimator):
             model.fit(template_model)
 
 
-    def generate(self, data):
+    def generate(self, triple):
 
         for model in self.models:
-
-            generated_sentence = model.generate(data)
+            
+            generated_sentence = model.generate(triple)
 
             if generated_sentence:
                 return generated_sentence
         
-            self.logger.debug(f"Fallback from [{model}] for data [{data}]")
+            self.logger.debug(f"Fallback from [{model}] for data [{triple}]")
 
         return None
 
 
 class JustJoinTripleSentenceGenerator(BaseEstimator):
 
-    def __init__(self, sentence_template="{subject} {predicate} {object}"):
+    def __init__(self, sentence_template=JUST_JOIN_TEMPLATE):
 
         self.sentence_template = sentence_template
 
@@ -43,9 +44,9 @@ class JustJoinTripleSentenceGenerator(BaseEstimator):
         pass
 
 
-    def generate(self, data):
+    def generate(self, triple):
 
-        return self.sentence_template.format(**data)
+        return self.sentence_template.fill(triple)
     
 
 
@@ -66,21 +67,18 @@ class MostFrequentTemplateSentenceGenerator(BaseEstimator):
             self.template_db[predicate] = templates_counter.most_common(1)[0][0]
 
 
-    def generate(self, data):
+    def generate(self, triple):
+        
+        if triple['predicate'] in self.template_db:
+        
+            template = self.template_db[triple['predicate']]
 
-        predicate = data['predicate']
+            self.logger.debug(f"Template found for predicate [{triple['predicate']}]\nTemplate: {template}")
 
-        if predicate not in self.template_db:
+            return template.fill(triple)
+        
+        return None
 
-            self.logger.debug(f"Not found predicate [{predicate}]")
-
-            return None 
-
-        template = self.template_db[predicate]
-
-        self.logger.debug(f"Template found for predicate [{predicate}]\nTemplate: {template}")
-
-        return template.fill(data)
 
     def predicates(self):
 
@@ -105,16 +103,16 @@ class NearestPredicateTemplateSentenceGenerator(BaseEstimator):
         self.logger.debug(f"Initialized with similarity metric [{self.similarity_metric}] and threshold [{self.threshold}]")
 
 
-    def fit(self, template_model):
+    def fit(self, template_db):
 
-        self.template_model = template_model
+        self.template_db = template_db
 
 
     def get_nearest_predicate(self, predicate):
     
         similarities = []
     
-        for known_predicate in self.template_model.template_db.keys():
+        for known_predicate in self.template_db.keys():
             
             sim = self.similarity_metric(known_predicate, predicate)
             
@@ -123,9 +121,9 @@ class NearestPredicateTemplateSentenceGenerator(BaseEstimator):
         return max(similarities, key=lambda v: v[1])        
 
 
-    def generate(self, data):
-
-        predicate = data['predicate']
+    def generate(self, triple):
+        
+        predicate = triple['predicate']
 
         nearest_predicate, sim = self.get_nearest_predicate(predicate)
 
@@ -133,9 +131,9 @@ class NearestPredicateTemplateSentenceGenerator(BaseEstimator):
 
         if sim > self.threshold:
 
-            data['predicate'] = nearest_predicate
+            triple['predicate'] = nearest_predicate
 
-            return self.sentence_generator.generate(data)
+            return self.sentence_generator.generate(triple)
         
         else:
             self.logger.debug("Not found nearest predicate.")

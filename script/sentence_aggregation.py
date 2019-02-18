@@ -1,23 +1,30 @@
-import logging
 from sklearn.base import BaseEstimator
 
 class OneSentenceAggregator(BaseEstimator):
     
     def aggregate(self, data):
         
-        return data
+        return [data]
     
 
-class JustJoinSentencesSentenceAggregator(BaseEstimator):
 
-    def __init__(self, sep=' '):
-
-        self.sep = sep
-        self.logger = logging.getLogger(self.__class__.__name__)
-
-        self.logger.debug(f"Initialized with sep [{self.sep}]")
+class IfChainThenAggregate(BaseEstimator):
+    
+    def aggregate(self, data):
         
-
-    def aggregate(self, sentences):
-
-        return self.sep.join(sentences)
+        aggregated = []
+        
+        previous_object = None
+        current_aggregation = None
+        
+        for triple in data:
+            
+            if triple['subject'] == previous_object:
+                current_aggregation.append(triple)
+            else:
+                current_aggregation = [triple]
+                aggregated.append(current_aggregation)
+                
+            previous_object = triple['object']
+                
+        return aggregated

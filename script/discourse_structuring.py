@@ -14,20 +14,17 @@ class DoesntSortDiscourseStructuring(BaseEstimator):
         return data
 
 
+
 class MostFrequentFirstDiscourseStructuring(BaseEstimator):
 
-    def __init__(self, template_model=None):
 
+    def fit(self, template_db):
+        
         self.predicate_frequency = defaultdict(int)
 
+        for predicate, templates_counter in template_db.items():
 
-    def fit(self, template_model=None):
-
-        for predicate, templates_dicts in template_model.template_db.items():
-
-            freq = sum((len(examples) for examples in templates_dicts.values()))
-
-            self.predicate_frequency[predicate] = freq
+            self.predicate_frequency[predicate] = sum(templates_counter.values())
 
 
     def structure(self, data):
@@ -39,10 +36,10 @@ class MostFrequentFirstDiscourseStructuring(BaseEstimator):
         return sorted_sentences
 
 
+
 class ChainDiscourseStructuring(BaseEstimator):
-
-    def fit(self, template_model):
-
+    
+    def fit(self, *args, **kwargs):
         pass
 
 

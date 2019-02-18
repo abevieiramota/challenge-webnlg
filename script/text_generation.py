@@ -26,8 +26,8 @@ class TemplateBasedTextGenerator(BaseEstimator, RegressorMixin):
         structured = self.discourse_structuring_model.structure(selected_content)
         aggregated = self.sentence_aggregation_model.aggregate(structured)
         
-        lexicalized = [self.lexicalization_model.lexicalize(t) for t in aggregated]
-        sentences = [self.sentence_generation_model.generate(t) for t in lexicalized]
+        lexicalized = [self.lexicalization_model.lexicalize(aggregated_part) for aggregated_part in aggregated]
+        sentences = [' '.join([self.sentence_generation_model.generate(t) for t in lex_aggr]) for lex_aggr in lexicalized]
         
 
         return ' '.join(sentences)

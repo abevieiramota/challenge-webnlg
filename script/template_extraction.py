@@ -6,6 +6,7 @@ from sklearn.base import BaseEstimator
 import re
 from webnlg import WebNLGCorpus
 
+
 class Template:
 
     def __init__(self, str_template):
@@ -31,6 +32,8 @@ class Template:
     def __hash__(self):
 
         return self.str_template.__hash__()
+
+JUST_JOIN_TEMPLATE = Template('{subject} {predicate} {object}')
     
 
 REPLACE_TAG_BY_SO_RE = re.compile(r'((?P<subject>AGENT-1)|(?P<object>PATIENT-1))')
@@ -66,33 +69,36 @@ class TemplateExtractor(BaseEstimator):
     def __init__(self, data_alignment_model=None):
     
         self.data_alignment_model = data_alignment_model
-        self.template_db = None
         self.logger = logging.getLogger(self.__class__.__name__)
 
         self.logger.debug(f"Initialized with data_alignment_model [{data_alignment_model}]")
 
 
-    def fit(self, texts, datas):
+    def extract(self, entries):
 
         self.logger.debug("Started fitting data.")
 
-        self.template_db = defaultdict(lambda: defaultdict(list))
+        template_db = defaultdict(Counter)
 
         n_processed = 0
+        
+        for e in entries:
+            
+            for lexe in e.entry['lexes']:
 
-        for text, data in zip(texts, datas):
-
-            # TODO: generalize over how the templates are indexed
-            predicate = data['predicate']
-
-            template = self.extract_template(text, data)
-
-            # add to db
-            self.template_db[predicate][template].append((text, data))
-
-            n_processed += 1
+                # TODO: generalize over how the templates are indexed
+                predicate = e.get_data()[0]['predicate']
+    
+                template = self.extract_template(lexe['ltext'], e.get_data()[0])
+    
+                # add to db
+                template_db[predicate][template] += 1
+    
+                n_processed += 1
 
         self.logger.debug(f"Finished fitting data. {n_processed} processed texts.")
+        
+        return template_db
         
 
     def extract_template(self, text, data):
