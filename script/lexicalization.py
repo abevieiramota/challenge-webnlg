@@ -100,6 +100,8 @@ class LexicalizeAsAligned(BaseEstimator):
             else:
                 if triple['subject'] in self.subject_lexicalization:
                     subject_lexi = self.subject_lexicalization[triple['subject']].most_common(1)[0][0]
+                elif triple['subject'] in self.object_lexicalization:
+                    subject_lexi = self.object_lexicalization[triple['subject']].most_common(1)[0][0]
                 else:
                     subject_lexi = self.fallback_preprocessing(triple['subject'])
                     
@@ -110,6 +112,8 @@ class LexicalizeAsAligned(BaseEstimator):
             else:
                 if triple['object'] in self.object_lexicalization:
                     object_lexi = self.object_lexicalization[triple['object']].most_common(1)[0][0]
+                elif triple['object'] in self.subject_lexicalization:
+                    bject_lexi = self.suject_lexicalization[triple['object']].most_common(1)[0][0]
                 else:
                     object_lexi = self.fallback_preprocessing(triple['object'])
                 already_seen.add(triple['object'])

@@ -1,7 +1,7 @@
 import logging
 from sklearn.base import BaseEstimator
 from template_extraction import JUST_JOIN_TEMPLATE
-
+from webnlg import preprocess_triple_text
 
 class FallBackPipelineSentenceGenerator(BaseEstimator):
 
@@ -46,9 +46,25 @@ class JustJoinTripleSentenceGenerator(BaseEstimator):
 
     def generate(self, triple):
 
-        return self.sentence_template.fill(triple)
-    
+        triple['predicate'] = preprocess_triple_text(triple['predicate'])
 
+        return self.sentence_template.fill(triple)
+
+
+class MostFrequentIsomorphicTemplateSG(BaseEstimator):
+
+    def __init__(self):
+        pass 
+
+
+    def fit(self, template_db):
+
+        self.template_db = template_db
+
+    
+    def generate(self, triple):
+        pass
+        
 
 
 class MostFrequentTemplateSentenceGenerator(BaseEstimator):
