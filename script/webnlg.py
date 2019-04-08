@@ -8,6 +8,12 @@ from tinydb.storages import MemoryStorage
 from itertools import chain, product
 from random import Random
 import pandas as pd
+from collections import namedtuple
+from functools import reduce
+from operator import __and__
+
+
+PANDAS_CONTAINER = namedtuple('PANDAS_CONTAINER', ['edf', 'odf', 'mdf', 'ldf'])
 
 
 TRIPLE_KEYS = ['subject', 'predicate', 'object']
@@ -30,7 +36,7 @@ def get_graph_from_triples(triples):
     return graph
 
 
-def load(dataset, structure='db'):
+def load(dataset):
 
     for d in dataset:
 
@@ -40,18 +46,9 @@ def load(dataset, structure='db'):
     dataset_filepaths = [(d, DATASETS_FILEPATHS[d]) for d in dataset]
     dataset_name = '_'.join(dataset)
 
-    if structure == 'db':
+    db = read_file_from_paths_db(dataset_filepaths)
 
-        db = read_file_from_paths_db(dataset_filepaths)
-
-        return WebNLGCorpusDb(dataset_name, db)
-
-    elif structure == 'pandas':
-
-        edf, odf, mdf, ldf = read_file_from_paths_pandas(dataset_filepaths)
-
-        return WebNLGCorpusPandas(dataset_name,
-                            edf, odf, mdf, ldf)
+    return WebNLGCorpus(dataset_name, db)
 
 
 
@@ -72,8 +69,14 @@ def read_file_from_paths_db(dataset_filepaths):
             mtriples = entry.find('modifiedtripleset').findall('mtriple')
             ntriples = len(mtriples)
             
+            idx = "{dataset}_{category}_{ntriples}_{eid}".format(dataset=dataset,
+                   category=entry.attrib['category'],
+                   ntriples=ntriples,
+                   eid=entry.attrib['eid'])
+            
             entry_dict = {
                 "dataset": dataset,
+                "idx": idx,
                 "category": entry.attrib['category'],
                 "eid": entry.attrib['eid'],
                 "size": entry.attrib['size'],
@@ -119,95 +122,7 @@ def read_file_from_paths_db(dataset_filepaths):
     return db
 
 
-def make_entries(entries_dicts):
-    
-    return pd.DataFrame(entries_dicts)
-
-
-def make_lexes(lexes_dicts):
-    
-    return pd.DataFrame(lexes_dicts)
-
-
-def make_otriples(otriples_dicts):
-    
-    otriples_df = pd.DataFrame(otriples_dicts)
-    otriples_df[['o_subject', 'o_predicate', 'o_object']] = otriples_df.otext.str.split("|", expand=True) 
-    otriples_df['o_subject'] = otriples_df.o_subject.str.strip()
-    otriples_df['o_predicate'] = otriples_df.o_predicate.str.strip()
-    otriples_df['o_object'] = otriples_df.o_object.str.strip()
-    
-    return otriples_df
-
-
-def make_mtriples(mtriples_dicts):
-    
-    mtriples_df = pd.DataFrame(mtriples_dicts)
-    mtriples_df[['m_subject', 'm_predicate', 'm_object']] = mtriples_df.mtext.str.split("|", expand=True) 
-    mtriples_df['m_subject'] = mtriples_df.m_subject.str.strip()
-    mtriples_df['m_predicate'] = mtriples_df.m_predicate.str.strip()
-    mtriples_df['m_object'] = mtriples_df.m_object.str.strip()
-    
-    return mtriples_df
-
-
-def read_file_from_paths_pandas(dataset_filepaths):
-    
-    entries_dicts, otriples_dicts, mtriples_dicts, lexes_dicts = [], [], [], []
-    
-    for dataset, filepath in chain(*(product([dataset], filepaths) for dataset, filepaths in dataset_filepaths)):
-        
-        tree = ET.parse(filepath)
-        root = tree.getroot()
-        
-        
-        for entry in root.iter('entry'):
-            
-            ntriples = len(entry.find('modifiedtripleset').findall('mtriple'))
-            idx = "{}_{}_{}_{}".format(dataset, entry.attrib['category'], ntriples, entry.attrib['eid'])
-            
-            entry_dict = {
-                "idx": idx,
-                "dataset": dataset,
-                "category": entry.attrib['category'],
-                "eid": entry.attrib['eid'],
-                "size": entry.attrib['size'],
-                "ntriples": ntriples,
-                "content": ET.tostring(entry)
-            }
-            entries_dicts.append(entry_dict)
-            
-            otriple_dict = [
-                {'idx': idx,
-                    'otext': e.text
-                    } for e in entry.find('originaltripleset').findall('otriple')
-            ]
-            otriples_dicts.extend(otriple_dict)
-            
-            mtriple_dict = [
-                {'idx': idx,
-                    'mtext': e.text} for e in entry.find('modifiedtripleset').findall('mtriple')
-            ]
-            mtriples_dicts.extend(mtriple_dict)
-            
-            lex_dict = [
-                {'idx': idx,
-                    'ltext': e.text,
-                    'comment': e.attrib['comment'],
-                    'lid': e.attrib['lid']} for e in entry.findall('lex')
-            ]
-            lexes_dicts.extend(lex_dict)
-            
-    
-    entries_df = make_entries(entries_dicts)
-    otriples_df = make_otriples(otriples_dicts)
-    mtriples_df = make_mtriples(mtriples_dicts)
-    lexes_df = make_lexes(lexes_dicts)
-
-    return entries_df, otriples_df, mtriples_df, lexes_df
-
-
-class WebNLGEntryDb(object):
+class WebNLGEntry(object):
     
     def __init__(self, entry):
         
@@ -298,6 +213,11 @@ class WebNLGEntryDb(object):
         return [l['ltext'] for l in self.entry['lexes']]
 
 
+    def templates(self):
+
+        return [l['template'] for l in self.entry['lexes']]
+
+
     def triples(self, kind='dict'):
 
         if kind == 'text':
@@ -318,7 +238,7 @@ class WebNLGEntryDb(object):
 
         lines = []
 
-        lines.append(f"Triple info: category={self.entry['category']} eid={self.entry['eid']}\n")
+        lines.append(f"Triple info: category={self.entry['category']} eid={self.entry['eid']} idx={self.entry['idx']}\n")
 
         lines.append("\tModified triples:\n")
         lines.extend([m['mtext'] for m in self.entry['mtriple']])
@@ -339,53 +259,152 @@ class WebNLGEntryDb(object):
         return self.__str__()
 
 
-class WebNLGCorpusDb(object):
+class WebNLGCorpus(object):
     
     def __init__(self, dataset_name, db):
         
-        self.dataset_name = dataset_name
+        self._dataset_name = dataset_name
         self.db = db
         
+    
+    @property
+    def dataset_name(self):
         
-    def subset(self, ntriples, categories=None):
-
+        return self._dataset_name
+        
+        
+    def subset(self, ntriples=None, categories=None):
+        
+        if ntriples is None and categories is None:
+            raise ValueError('At least one filter must be informed.')
+            
         query = Query()
-
-        if ntriples:
-            query = query & (query.ntriples == ntriples)
-        if categories:
-            query = query & (query.category.any(categories))
         
+        filters = []
+        
+        if ntriples:
+            filters.append(query.ntriples.one_of(ntriples))
+            
+        if categories:
+            filters.append(query.category.one_of(categories))
+            
         subset_db = TinyDB(storage=MemoryStorage)
-        subset_db.insert_multiple(self.db.search(query))
+        subset_db.insert_multiple(self.db.search(reduce(__and__, filters)))
 
-        return WebNLGCorpusDb(self.dataset_name, subset_db)
+        return WebNLGCorpus(self.dataset_name, subset_db)
  
 
     def sample(self, eid=None, category=None, ntriples=None, idx=None, seed=None):
 
         rg = Random()
         rg.seed(seed)
+        
+        query = Query()
+        
+        filters = []
 
         if eid or category or ntriples or idx:
 
-            query = Query()
-
             if idx:
-                query = query.idx == idx
+                filters.append(query.idx == idx)
             if eid:
-                query = query.eid == eid 
+                filters.append(query.eid == eid) 
             if category:
-                query = query & (query.category == category)
+                filters.append(query.category == category)
             if ntriples:
-                query = query & (query.ntriples == ntriples)
+                filters.append(query.ntriples == ntriples)
 
-            sample_entry = rg.choice(self.db.search(query))
+            sample_entry = rg.choice(self.db.search(reduce(__and__, filters)))
 
         else:
             sample_entry = rg.choice(list(self.db))
 
-        return WebNLGEntryDb(sample_entry)
+        return WebNLGEntry(sample_entry)
+    
+    @property
+    def edf(self):
+        
+        return self.as_pandas.edf
+    
+    @property
+    def odf(self):
+        
+        return self.as_pandas.odf
+    
+    @property
+    def mdf(self):
+        
+        return self.as_pandas.mdf
+    
+    @property
+    def ldf(self):
+        
+        return self.as_pandas.ldf
+    
+    
+    @property
+    def as_pandas(self):
+        
+        if hasattr(self, '_pandas'):
+            
+            return self._pandas
+        
+        entries_dicts, otriples_dicts, mtriples_dicts, lexes_dicts = [], [], [], []
+    
+        for e in self:
+            
+            entry_dict = {
+                "idx": e.entry['idx'],
+                "dataset": e.entry['dataset'],
+                "category": e.entry['category'],
+                "eid": e.entry['eid'],
+                "size": e.entry['size'],
+                "ntriples": e.entry['ntriples'],
+                "content": e.entry['content']
+            }
+            entries_dicts.append(entry_dict)
+            
+            otriple_dict = [
+                {
+                    'idx': e.entry['idx'], 
+                    'otext': ot['otext'],
+                    'object': ot['object'],
+                    'predicate': ot['predicate'],
+                    'subject': ot['subject']
+                } for ot in e.entry['otriple']
+            ]
+            otriples_dicts.extend(otriple_dict)
+            
+            mtriple_dict = [
+                {
+                    'idx': e.entry['idx'],
+                    'mtext': mt['mtext'],
+                    'object': mt['object'],
+                    'predicate': mt['predicate'],
+                    'subject': mt['subject']
+                } for mt in e.entry['mtriple']
+            ]
+            mtriples_dicts.extend(mtriple_dict)
+            
+            lex_dict = [
+                {
+                    'idx': e.entry['idx'],
+                    'ltext': l['ltext'],
+                    'comment': l['comment'],
+                    'lid': l['lid']
+                } for l in e.entry['lexes']
+            ]
+            lexes_dicts.extend(lex_dict)
+                
+        
+        edf = pd.DataFrame(entries_dicts)
+        odf = pd.DataFrame(otriples_dicts)
+        mdf = pd.DataFrame(mtriples_dicts)
+        ldf = pd.DataFrame(lexes_dicts)
+        
+        self._pandas = PANDAS_CONTAINER(edf=edf, odf=odf, mdf=mdf, ldf=ldf)
+
+        return self._pandas
 
 
     def __len__(self):
@@ -400,193 +419,4 @@ class WebNLGCorpusDb(object):
 
     def __iter__(self):
         
-        return map(lambda entry: WebNLGEntryDb(entry), self.db)
-
-
-
-# WebNLG as pandas DataFrame
-
-class WebNLGEntryPandas(object):
-    
-    def __init__(self, edf, odf, mdf, ldf):
-        
-        self.edf = edf
-        self.odf = odf
-        self.mdf = mdf
-        self.ldf = ldf
-        self._str = None
-        self._graph = None
-
-    @property
-    def graph(self):
-
-        if self._graph is None:
-            self._graph = nx.from_pandas_edgelist(self.mdf, 'm_subject', 'm_object', 'm_predicate', create_using=nx.DiGraph())
-
-        return self._graph
-
-
-    @graph.setter
-    def graph(self, graph):
-
-        self._graph = graph
-
-
-    def get_data(self, preprocessor=None):
-
-        if preprocessor:
-            return self.mdf[['m_subject', 'm_predicate', 'm_object']].applymap(preprocessor).to_dict(orient='records')
-        else:
-            return self.mdf[['m_subject', 'm_predicate', 'm_object']].to_dict(orient='records')
-        
-
-    def draw_graph(self):
-
-        _, _ = plt.subplots(1, 1, figsize=(10, 6))
-        pos = nx.spring_layout(self.graph)
-        nx.draw_networkx_edges(self.graph, pos)
-        nx.draw_networkx_nodes(self.graph, pos, cmap=plt.get_cmap('jet'), node_size = 500)
-        nx.draw_networkx_labels(self.graph, pos)
-
-
-    def lexes(self):
-
-        return self.ldf.ltext.tolist()
-
-
-    def triples(self, kind='dict'):
-
-        if kind == 'text':
-
-            return self.mdf.mtext.tolist()
-
-        if kind == 'dict':
-
-            return self.mdf[['m_object', 'm_predicate', 'm_subject']].to_dict(orient='record')
-
-
-    def idx(self):
-
-        return self.edf.idx.values[0]
-
-
-    def __str__(self):
-
-        if not self._str:
-
-            lines = []
-
-            lines.append("Triple info: {}\n".format(self.edf[['category', 'eid', 'idx', 'ntriples']].to_dict(orient='records')[0]))
-
-            lines.append("\tModified triples:\n")
-            lines.extend(self.mdf.mtext.tolist())
-            lines.append("\n")
-
-            if self.ldf is not None:
-                lines.append("\tLexicalizations:\n")
-                lines.extend(self.ldf.ltext.tolist())
-
-            self._str = "\n".join(lines)
-
-        return self._str
-
-
-    def __repr__(self):
-
-        return self.__str__()
-
-
-class WebNLGCorpusPandasIterator(object):
-    
-    def __init__(self, corpus):
-        
-        self.corpus = corpus
-        self.idx_iter = corpus.edf.idx.values.__iter__()
-        
-
-    def __iter__(self):
-        
-        return self
-        
-
-    def __next__(self):
-        
-        idx = next(self.idx_iter)
-        
-        edf = self.corpus.edf[self.corpus.edf.idx == idx]
-        odf = self.corpus.odf[self.corpus.odf.idx == idx]
-        mdf = self.corpus.mdf[self.corpus.mdf.idx == idx]
-        ldf = self.corpus.ldf[self.corpus.ldf.idx == idx]\
-                if len(self.corpus.ldf) else None
-            
-        return WebNLGEntryPandas(edf, odf, mdf, ldf)
-        
-
-class WebNLGCorpusPandas(object):
-    
-    def __init__(self, dataset, edf, odf, mdf, ldf):
-        
-        self.dataset = dataset
-        self.edf = edf
-        self.odf = odf
-        self.mdf = mdf
-        self.ldf = ldf
-        
-        
-    def subset(self, ntriples, categories=None):
-
-        filter_ = True
-        if ntriples:
-            filter_ = filter_ & (self.edf.ntriples.isin(ntriples))
-        if categories:
-            filter_ = filter_ & (self.edf.category.isin(categories))
-        
-        edf = self.edf[filter_]
-        odf = self.odf[self.odf.idx.isin(edf.idx)]
-        mdf = self.mdf[self.mdf.idx.isin(edf.idx)]
-        ldf = self.ldf[self.ldf.idx.isin(edf.idx)]
-        
-        return WebNLGCorpusPandas(self.dataset,
-                            edf, odf, mdf, ldf)
- 
-
-    def sample(self, eid=None, category=None, ntriples=None, idx=None, random_state=None):
-        
-        if not idx:
-            ds = self.edf
-            if category:
-                ds = ds[ds.category == category]
-            if ntriples:
-                ds = ds[ds.ntriples == ntriples]
-            
-            if not len(ds):
-                raise ValueError('No entries for category {} and ntriples {}'.format(
-                        category, ntriples))
-            
-            idx = ds.sample(random_state=random_state).idx.values[0]
-
-        if eid:
-
-            idx = ds[ds.eid == eid].idx.values[0]
-        
-        edf = self.edf[self.edf.idx == idx]
-        odf = self.odf[self.odf.idx == idx]
-        mdf = self.mdf[self.mdf.idx == idx]
-        ldf = self.ldf[self.ldf.idx == idx] if len(self.ldf) else None
-            
-        return WebNLGEntryPandas(edf, odf, mdf, ldf)
-        
-
-    def __len__(self):
-        
-        return len(self.edf)
-    
-
-    def __str__(self):
-        
-        return self.dataset
-    
-
-    def __iter__(self):
-        
-        return WebNLGCorpusPandasIterator(self)
+        return map(lambda entry: WebNLGEntry(entry), self.db)
