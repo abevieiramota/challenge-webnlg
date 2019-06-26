@@ -1,4 +1,3 @@
-from sklearn.base import clone
 import numpy as np
 import codecs
 import subprocess
@@ -6,23 +5,28 @@ from itertools import product
 import pandas as pd
 import os
 import re
+from copy import deepcopy
+from webnlg_corpus import webnlg
 
-from webnlg import WebNLGCorpus
+corpus = webnlg.load('webnlg_challenge_2017')
+test = corpus.subset(datasets=['test'])
 
-test = WebNLGCorpus.load("test_with_lex")
+X_test = np.array([t.data for t in test])
+y_test = np.array([t.lexes for t in test])
 
-X_test = np.array([t.get_data() for t in test])
-y_test = np.array([t.lexes() for t in test])
+MODEL_DIR = '../model'
+
+if not os.path.isdir(MODEL_DIR):
+        os.mkdir(MODEL_DIR)
 
 
-def preprocess_to_evaluate(texts_filepath, team_name, out_dirpath):
-    
-    subprocess.run(['mkdir', '-p', out_dirpath])
-        
+def preprocess_to_evaluate(texts_filepath, model_name):
+
     subprocess.run(['python', '../evaluation/webnlg2017/webnlg-automatic-evaluation-v2/evaluation_v2.py',
                     '--team_filepath', texts_filepath,
-                    '--team_name', team_name,
-                    '--outdir', out_dirpath])
+                    '--team_name', model_name,
+                    '--outdir', MODEL_DIR])
+
 
 
 BLEU_RE = re.compile(r'BLEU\ =\ ([\d\.]*),')
@@ -76,9 +80,8 @@ def evaluate_texts(all_cat_filepath):
 
 def evaluate_model(model, model_name):
     
-    texts_filepath = f'../data/models/{model_name}.txt'
-    preprocessed_texts_dirpath = f'../tmp/{model_name}'
-    all_cat_filepath = f'../tmp/{model_name}/{model_name}_all-cat.txt'
+    texts_filepath = f'../model/{model_name}.txt'
+    all_cat_filepath = f'../model/{model_name}_all-cat.txt'
 
     # generate the texts
 
@@ -90,7 +93,7 @@ def evaluate_model(model, model_name):
 
     # generate the files needed to calculate BLEU and METEOR
 
-    preprocess_to_evaluate(texts_filepath, model_name, preprocessed_texts_dirpath)
+    preprocess_to_evaluate(texts_filepath, model_name)
 
     return evaluate_texts(all_cat_filepath)
 
@@ -104,7 +107,7 @@ def evaluate_grid(base_model, param_grid):
         
         model_name = f'{i}'
         
-        model = clone(base_model)
+        model = deepcopy(base_model)
         
         params = dict(zip(param_grid.keys(), params))
         model.set_params(**params)

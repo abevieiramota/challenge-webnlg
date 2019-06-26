@@ -1,4 +1,3 @@
-from sklearn.base import BaseEstimator, RegressorMixin
 import re
 
 
@@ -42,7 +41,7 @@ def parenthesis_underline_camelcase(x):
     
 
 
-class JustJoinGenerator(BaseEstimator, RegressorMixin):
+class JustJoinGenerator():
     
     def __init__(self, 
                  spo_sep=' ', 
@@ -61,6 +60,11 @@ class JustJoinGenerator(BaseEstimator, RegressorMixin):
         self.preprocess_predicate = preprocess_predicate
         self.preprocess_object = preprocess_object
         
+    def set_params(self, **params):
+
+        for key, value in params.items():
+
+            setattr(self, key, value)
     
     # there isn't any training step, as it's all rule-based        
     def fit(self, X, y=None):

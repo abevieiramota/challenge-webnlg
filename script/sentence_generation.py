@@ -1,9 +1,7 @@
 import logging
-from sklearn.base import BaseEstimator
 from template_extraction import JUST_JOIN_TEMPLATE
-from webnlg import preprocess_triple_text
 
-class FallBackPipelineSentenceGenerator(BaseEstimator):
+class FallBackPipelineSentenceGenerator():
 
     def __init__(self, models):
 
@@ -32,7 +30,7 @@ class FallBackPipelineSentenceGenerator(BaseEstimator):
         return None
 
 
-class JustJoinTripleSentenceGenerator(BaseEstimator):
+class JustJoinTripleSentenceGenerator():
 
     def __init__(self, sentence_template=JUST_JOIN_TEMPLATE):
 
@@ -46,12 +44,12 @@ class JustJoinTripleSentenceGenerator(BaseEstimator):
 
     def generate(self, triple):
 
-        triple['predicate'] = preprocess_triple_text(triple['predicate'])
+        #triple['predicate'] = preprocess_triple_text(triple['predicate'])
 
         return self.sentence_template.fill(triple)
 
 
-class MostFrequentIsomorphicTemplateSG(BaseEstimator):
+class MostFrequentIsomorphicTemplateSG():
 
     def __init__(self):
         pass 
@@ -67,7 +65,7 @@ class MostFrequentIsomorphicTemplateSG(BaseEstimator):
         
 
 
-class MostFrequentTemplateSentenceGenerator(BaseEstimator):
+class MostFrequentTemplateSentenceGenerator():
 
     def __init__(self):
 
@@ -101,7 +99,7 @@ class MostFrequentTemplateSentenceGenerator(BaseEstimator):
         return self.template_db.keys()
 
 
-class NearestPredicateTemplateSentenceGenerator(BaseEstimator):
+class NearestPredicateTemplateSentenceGenerator():
 
     def __init__(self, sentence_generator, similarity_metric=None, 
                        threshold=None):

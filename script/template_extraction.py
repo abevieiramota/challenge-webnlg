@@ -1,10 +1,7 @@
-import spacy
 import logging
 from collections import defaultdict, Counter
 import pickle
-from sklearn.base import BaseEstimator
 import re
-from webnlg import WebNLGCorpus
 
 
 class Template:
@@ -64,7 +61,7 @@ class ManualTemplateExtract:
         
 
 
-class TemplateExtractor(BaseEstimator):
+class TemplateExtractor():
     
     def __init__(self, data_alignment_model=None):
     

@@ -1,6 +1,4 @@
-from sklearn.base import BaseEstimator
-
-class OneSentenceAggregator(BaseEstimator):
+class OneSentenceAggregator():
     
     def aggregate(self, data):
         
@@ -8,7 +6,7 @@ class OneSentenceAggregator(BaseEstimator):
     
 
 
-class IfChainThenAggregate(BaseEstimator):
+class IfChainThenAggregate():
     
     def aggregate(self, data):
         

@@ -117,7 +117,7 @@ def bleu_ref_files_gen(b_reduced, param):
     max_refs = sorted(ids_refs.values(), key=len)[-1]
     # write references files for BLEU
     for j in range(0, len(max_refs)):
-        with open('references/gold-' + param + '-reference' + str(j) + '.lex', 'w+') as f:
+        with open('references/gold-' + param + '-reference' + str(j) + '.lex', 'w+', encoding='utf-8') as f:
             out = ''
             # extract values sorted by key (natural sorting)
             values = [ids_refs[key] for key in natsorted(ids_refs.keys(), reverse=False)]
@@ -149,7 +149,7 @@ def meteor_ref_files_gen(b_reduced, param):
         ids_refs[entry.id] = entry.lexs
     # length of the value with max elements
     max_refs = len(sorted(ids_refs.values(), key=len)[-1])
-    with open('references/gold-' + param + '-reference.meteor', 'w+') as f:
+    with open('references/gold-' + param + '-reference.meteor', 'w+', encoding='utf-8') as f:
         # extract values sorted by key (natural sorting)
         values = [ids_refs[key] for key in natsorted(ids_refs.keys(), reverse=False)]
         for ref in values:
@@ -177,7 +177,7 @@ def meteor_3ref_files_gen(b_reduced, param):
         ids_refs[entry.id] = entry.lexs
     # maximum number of references
     max_refs = 3
-    with open('references/gold-' + param + '-reference-3ref.meteor', 'w+') as f:
+    with open('references/gold-' + param + '-reference-3ref.meteor', 'w+', encoding='utf-8') as f:
         # extract values sorted by key (natural sorting)
         values = [ids_refs[key] for key in natsorted(ids_refs.keys(), reverse=False)]
         for ref in values:
@@ -211,10 +211,10 @@ def ter_ref_files_gen(b_reduced, param, three_ref_only=False):
                 break
             out += unidecode(sent_clean.lower()) + ' (' + id_str + ')\n'
     if not three_ref_only:
-        with open('references/gold-' + param + '-reference.ter', 'w+') as f:
+        with open('references/gold-' + param + '-reference.ter', 'w+', encoding='utf-8') as f:
             f.write(out)
     else:
-        with open('references/gold-' + param + '-reference-3ref.ter', 'w+') as f:
+        with open('references/gold-' + param + '-reference-3ref.ter', 'w+', encoding='utf-8') as f:
             f.write(out)
 
 
@@ -226,7 +226,7 @@ def ter_3ref_space_files_gen(b_reduced, param):
         ids_refs[entry.id] = entry.lexs
     # maximum number of references
     max_refs = 3
-    with open('references/gold-' + param + '-reference-3ref-space.ter', 'w+') as f:
+    with open('references/gold-' + param + '-reference-3ref-space.ter', 'w+', encoding='utf-8') as f:
         # extract values sorted by key (natural sorting)
         values = [ids_refs[key] for key in natsorted(ids_refs.keys(), reverse=False)]
         for id_lex, ref in enumerate(values):
@@ -248,7 +248,7 @@ def ter_3ref_space_files_gen(b_reduced, param):
 def read_participant(output_file, teamname, outdir):
     # read participant's outputs
     output = []
-    with open(output_file, 'r') as f:
+    with open(output_file, 'r', encoding='utf-8') as f:
         output += [unidecode(line.strip()) for line in f]
 
     b = Benchmark()
@@ -320,9 +320,9 @@ def write_to_file(output_reduced, param, teamname, outdir):
         '''with open('teams/bleu_per_item/' + teamname + '_' + str(param) + '-' + str(iter + 1) + '.txt', 'w+') as f_item:
             f_item.write(lex_detokenised)'''
 
-    with open(os.path.join(outdir, "{}_{}.txt".format(teamname, param)), 'w+') as f:
+    with open(os.path.join(outdir, "{}_{}.txt".format(teamname, param)), 'w+', encoding='utf-8') as f:
         f.write(out)
-    with open(os.path.join(outdir, "{}_{}_ter.txt".format(teamname, param)), 'w+') as f:
+    with open(os.path.join(outdir, "{}_{}_ter.txt".format(teamname, param)), 'w+', encoding='utf-8') as f:
         f.write(out_ter)
 
 
