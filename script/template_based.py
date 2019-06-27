@@ -135,13 +135,17 @@ class Template:
 
     def __hash__(self):
 
-        return hash(self.structure, self.template_text)
+        return hash((self.structure, self.template_text))
 
     def __eq__(self, other):
 
         return isinstance(self, type(other)) and \
                self.structure == other.structure and \
                self.template_text == other.template_text
+
+    def __repr__(self):
+
+        return '{}\n{}'.format(self.structure, self.template_text)
 
 
 class StructureData:
@@ -176,7 +180,7 @@ class JustJoinTemplate:
             raise ValueError('this template only accepts data w/ 1 triple')
 
         s = lexicalize(data.head.value)
-        p = data.head.predicates[0].value
+        p = lexicalize(data.head.predicates[0].value)
         o = lexicalize(data.head.predicates[0].objects[0].value)
 
         return f'{s} {p} {o}.'
@@ -189,7 +193,7 @@ class SelectTemplate:
 
     def select_template(self, structured_data):
 
-        selected_templates = [(s, ts[0]) for s, ts in structured_data]
+        selected_templates = [(s, ts.most_common(1)[0][0]) for s, ts in structured_data]
 
         return selected_templates
 

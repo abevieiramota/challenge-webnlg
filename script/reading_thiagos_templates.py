@@ -36,9 +36,10 @@ def extract_entity_value(entities):
 
     return entity_dict
 
+
 def read_thiagos_templates():
 
-    template_db = defaultdict(list)
+    template_db = defaultdict(Counter)
 
     for filepath in  glob.glob('../../webnlg/data/delexicalized/v1.2/train/**/*.xml', recursive=True):
 
@@ -47,31 +48,29 @@ def read_thiagos_templates():
 
         for entry in root.iter('entry'):
 
-            triple = entry.find('modifiedtripleset').findall('mtriple')[0]
-            triple = make_dict_from_triple(triple.text)
+            category = entry.attrib['category']
 
-            entry_dict = {
-                "category": entry.attrib['category'],
-            }
+            entity_map = extract_entity_value(entry.find('entitymap').findall('entity'))
 
-            entity_map = extract_entity_value(
-                        entry.find('entitymap').findall('entity'))
+            for triple in entry.find('modifiedtripleset').findall('mtriple'):
 
-            o0 = Slot(entity_map[triple['object']], [])
-            p0 = Predicate(triple['predicate'], [o0])
-            s0 = Slot(entity_map[triple['subject']], [p0])
+                triple = make_dict_from_triple(triple.text)
 
-            s = Structure(s0)
+                o0 = Slot(entity_map[triple['object']], [])
+                p0 = Predicate(triple['predicate'], [o0])
+                s0 = Slot(entity_map[triple['subject']], [p0])
 
-            for e in entry.findall('lex'):
+                s = Structure(s0)
 
-                template_text = PLACE_ENTITY_TAG.sub(r'{\1}', e.findtext('template', 'NOT-FOUND'))
+                for e in entry.findall('lex'):
 
-                try:
-                    t = Template(s, template_text)
+                    template_text = PLACE_ENTITY_TAG.sub(r'{\1}', e.findtext('template', 'NOT-FOUND'))
 
-                    template_db[s].append(t)
-                except:
-                    pass
+                    try:
+                        t = Template(s, template_text)
+                    except:
+                        continue
+
+                    template_db[s][t] += 1
 
     return dict(template_db)
