@@ -30,8 +30,6 @@ class Template:
 
         return self.str_template.__hash__()
 
-JUST_JOIN_TEMPLATE = Template('{subject} {predicate} {object}')
-    
 
 REPLACE_TAG_BY_SO_RE = re.compile(r'((?P<subject>AGENT-1)|(?P<object>PATIENT-1))')
 def replace_sop(m):
@@ -66,10 +64,9 @@ class TemplateExtractor():
     def __init__(self, data_alignment_model=None):
     
         self.data_alignment_model = data_alignment_model
+
         self.logger = logging.getLogger(self.__class__.__name__)
-
         self.logger.debug(f"Initialized with data_alignment_model [{data_alignment_model}]")
-
 
     def extract(self, entries):
 
@@ -81,12 +78,12 @@ class TemplateExtractor():
         
         for e in entries:
             
-            for lexe in e.entry['lexes']:
+            for lexe in e.lexes:
 
                 # TODO: generalize over how the templates are indexed
-                predicate = e.get_data()[0]['predicate']
+                predicate = e.data[0]['predicate']
     
-                template = self.extract_template(lexe['ltext'], e.get_data()[0])
+                template = self.extract_template(lexe, e.data[0])
     
                 # add to db
                 template_db[predicate][template] += 1

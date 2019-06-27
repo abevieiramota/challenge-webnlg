@@ -1,13 +1,13 @@
-from spacy import displacy
 from spacy_util import overlaps, get_span, as_span
 import logging
 from textacy import extract
-from sklearn.base import BaseEstimator
 
 # TODO: lexicalization must be serialized
-class DataAlignmentModel(BaseEstimator):
+class DataAlignmentModel():
 
     def render_aligned(self, text, data):
+
+        from spacy import displacy
 
         subject_span, object_span = self.align_data(text, data)
 
@@ -41,52 +41,6 @@ class DataAlignmentModel(BaseEstimator):
 
     def align_data(self, text, data):
         pass 
-
-
-class FallBackDataAlignmentModel(DataAlignmentModel):
-
-    def __init__(self, models):
-
-        self.models = models
-
-
-    def align_data(self, text, data):
-
-        for model in self.models:
-
-            result = model.align_data(text, data)
-
-            if result:
-
-                return result
-
-        return None
-
-    
-    def get_subject_lexicalization(self, subject):
-
-        for model in self.models:
-
-            result = model.get_subject_lexicalization(subject)
-
-            if result:
-
-                return result
-        
-        return None
-
-
-    def get_object_lexicalization(self, object):
-
-        for model in self.models:
-
-            result = model.get_object_lexicalization(object)
-
-            if result:
-
-                return result
-        
-        return None
 
 
 class SPODataAlignmentModel(DataAlignmentModel):
@@ -256,7 +210,6 @@ class NGramDataAlignmentModel(DataAlignmentModel):
         self.logger.debug("Initialized with similarity_metric [%s], max_n = [%s]", 
                     similarity_metric, max_n)
 
-
     def align_data(self, text, data):
 
         if type(text) == str:
@@ -305,3 +258,49 @@ class NGramDataAlignmentModel(DataAlignmentModel):
         self.object_align[data['object']] = object_span
 
         return subject_span, object_span
+
+
+class FallBackDataAlignmentModel(DataAlignmentModel):
+
+    def __init__(self, models):
+
+        self.models = models
+
+
+    def align_data(self, text, data):
+
+        for model in self.models:
+
+            result = model.align_data(text, data)
+
+            if result:
+
+                return result
+
+        return None
+
+    
+    def get_subject_lexicalization(self, subject):
+
+        for model in self.models:
+
+            result = model.get_subject_lexicalization(subject)
+
+            if result:
+
+                return result
+        
+        return None
+
+
+    def get_object_lexicalization(self, object):
+
+        for model in self.models:
+
+            result = model.get_object_lexicalization(object)
+
+            if result:
+
+                return result
+        
+        return None

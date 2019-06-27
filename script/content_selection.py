@@ -1,9 +1,8 @@
 import logging
-from sklearn.base import BaseEstimator
 from itertools import islice
 
 
-class SelectAllContentSelection(BaseEstimator):
+class SelectAllContentSelector():
 
     def __init__(self):
 
@@ -15,7 +14,7 @@ class SelectAllContentSelection(BaseEstimator):
         return data
 
 
-class SelectFirstNContentSelection(BaseEstimator):
+class SelectFirstNContentSelection():
 
     def __init__(self, n=1, sort_function=lambda x: x):
 

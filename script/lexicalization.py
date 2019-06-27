@@ -1,5 +1,4 @@
 import logging
-from sklearn.base import BaseEstimator
 from collections import defaultdict, Counter
 import re
 
@@ -12,7 +11,7 @@ def preprocess_so(so):
     underline_removed = parenthesis_preprocessed.replace('_', ' ')
     camelcase_preprocessed = CAMELCASE_RE.sub('\g<1> \g<2>', underline_removed)
 
-    return camelcase_preprocessed.strip().replace('"', '')
+    return camelcase_preprocessed.strip('" ')
 
 
 REMOVE_SPACE_BEFORE_DOT_RE = re.compile(r"(.*?)(\s*)([\.,'!])")
@@ -32,7 +31,18 @@ def normalize_text(s):
     return s.translate(transtab).lower().replace('`` ', '').replace(" '' ", '')
 
 
-class LexicalizeAsAligned(BaseEstimator):
+class PreprocessLexicalizer():
+
+    def __init__(self, preprocess=None):
+
+        self.preprocess = preprocess if preprocess else lambda x: x
+
+    def lexicalize(self, triples):
+
+        return [{k: self.preprocess(v) for k, v in triple.items()} for triple in triples]
+
+
+class LexicalizeAsAligned():
     
     def __init__(self, fallback_preprocessing=preprocess_so):
         
@@ -127,7 +137,7 @@ class LexicalizeAsAligned(BaseEstimator):
         return lexicalizations
 
 
-class FallBackLexicalize(BaseEstimator):
+class FallBackLexicalize():
 
     def __init__(self, models):
 
@@ -153,7 +163,7 @@ class FallBackLexicalize(BaseEstimator):
 
 
 
-class LexicalizeAsAligned2(BaseEstimator):
+class LexicalizeAsAligned2():
 
     def __init__(self, data_alignment=None):
 
@@ -194,24 +204,3 @@ class LexicalizeAsAligned2(BaseEstimator):
             return None
 
         return data
-
-
-class LexicalizePreprocessed(BaseEstimator):
-
-    def __init__(self, preprocessor=lambda x: x):
-
-        self.preprocessor = preprocessor
-
-        self.logger = logging.getLogger(self.__class__.__name__)
-
-
-    def fit(self, data_alignment=None):
-
-        pass
-
-
-    def lexicalize(self, data):
-
-        return {'predicate': data['predicate'],
-                'object': self.preprocessor(data['object']),
-                'subject': self.preprocessor(data['subject'])}

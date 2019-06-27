@@ -1,10 +1,9 @@
-class OneSentenceAggregator():
+class OneSentenceSentenceAggregator():
     
     def aggregate(self, data):
         
         return [data]
     
-
 
 class IfChainThenAggregate():
     

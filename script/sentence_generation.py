@@ -1,69 +1,17 @@
 import logging
-from template_extraction import JUST_JOIN_TEMPLATE
-
-class FallBackPipelineSentenceGenerator():
-
-    def __init__(self, models):
-
-        self.models = models 
-        self.logger = logging.getLogger(self.__class__.__name__)
-
-    
-    def fit(self, template_model):
-
-        for model in self.models:
-
-            model.fit(template_model)
-
-
-    def generate(self, triple):
-
-        for model in self.models:
-            
-            generated_sentence = model.generate(triple)
-
-            if generated_sentence:
-                return generated_sentence
-        
-            self.logger.debug(f"Fallback from [{model}] for data [{triple}]")
-
-        return None
-
 
 class JustJoinTripleSentenceGenerator():
 
-    def __init__(self, sentence_template=JUST_JOIN_TEMPLATE):
+    def generate(self, triples):
 
-        self.sentence_template = sentence_template
+        sentences = [] 
+        for triple in triples:
 
+            sentence = '{subject} {predicate} {object}'.format(**triple)
 
-    def fit(self, *args, **kwargs):
-
-        pass
-
-
-    def generate(self, triple):
-
-        #triple['predicate'] = preprocess_triple_text(triple['predicate'])
-
-        return self.sentence_template.fill(triple)
-
-
-class MostFrequentIsomorphicTemplateSG():
-
-    def __init__(self):
-        pass 
-
-
-    def fit(self, template_db):
-
-        self.template_db = template_db
-
-    
-    def generate(self, triple):
-        pass
+            sentences.append(sentence)
         
-
+        return ' '.join(sentences)
 
 class MostFrequentTemplateSentenceGenerator():
 
@@ -80,18 +28,25 @@ class MostFrequentTemplateSentenceGenerator():
 
             self.template_db[predicate] = templates_counter.most_common(1)[0][0]
 
+        return self
 
-    def generate(self, triple):
-        
-        if triple['predicate'] in self.template_db:
-        
-            template = self.template_db[triple['predicate']]
 
-            self.logger.debug(f"Template found for predicate [{triple['predicate']}]\nTemplate: {template}")
+    def generate(self, triples):
 
-            return template.fill(triple)
+        sentences = [] 
+
+        for triple in triples:
         
-        return None
+            if triple['predicate'] in self.template_db:
+            
+                template = self.template_db[triple['predicate']]
+
+                self.logger.debug(f"Template found for predicate [{triple['predicate']}]\nTemplate: {template}")
+
+                sentence = template.fill(triple)
+                sentences.append(sentence)
+
+        return ' '.join(sentences)
 
 
     def predicates(self):
@@ -155,4 +110,26 @@ class NearestPredicateTemplateSentenceGenerator():
             return None
 
 
+class FallBackPipelineSentenceGenerator():
 
+    def __init__(self, models):
+
+        self.models = models 
+        self.logger = logging.getLogger(self.__class__.__name__)
+
+    def generate(self, triples):
+
+        sentences = []
+
+        for triple in triples:
+
+            for model in self.models:
+                
+                generated_sentence = model.generate(triple)
+
+                if generated_sentence:
+                    sentences.append(generated_sentence)
+                    continue
+                self.logger.debug(f"Fallback from [{model}] for data [{triple}]")
+
+        return ' '.join(sentences)

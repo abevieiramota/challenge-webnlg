@@ -1,22 +1,14 @@
 from collections import defaultdict
-import networkx as nx
-from sklearn.base import BaseEstimator
 
 
-class DoesntSortDiscourseStructuring(BaseEstimator):
-
-    def fit(self, template_model=None):
-        pass 
-
+class DoesntSortDiscourseStructurer():
 
     def structure(self, data):
 
         return data
 
 
-
-class MostFrequentFirstDiscourseStructuring(BaseEstimator):
-
+class MostFrequentFirstDiscourseStructuring():
 
     def fit(self, template_db):
         
@@ -25,7 +17,6 @@ class MostFrequentFirstDiscourseStructuring(BaseEstimator):
         for predicate, templates_counter in template_db.items():
 
             self.predicate_frequency[predicate] = sum(templates_counter.values())
-
 
     def structure(self, data):
 
@@ -36,10 +27,11 @@ class MostFrequentFirstDiscourseStructuring(BaseEstimator):
         return sorted_sentences
 
 
-
 class ChainDiscourseStructuring:
     
     def structure(self, e):
+
+        import networkx as nx
 
         G = e.get_graph()
 

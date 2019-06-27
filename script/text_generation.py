@@ -1,6 +1,4 @@
-from sklearn.base import BaseEstimator, RegressorMixin
-
-class TemplateBasedTextGenerator(BaseEstimator, RegressorMixin):
+class TextGenerator():
 
     def __init__(self, 
                  content_selection_model, 
@@ -15,7 +13,6 @@ class TemplateBasedTextGenerator(BaseEstimator, RegressorMixin):
         self.discourse_structuring_model = discourse_structuring_model
         self.sentence_aggregation_model = sentence_aggregation_model
 
-
     def predict(self, X):
 
         return [self.predict_entry(x) for x in X]
@@ -26,12 +23,14 @@ class TemplateBasedTextGenerator(BaseEstimator, RegressorMixin):
         structured = self.discourse_structuring_model.structure(selected_content)
         aggregated = self.sentence_aggregation_model.aggregate(structured)
         
-        lexicalized = [self.lexicalization_model.lexicalize(aggregated_part) for aggregated_part in aggregated]
-        sentences = [' '.join([self.sentence_generation_model.generate(t) for t in lex_aggr]) for lex_aggr in lexicalized]
-        
+        sentences = []
+        for agg in aggregated:
+            lexicalized_triples = self.lexicalization_model.lexicalize(agg)
+            sentence = self.sentence_generation_model.generate(lexicalized_triples)
+
+            sentences.append(sentence)
 
         return ' '.join(sentences)
-
 
 
 class IfAfterNthProcessPipelineTextGenerator:
@@ -45,7 +44,6 @@ class IfAfterNthProcessPipelineTextGenerator:
         self.nth = nth
         self.discourse_structurer = discourse_structurer
         self.lexicalizer = lexicalizer
-
 
     def generate(self, data):
 
