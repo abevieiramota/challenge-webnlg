@@ -116,11 +116,11 @@ class Template:
         self.structure = structure
         self.template_text = template_text
 
-    def fill(self, data, lexicalize):
+    def fill(self, data, lexicalization_f):
 
         positioned_data = self.position_data(data)
 
-        positioned_data = {k: lexicalize(v) for k,v in positioned_data.items()}
+        positioned_data = {k: lexicalization_f(v) for k,v in positioned_data.items()}
 
         return self.template_text.format(**positioned_data)
 
@@ -193,21 +193,19 @@ class SelectTemplate:
 
     def select_template(self, structured_data):
 
-        selected_templates = [(s, ts.most_common(1)[0][0]) for s, ts in structured_data]
+        selected_templates = [(s, ts.most_common()[0][0]) for s, ts in structured_data]
 
         return selected_templates
 
 
 class MakeText:
 
-    def __init__(self, lexicalize=None):
+    def __init__(self, lexicalization_f=None):
+        self.lexicalization_f = lexicalization_f
 
-        if lexicalize is None:
-            lexicalize = lambda x: x
-        self.lexicalize = lexicalize
 
     def make_text(self, lexicalized_templates):
 
-        texts = [t.fill(s, self.lexicalize) for s, t in lexicalized_templates]
+        texts = [t.fill(s, self.lexicalization_f) for s, t in lexicalized_templates]
 
         return ' '.join(texts)
