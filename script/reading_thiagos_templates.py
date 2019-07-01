@@ -1,120 +1,149 @@
 import xml.etree.ElementTree as ET
 import re
-from template_based import *
+from template_based import Structure, Template
 from collections import defaultdict, Counter
-import glob
 
 
 PLACE_ENTITY_TAG = re.compile('((?:AGENT-.)|(?:PATIENT-.)|(?:BRIDGE-.))')
 
-
-TRIPLE_KEYS = ['subject', 'predicate', 'object']
-
-
 RE_MATCH_TEMPLATE_KEYS = re.compile(r'(AGENT\\-\d|PATIENT\\-\d|BRIDGE\\-\d)')
 TRANS_ESCAPE_TO_RE = str.maketrans('-', '_', '\\')
 
-RE_REMOVE_SPACE_BEFORE_FINAL_DOT = re.compile(r'\ \.$')
+RE_ENTITY_SPACE_DOTCOMMA = re.compile(r'(?:(?<=AGENT-\d)|(?<=PATIENT-\d)|'
+                                      r'(?<=BRIDGE-\d))\ (?=[\.,])')
 
 
-RE_ENTITY_SPACE_DOTCOMMA = re.compile(r'(?:(?<=AGENT-\d)|(?<=PATIENT-\d)|(?<=BRIDGE-\d))\ (?=[\.,])')
 def normalize_thiagos_template(s):
     # removes single space between an entity and a dot or a comma
 
     return RE_ENTITY_SPACE_DOTCOMMA.sub('', s)
 
 
-def make_template_from_entry(e, meta):
+def make_template(triples, s, template_text, r_entity_map, metadata):
 
-    if not 'entity_map' in e:
-        return []
+    # substitui, por exemplo, AGENT-1 por {AGENT-1}, criando templates Python
+    template_text = PLACE_ENTITY_TAG.sub(r'{\1}', template_text)
 
-    templates = []
+    delex_triples = []
+    for t in triples:
+        delex_triples.append({'subject': r_entity_map[t['subject']],
+                              'predicate': t['predicate'],
+                              'object': r_entity_map[t['object']]})
 
-    for lexe in e['lexes']:
+    s = Structure.from_triples(delex_triples)
 
-        template = normalize_thiagos_template(lexe['template'])
-        template_text = PLACE_ENTITY_TAG.sub(r'{\1}', template)
+    t = Template(s, template_text, metadata)
 
-        reverse_entity_map = {v:k for k, v in e['entity_map'].items()}
-
-        delex_triples = []
-        for t in e['triples']:
-            delex_triples.append({'subject': reverse_entity_map[t['subject']],
-                                  'predicate': t['predicate'],
-                                  'object': reverse_entity_map[t['object']]})
-
-        s = Structure.from_triples(delex_triples)
-
-        t = Template(s, template_text, meta)
-        templates.append(t)
-
-    return templates
+    return t
 
 
-def get_lexicalizations(s, t):
+def get_lexicalizations(s, t, entity_map):
 
+    # permite capturar entidades que aparecem mais de uma vez no template
+    # ex:
+    #   AGENT-1 comeu PATIENT-1 e AGENT-1 vai trabalhar.
+    #   João comeu carne e ele vai trabalhar.
+    # como uso um regex com grupos nomeados de acordo com o label da entidade
+    #    e só posso ter um grupo por label, é preciso criar labels diferentes
+    #    para AGENT-1
+    # para tanto, adiciono um contado à frente do label, ficando:
+    # (?P<AGENT_1_1>.*?) comeu (?P<PATIENT_1_1>.*?) e (?P<AGENT_1_2>.*?)
+    # vai trabalhar.
+
+    # contador, por label, de quantos grupos regex já foram utilizados
     lex_counts = Counter()
 
     def replace_sop(m):
 
         entity = m.group(0)
-
         lex_counts[entity] += 1
 
+        # cria o nome do grupo a partir do label
+        # como a string está escapada, os labels são recebidos como, ex:
+        #    AGENT\\-1
+        # devendo ser transformado, para ser utilizado como grupo em:
+        #    AGENT_1_1
+        # o que ocorre em dois passos:
+        #    .translate(TRANS_ESCAPE_TO_RE) - remove \ e troca - por _
+        #    '{}_{}'.format(_, lex_counts[entity]) - add o contador de entidade
         entity_group = '{}_{}'.format(entity.translate(TRANS_ESCAPE_TO_RE),
-                        lex_counts[entity])
+                                      lex_counts[entity])
 
+        # retorna então o regex do grupo que irá capturar
+        #    os caracteres da entidade
         return '(?P<{v}>.*?)'.format(v=entity_group)
 
-    c_2_str = '{}$'.format(RE_MATCH_TEMPLATE_KEYS.sub(replace_sop, re.escape(t)))
+    # substitui os labels de entidades por regex para capturar suas substrings
+    #    adiciona ^ e $ para delimitar o início e fim da string
+    t_re = '^{}$'.format(RE_MATCH_TEMPLATE_KEYS.sub(replace_sop,
+                                                    re.escape(t)))
 
-    c_2 = re.compile(c_2_str)
+    m = re.match(t_re, s)
 
-    r = c_2.match(s).groupdict()
+    lexicals = defaultdict(list)
 
-    r = {k.replace('_', '-'): v for k, v in r.items()}
+    if m:
+        for g_name, v in m.groupdict().items():
 
-    return r
+            entity_label = g_name[:-2].replace('_', '-')
+            lex_key = entity_map[entity_label]
 
+            lexicals[lex_key].append(v)
 
-def make_dict_from_triple(triple_text):
-
-    triple_dict = {}
-
-    for triple_key, part in zip(TRIPLE_KEYS, triple_text.split('|')):
-
-        stripped_part = part.strip()
-
-        triple_dict[triple_key] = stripped_part
-
-    return triple_dict
+    return dict(lexicals)
 
 
-def extract_entity_value(entities):
+def extract_triples(entry_elem):
+
+    triples = []
+
+    modifiedtripleset_elem = entry_elem.find('modifiedtripleset')
+
+    for t in modifiedtripleset_elem.findall('mtriple'):
+
+        triple_dict = {}
+
+        for triple_key, part in zip(['subject', 'predicate', 'object'],
+                                    t.text.split('|')):
+
+            stripped_part = part.strip()
+
+            triple_dict[triple_key] = stripped_part
+
+        triples.append(triple_dict)
+
+    return triples
+
+
+def extract_entity_map(entry_elem):
 
     entity_dict = {}
 
-    for entity in entities:
+    for ent_elem in entry_elem.find('entitymap').findall('entity'):
 
-        entity_placeholder, entity_value = entity.text.split('|')
+        ent_placeholder, ent_value = ent_elem.text.split('|')
 
-        entity_dict[entity_value.strip()] = entity_placeholder.strip()
+        entity_dict[ent_placeholder.strip()] = ent_value.strip()
 
     return entity_dict
 
 
-def extract_value_entity(entities):
+def extract_lexes(entry_elem):
 
-    entity_dict = {}
+    lexes = []
 
-    for entity in entities:
+    for lex_elem in entry_elem.findall('lex'):
 
-        entity_placeholder, entity_value = entity.text.split('|')
+        lex = {'text': lex_elem.findtext('text'),
+               'template': normalize_thiagos_template(lex_elem
+                                                      .findtext('template',
+                                                                '')),
+               'comment': lex_elem.attrib['comment']
+               }
 
-        entity_dict[entity_placeholder.strip()] = entity_value.strip()
+        lexes.append(lex)
 
-    return entity_dict
+    return lexes
 
 
 def read_thiagos_xml_entries(filepath):
@@ -127,91 +156,12 @@ def read_thiagos_xml_entries(filepath):
     for entry_elem in root.iter('entry'):
 
         entry = {}
-        entry['triples'] = [make_dict_from_triple(t.text) for t in entry_elem.find('modifiedtripleset').findall('mtriple')]
-        entry['lexes'] = [{'text': l.findtext('text'), 'template': l.findtext('template')} for l in entry_elem.findall('lex')]
-        entry['entity_map'] = extract_value_entity(entry_elem.find('entitymap').findall('entity'))
+        entry['triples'] = extract_triples(entry_elem)
+        entry['lexes'] = extract_lexes(entry_elem)
+        entry['entity_map'] = extract_entity_map(entry_elem)
+        # reversed entity map
+        entry['r_entity_map'] = {v: k for k, v in entry['entity_map'].items()}
 
         entries.append(entry)
 
     return entries
-
-def make_thiagos_template(entry):
-
-    triples = entry['triples']
-    reverse_entity_map = {v:k for k, v in entry['entity_map']}
-
-    o0 = Slot(reverse_entity_map[triple['object']], [])
-    p0 = Predicate(reverse_entity_map['predicate'], [o0])
-    s0 = Slot(reverse_entity_map[triple['subject']], [p0])
-
-    s = Structure(s0)
-
-    for lexe in entry['lexes']:
-        pass
-
-
-
-
-def read_thiagos_templates():
-
-    template_db = defaultdict(Counter)
-    lexicalization_db = defaultdict(Counter)
-
-    filepaths = glob.glob('../../webnlg/data/delexicalized/v1.4/train/**/*.xml', recursive=True)
-    filepaths.extend(glob.glob('../../webnlg/data/delexicalized/v1.4/dev/**/*.xml', recursive=True))
-
-    bixados = []
-
-    for filepath in  filepaths:
-
-        tree = ET.parse(filepath)
-        root = tree.getroot()
-
-        for entry in root.iter('entry'):
-
-            category = entry.attrib['category']
-
-            entity_map = extract_entity_value(entry.find('entitymap').findall('entity'))
-            reverse_entity_map = {v:k for k, v in entity_map.items()}
-
-            if entity_map:
-
-                for triple in entry.find('modifiedtripleset').findall('mtriple'):
-
-                    triple = make_dict_from_triple(triple.text)
-
-                    if not triple['object'] in entity_map or not triple['subject'] in entity_map:
-                        bixados.append(dict(eid=entry.attrib['eid'],
-                                            category=entry.attrib['category'],
-                                            size=entry.attrib['size']))
-                        continue
-
-                    o0 = Slot(entity_map[triple['object']], [])
-                    p0 = Predicate(triple['predicate'], [o0])
-                    s0 = Slot(entity_map[triple['subject']], [p0])
-
-                    s = Structure(s0)
-
-                    for e in entry.findall('lex'):
-
-                        template = e.findtext('template', 'NOT-FOUND')
-                        template = RE_REMOVE_SPACE_BEFORE_FINAL_DOT.sub('.', template)
-
-                        template_text = PLACE_ENTITY_TAG.sub(r'{\1}', template)
-
-                        try:
-                            t = Template(s, template_text)
-                            template_db[s][t] += 1
-
-                            ld = get_lexicalizations(e.findtext('text'), template)
-
-                            for k, v in ld.items():
-
-                                if v:
-
-                                    lexicalization_db[reverse_entity_map[k]][v] += 1
-                        except:
-                            pass
-
-
-    return dict(template_db), dict(lexicalization_db), bixados

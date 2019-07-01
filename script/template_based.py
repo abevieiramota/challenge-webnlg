@@ -1,5 +1,10 @@
-from collections import namedtuple, defaultdict
+from collections import namedtuple
 import re
+
+MSG_ERROR_ROUTE_MATCH = 'structures must be isomorphic'
+MSG_ERROR_FROM_TRIPLES = 'triples must contain only one root'
+MSG_ERROR_VALIDATE_TEMPLATE_TEXT = ('structure and template_text must match'
+                                    ' slots')
 
 Slot = namedtuple('Slot', ['value', 'predicates'])
 Predicate = namedtuple('Predicate', ['value', 'objects'])
@@ -38,22 +43,24 @@ def route_slots(s):
 # TODO: find a better way to index a structure
 def route_predicates(s):
 
-    predicates = [(p, s.value) for p in s.predicates for o in p.objects]
+    predicates = [p for p in s.predicates]
 
-    for p, s in predicates:
+    for p in predicates:
 
-        yield (p.value, s)
+        yield p.value
 
         for o in p.objects:
 
-            for p in o.predicates:
-
-                for o_ in p.objects:
-
-                    predicates.append((p, s))
+            predicates.extend(o.predicates)
 
 
 def route_match(s1, s2):
+    # matches two structures returning pairs mapping of
+    #    s1.slots.value into s2.slots.value
+    # if they have the same structure
+
+    if s1 is None or s2 is None or len(s1.predicates) != len(s2.predicates):
+        raise ValueError(MSG_ERROR_ROUTE_MATCH)
 
     yield s1.value, s2.value
 
@@ -61,9 +68,18 @@ def route_match(s1, s2):
 
     for p1, p2 in predicates:
 
+        if p1.value != p2.value:
+            raise ValueError(MSG_ERROR_ROUTE_MATCH)
+
+        if len(p1.objects) != len(p2.objects):
+            raise ValueError(MSG_ERROR_ROUTE_MATCH)
+
         for o1, o2 in zip(p1.objects, p2.objects):
 
             yield o1.value, o2.value
+
+            if len(o1.predicates) != len(o2.predicates):
+                raise ValueError(MSG_ERROR_ROUTE_MATCH)
 
             predicates.extend(zip(o1.predicates, o2.predicates))
 
@@ -75,14 +91,24 @@ class Structure:
         self.head = head
         self._predicates = tuple(route_predicates(self.head))
 
+    def position_data(self, data):
+
+        return dict(route_match(self.head, data.head))
+
     def __hash__(self):
 
         return hash(self._predicates)
 
     def __eq__(self, other):
 
-        return isinstance(self, type(other)) and \
-               self._predicates == other._predicates
+        if isinstance(self, type(other)):
+            try:
+                self.position_data(other)
+                return True
+            except ValueError:
+                return False
+        else:
+            return False
 
     def __repr__(self):
 
@@ -131,7 +157,8 @@ class Structure:
         # gets the slot that isn't object
         subs_not_objs = subs - objs
 
-        assert len(subs_not_objs) == 1
+        if len(subs_not_objs) != 1:
+            raise ValueError(MSG_ERROR_FROM_TRIPLES)
 
         head = slots[list(subs_not_objs)[0]]
 
@@ -141,23 +168,11 @@ class Structure:
 STRING_TEMPLATE_SLOTS = re.compile(r'\{(.*?)\}')
 
 
-def validate_template_text(structure, template_text):
-
-    template_slots = set(STRING_TEMPLATE_SLOTS.findall(template_text))
-
-    structure_slots = set(route_slots(structure.head))
-
-    if not template_slots == structure_slots:
-        raise ValueError('structure and template_text must match slots',
-                         structure,
-                         template_text)
-
-
 class Template:
 
     def __init__(self, structure, template_text, meta):
 
-        validate_template_text(structure, template_text)
+        Template.validate_template_text(structure, template_text)
 
         self.structure = structure
         self.template_text = template_text
@@ -165,20 +180,12 @@ class Template:
 
     def fill(self, data, lexicalization_f):
 
-        positioned_data = self.position_data(data)
+        positioned_data = self.structure.position_data(data)
 
-        positioned_data = {k: lexicalization_f(v) for k,v in positioned_data.items()}
+        positioned_data = {k: lexicalization_f(v) for k, v in
+                           positioned_data.items()}
 
         return self.template_text.format(**positioned_data)
-
-    def position_data(self, data):
-
-        if self.structure != data:
-            raise ValueError('data must have the same structure as '
-                             'the template\'s'
-                             )
-
-        return dict(route_match(self.structure.head, data.head))
 
     def __hash__(self):
 
@@ -192,7 +199,18 @@ class Template:
 
     def __repr__(self):
 
-        return '{}\n{}'.format(self.structure, self.template_text)
+        return 'Structure: {}\nText: {}'.format(self.structure,
+                                              self.template_text)
+
+    @staticmethod
+    def validate_template_text(structure, template_text):
+
+        template_slots = set(STRING_TEMPLATE_SLOTS.findall(template_text))
+
+        structure_slots = set(route_slots(structure.head))
+
+        if not template_slots == structure_slots:
+            raise ValueError(MSG_ERROR_VALIDATE_TEMPLATE_TEXT)
 
 
 class StructureData:
@@ -202,39 +220,34 @@ class StructureData:
 
     def structure(self, triples):
 
-        structured_data = []
-
         triples_struc = Structure.from_triples(triples)
 
         if triples_struc in self.template_db:
 
             return [(triples_struc, self.template_db[triples_struc])]
 
-        for triple in triples:
+        else:
+            structured_data = []
 
-            o0 = Slot(triple['object'], [])
-            p0 = Predicate(triple['predicate'], [o0])
-            s0 = Slot(triple['subject'], [p0])
+            for triple in triples:
 
-            s = Structure(s0)
+                s = Structure.from_triples([triple])
 
-            ts = self.template_db[s]
+                structured_data.append((s, self.template_db[s]))
 
-            structured_data.append((s, ts))
-
-        return structured_data
+            return structured_data
 
 
 class JustJoinTemplate:
 
-    def fill(self, data, lexicalize):
+    def fill(self, data, lexicalization_f):
 
         if len(data) != 1:
             raise ValueError('this template only accepts data w/ 1 triple')
 
-        s = lexicalize(data.head.value)
-        p = lexicalize(data.head.predicates[0].value)
-        o = lexicalize(data.head.predicates[0].objects[0].value)
+        s = lexicalization_f(data.head.value)
+        p = lexicalization_f(data.head.predicates[0].value)
+        o = lexicalization_f(data.head.predicates[0].objects[0].value)
 
         return f'{s} {p} {o}.'
 
@@ -246,9 +259,7 @@ class SelectTemplate:
 
     def select_template(self, structured_data):
 
-        selected_templates = [(s, ts.most_common()[0][0]) for s, ts in structured_data]
-
-        return selected_templates
+        return [(s, ts.most_common()[0][0]) for s, ts in structured_data]
 
 
 class MakeText:
@@ -256,9 +267,9 @@ class MakeText:
     def __init__(self, lexicalization_f=None):
         self.lexicalization_f = lexicalization_f
 
-
     def make_text(self, lexicalized_templates):
 
-        texts = [t.fill(s, self.lexicalization_f) for s, t in lexicalized_templates]
+        texts = [t.fill(s, self.lexicalization_f)
+                 for s, t in lexicalized_templates]
 
         return ' '.join(texts)

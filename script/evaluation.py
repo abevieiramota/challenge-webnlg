@@ -1,23 +1,16 @@
-import numpy as np
 import codecs
 import subprocess
-from itertools import product
-import pandas as pd
 import os
 import re
-from copy import deepcopy
 from webnlg_corpus import webnlg
 
 corpus = webnlg.load('webnlg_challenge_2017')
 test = corpus.subset(datasets=['test'])
 
-X_test = np.array([t.data for t in test])
-y_test = np.array([t.lexes for t in test])
-
 MODEL_DIR = '../model'
 
 if not os.path.isdir(MODEL_DIR):
-        os.mkdir(MODEL_DIR)
+    os.mkdir(MODEL_DIR)
 
 
 def preprocess_to_evaluate(texts_filepath, model_name):
@@ -28,7 +21,6 @@ def preprocess_to_evaluate(texts_filepath, model_name):
                     '--outdir', MODEL_DIR])
 
 
-
 BLEU_RE = re.compile(r'BLEU\ =\ ([\d\.]*),')
 METEOR_RE = re.compile(r'Final score:\s+([\d\.]+)\n')
 TER_RE = re.compile(r'Total\ TER:\ ([\d\.]+)\ \(')
@@ -37,12 +29,12 @@ ALL_CAT_TO_TER_FILE_RE = re.compile(r'(.*)(\.txt)')
 
 
 def evaluate_texts(all_cat_filepath):
-    
+
     result = {}
-    
+
     with open(all_cat_filepath, 'rb') as f:
         # bleu
-        bleu_result = subprocess.run(['../evaluation/webnlg2017/webnlg-baseline-master/multi-bleu.perl', 
+        bleu_result = subprocess.run(['../evaluation/webnlg2017/webnlg-baseline-master/multi-bleu.perl',
                                  '-lc',
                                  '../evaluation/webnlg2017/webnlg-automatic-evaluation/references/gold-all-cat-reference0.lex',
                                  '../evaluation/webnlg2017/webnlg-automatic-evaluation/references/gold-all-cat-reference1.lex',
@@ -57,7 +49,7 @@ def evaluate_texts(all_cat_filepath):
                                     '../evaluation/webnlg2017/meteor-1.5/meteor-1.5.jar',
                                     all_cat_filepath,
                                     '../evaluation/webnlg2017/webnlg-automatic-evaluation/references/gold-all-cat-reference-3ref.meteor',
-                                    '-l', 'en', '-norm', '-r', '3', '-a', 
+                                    '-l', 'en', '-norm', '-r', '3', '-a',
                                     '../evaluation/webnlg2017/meteor-1.5/data/paraphrase-en.gz'],
                                     stdout=subprocess.PIPE)
 
@@ -74,12 +66,12 @@ def evaluate_texts(all_cat_filepath):
                                  stdout=subprocess.PIPE)
 
     result['ter'] = float(TER_RE.findall(ter_result.stdout.decode('utf-8'))[0])
-                  
+
     return result
 
 
 def evaluate_model(model, model_name):
-    
+
     texts_filepath = f'../model/{model_name}.txt'
     all_cat_filepath = f'../model/{model_name}_all-cat.txt'
 
@@ -87,7 +79,7 @@ def evaluate_model(model, model_name):
 
     with codecs.open(texts_filepath, 'w', 'utf-8') as f:
 
-        for text in model.predict(X_test):
+        for text in model.predict(test):
 
             f.write("{}\n".format(text))
 
@@ -96,27 +88,3 @@ def evaluate_model(model, model_name):
     preprocess_to_evaluate(texts_filepath, model_name)
 
     return evaluate_texts(all_cat_filepath)
-
-
-
-def evaluate_grid(base_model, param_grid):
-    
-    results = []
-    
-    for i, params in enumerate(product(*param_grid.values())):
-        
-        model_name = f'{i}'
-        
-        model = deepcopy(base_model)
-        
-        params = dict(zip(param_grid.keys(), params))
-        model.set_params(**params)
-        
-        result = dict(params)
-        results.append(result)
-        
-        evaluation_result = evaluate_model(model, model_name)
-        
-        result.update(evaluation_result)
-                  
-    return pd.DataFrame.from_records(results)
