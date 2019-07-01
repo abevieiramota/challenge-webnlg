@@ -1,4 +1,4 @@
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 import re
 
 Slot = namedtuple('Slot', ['value', 'predicates'])
@@ -35,17 +35,22 @@ def route_slots(s):
             predicates.extend(o.predicates)
 
 
+# TODO: find a better way to index a structure
 def route_predicates(s):
 
-    predicates = list(s.predicates)
+    predicates = [(p, s.value) for p in s.predicates for o in p.objects]
 
-    for p in predicates:
+    for p, s in predicates:
 
-        yield p.value
+        yield (p.value, s)
 
         for o in p.objects:
 
-            predicates.extend(o.predicates)
+            for p in o.predicates:
+
+                for o_ in p.objects:
+
+                    predicates.append((p, s))
 
 
 def route_match(s1, s2):
@@ -87,34 +92,76 @@ class Structure:
 
         return len(self._predicates)
 
+    @staticmethod
+    def from_triples(triples):
+
+        slots = {}
+        predicates = {}
+        subs = set()
+        objs = set()
+
+        for t in triples:
+
+            subs.add(t['subject'])
+            objs.add(t['object'])
+
+            if t['subject'] in slots:
+                s = slots[t['subject']]
+            else:
+                s = Slot(t['subject'], [])
+                slots[t['subject']] = s
+
+            if t['object'] in slots:
+                o = slots[t['object']]
+            else:
+                o = Slot(t['object'], [])
+                slots[t['object']] = o
+
+            if (t['subject'], t['predicate']) in predicates:
+                p = predicates[(t['subject'], t['predicate'])]
+
+                p.objects.append(o)
+
+            else:
+                p = Predicate(t['predicate'], [o])
+                s.predicates.append(p)
+
+                predicates[(t['subject'], t['predicate'])] = p
+
+        # gets the slot that isn't object
+        subs_not_objs = subs - objs
+
+        assert len(subs_not_objs) == 1
+
+        head = slots[list(subs_not_objs)[0]]
+
+        return Structure(head)
+
 
 STRING_TEMPLATE_SLOTS = re.compile(r'\{(.*?)\}')
 
 
 def validate_template_text(structure, template_text):
 
-    template_slots = STRING_TEMPLATE_SLOTS.findall(template_text)
+    template_slots = set(STRING_TEMPLATE_SLOTS.findall(template_text))
 
-    if len(template_slots) > len(set(template_slots)):
-        raise ValueError('template_text must have unique slots')
-
-    structure_slots = list(route_slots(structure.head))
-
-    if len(structure_slots) > len(set(structure_slots)):
-        raise ValueError('structure must have unique slots')
+    structure_slots = set(route_slots(structure.head))
 
     if not template_slots == structure_slots:
-        raise ValueError('structure and template_text must match slots')
+        raise ValueError('structure and template_text must match slots',
+                         structure,
+                         template_text)
 
 
 class Template:
 
-    def __init__(self, structure, template_text):
+    def __init__(self, structure, template_text, meta):
 
         validate_template_text(structure, template_text)
 
         self.structure = structure
         self.template_text = template_text
+        self.meta = meta
 
     def fill(self, data, lexicalization_f):
 
@@ -156,6 +203,12 @@ class StructureData:
     def structure(self, triples):
 
         structured_data = []
+
+        triples_struc = Structure.from_triples(triples)
+
+        if triples_struc in self.template_db:
+
+            return [(triples_struc, self.template_db[triples_struc])]
 
         for triple in triples:
 

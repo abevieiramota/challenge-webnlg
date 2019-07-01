@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<benchmark>
+	<entries>
+		<entry category="Astronaut" eid="Id1" size="2">
+			<originaltripleset>
+				<otriple>Alan_Bean | birthDate | &quot;1932-03-15&quot;</otriple>
+				<otriple>Alan_Bean | almaMater | &quot;UT Austin, B.S. 1955&quot;</otriple>
+			</originaltripleset>
+			<modifiedtripleset>
+				<mtriple>Alan_Bean | birthDate | &quot;1932-03-15&quot;</mtriple>
+				<mtriple>Alan_Bean | almaMater | &quot;UT Austin, B.S. 1955&quot;</mtriple>
+			</modifiedtripleset>
+			<lex comment="good" lid="Id1">
+				<text>Alan Bean was born on March 15, 1932 and received a Bachelor of Science degree at the University of Texas at Austin in 1955.</text>
+				<template>AGENT-1 was born on PATIENT-1 and received PATIENT-2 .</template>
+			</lex>
+			<lex comment="good" lid="Id6">
+				<text>Alan Bean was born on March 15, 1932 and his alma mater was UT Austin BS, in 1955.</text>
+				<template>AGENT-1 was born on PATIENT-1 and AGENT-1 alma mater was PATIENT-2 .</template>
+			</lex>
+			<entitymap>
+				<entity>AGENT-1 | Alan_Bean</entity>
+				<entity>PATIENT-1 | &quot;1932-03-15&quot;</entity>
+				<entity>PATIENT-2 | &quot;UT Austin, B.S. 1955&quot;</entity>
+			</entitymap>
+		</entry>
+    </entries>
+</benchmark>
