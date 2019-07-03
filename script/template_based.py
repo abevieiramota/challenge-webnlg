@@ -46,7 +46,7 @@ def p_pred(p, level):
     return '<{}, [{}]>'.format(p.value, objs_str)
 
 
-def route_str(s):
+def route_str(s, lexicalization_f):
 
     predicates = list(s.predicates)
 
@@ -54,11 +54,34 @@ def route_str(s):
 
         for o in p.objects:
 
-            yield f'<{s.value}, {p.value}, {o.value}>'
+            lexicalized_s = lexicalization_f(s.value)
+            lexicalized_p = lexicalization_f(p.value)
+            lexicalized_o = lexicalization_f(o.value)
 
-            for t in route_str(o):
+            yield f'<{lexicalized_s}, {lexicalized_p}, {lexicalized_o}>'
+
+            for t in route_str(o, lexicalization_f):
 
                 yield t
+
+
+def to_str(s, lexicalization_f):
+
+    strs = [s.value]
+
+    predicates = list(s.predicates)
+
+    for p in predicates:
+
+        strs.append(p.value)
+
+        for o in p.objects:
+
+            strs.append(o.value)
+
+            predicates.extend(o.predicates)
+
+    return ' '.join((lexicalization_f(x) for x in strs))
 
 
 def route_slots(s):

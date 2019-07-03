@@ -88,7 +88,7 @@ def get_lexicalizations(s, t, entity_map):
             entity_label = g_name[:-2].replace('_', '-')
             lex_key = entity_map[entity_label]
 
-            lexicals[lex_key].append(v)
+            lexicals[lex_key].append(v.lower())
 
     return dict(lexicals)
 
