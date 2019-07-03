@@ -10,6 +10,42 @@ Slot = namedtuple('Slot', ['value', 'predicates'])
 Predicate = namedtuple('Predicate', ['value', 'objects'])
 
 
+def p_slot(s, level=1):
+
+    ident = '\t'*level
+
+    if len(s.predicates) == 0:
+        return '{}'.format(s.value)
+    else:
+        preds_strs = []
+        for p in s.predicates:
+
+            pred_str = '\n{}{}'.format(ident, p_pred(p, level+1))
+            preds_strs.append(pred_str)
+
+        pred_str = '\n' + ','.join(preds_strs)
+
+        return '[{}, {}]'.format(s.value, pred_str)
+
+
+def p_pred(p, level):
+
+    ident = '\t'*level
+
+    objs_strs = []
+    if len(p.objects) == 1 and len(p.objects[0].predicates) == 0:
+        objs_str = '{}'.format(p.objects[0].value)
+    else:
+        for o in p.objects:
+
+            objs_str = '\n{}{}'.format(ident, p_slot(o, level+1))
+            objs_strs.append(objs_str)
+
+        objs_str = ','.join(objs_strs)
+
+    return '<{}, [{}]>'.format(p.value, objs_str)
+
+
 def route_str(s):
 
     predicates = list(s.predicates)
@@ -112,7 +148,7 @@ class Structure:
 
     def __repr__(self):
 
-        return '\n'.join(route_str(self.head))
+        return p_slot(self.head)
 
     def __len__(self):
 
@@ -259,7 +295,7 @@ class SelectTemplate:
 
     def select_template(self, structured_data):
 
-        return [(s, ts.most_common()[0][0]) for s, ts in structured_data]
+        return [(s, ts.most_common(1)[0][0]) for s, ts in structured_data]
 
 
 class MakeText:
