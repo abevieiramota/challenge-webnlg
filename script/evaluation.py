@@ -72,6 +72,7 @@ def evaluate_texts(preprocessed_filepath, evaluation_set):
     return result
 
 
+
 def evaluate_model(model, model_name, evaluation_set='all-cat'):
 
     texts_filepath = f'../model/{model_name}.txt'

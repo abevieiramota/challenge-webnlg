@@ -1,4 +1,5 @@
 from collections import namedtuple
+from itertools import islice
 import re
 
 MSG_ERROR_ROUTE_MATCH = 'structures must be isomorphic'
@@ -237,11 +238,11 @@ class Template:
         self.template_text = template_text
         self.meta = meta
 
-    def fill(self, data, lexicalization_f):
+    def fill(self, data, lexicalization_f, ctx):
 
         positioned_data = self.structure.position_data(data)
 
-        positioned_data = {k: lexicalization_f(v) for k, v in
+        positioned_data = {k: lexicalization_f(v, ctx) for k, v in
                            positioned_data.items()}
 
         return self.template_text.format(**positioned_data)
@@ -274,39 +275,60 @@ class Template:
 
 class StructureData:
 
-    def __init__(self, template_db):
+    def __init__(self, template_db, fallback_template):
         self.template_db = template_db
+        self.fallback_template = fallback_template
 
-    def structure(self, triples):
+    def get_template(self, s, category):
 
-        triples_struc = Structure.from_triples(triples)
+        if s in self.template_db:
 
-        if triples_struc in self.template_db:
+            if category in self.template_db[s]:
 
-            return [(triples_struc, self.template_db[triples_struc])]
+                return (s, self.template_db[s][category])
+            else:
 
+                return (s, list(islice(self.template_db[s].values(), 0, 1))[0])
         else:
-            structured_data = []
+            return None
 
-            for triple in triples:
+    def structure(self, entry):
+
+        s = Structure.from_triples(entry.data)
+
+        s_t = self.get_template(s, entry.category)
+
+        if s_t is not None:
+
+            return [s_t]
+        else:
+
+            ss_tt = []
+
+            for triple in entry.data:
 
                 s = Structure.from_triples([triple])
 
-                structured_data.append((s, self.template_db[s]))
+                s_t = self.get_template(s, entry.category)
 
-            return structured_data
+                if s_t:
+                    ss_tt.append(s_t)
+                else:
+                    ss_tt.append((s, self.fallback_template))
+
+            return ss_tt
 
 
 class JustJoinTemplate:
 
-    def fill(self, data, lexicalization_f):
+    def fill(self, data, lexicalization_f, ctx):
 
         if len(data) != 1:
             raise ValueError('this template only accepts data w/ 1 triple')
 
-        s = lexicalization_f(data.head.value)
-        p = lexicalization_f(data.head.predicates[0].value)
-        o = lexicalization_f(data.head.predicates[0].objects[0].value)
+        s = lexicalization_f(data.head.value, ctx)
+        p = lexicalization_f(data.head.predicates[0].value, ctx)
+        o = lexicalization_f(data.head.predicates[0].objects[0].value, ctx)
 
         return f'{s} {p} {o}.'
 
@@ -328,7 +350,12 @@ class MakeText:
 
     def make_text(self, lexicalized_templates):
 
-        texts = [t.fill(s, self.lexicalization_f)
-                 for s, t in lexicalized_templates]
+        texts = []
+        ctx = {'referred': set()}
+        for s, t in lexicalized_templates:
+
+            text = t.fill(s, self.lexicalization_f, ctx)
+
+            texts.append(text)
 
         return ' '.join(texts)

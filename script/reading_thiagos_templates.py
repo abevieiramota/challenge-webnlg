@@ -156,6 +156,7 @@ def read_thiagos_xml_entries(filepath):
     for entry_elem in root.iter('entry'):
 
         entry = {}
+        entry['category'] = entry_elem.attrib['category']
         entry['triples'] = extract_triples(entry_elem)
         entry['lexes'] = extract_lexes(entry_elem)
         entry['entity_map'] = extract_entity_map(entry_elem)
